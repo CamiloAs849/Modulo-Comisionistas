@@ -16,8 +16,9 @@
             HOME
         </h1>
     </center>
-
-    <a href="LogOut.php" class="btn btn-danger">Cerrar sesion</a>
+    <center>
+        <a href="LogOut.php" class="btn btn-danger">Cerrar sesion</a>
+    </center>
 </body>
 
 </html>
