@@ -30,6 +30,13 @@ if (isset($_POST['UsuarioID']) && $_POST['password']) {
             $row = mysqli_fetch_assoc($result);
             if ($row['UsuarioID'] === $usuario && $row['Password'] === $contraseña) {
                 $_SESSION['UsuarioID'] = $row['UsuarioID'];
+                $_SESSION['NombreUsuario'] = $row['NombreUsuario'];
+                $_SESSION['ApellidoUsuario'] = $row['ApellidoUsuario'];
+                $_SESSION['Edad'] = $row['Edad'];
+                $_SESSION['Correo'] = $row['Correo'];
+                $_SESSION['TelefonoUsuario'] = $row['TelefonoUsuario'];
+                $_SESSION['Direccion'] = $row['Direccion'];
+                $_SESSION['Ciudad'] = $row['Ciudad'];
                 $_SESSION['password'] = $row['password'];
                 header("Location: Inicio.php");
                 exit();
