@@ -38,6 +38,7 @@ if (isset($_POST['UsuarioID']) && $_POST['password']) {
                 $_SESSION['Direccion'] = $row['Direccion'];
                 $_SESSION['Ciudad'] = $row['Ciudad'];
                 $_SESSION['password'] = $row['password'];
+                sleep(1);
                 header("Location: Inicio.php");
                 exit();
             } else {
