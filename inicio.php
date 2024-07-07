@@ -7,9 +7,12 @@
     <title>Inicio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css" />
+    <scrip src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js">
+        </script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css" />
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="style.css">
 </head>
 
 <body style="width: 100%; height: 100%;">
@@ -33,37 +36,105 @@
     $contraseña = $row['Password'];
     ?>
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="">Bienvenid@ <?php echo $nombreUsuario ?></a>
-            <div class="navbar" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link mx-2" href="#!"><i class="fas fa-plus-circle pe-2"></i>Post</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="inicio.php"><?php echo $nombreUsuario ?></a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span> </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a class="nav-link active" aria-current="page" href="inicio.php">
+                            <div>
+                                <i class="material-icons">home</i>
+                            </div>
+                            Inicio
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-2" href="#!"><i class="fas fa-bell pe-2"></i>Alerts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mx-2" href="edit.php"><i class="fas fa-heart pe-2"></i>Editar Información</a>
-                    </li>
-                    <li class="nav-item ms-3">
-                        <button class="btn btn-black btn-rounded" onclick="Confirm()">Cerrar sesion</button>
-                        <script>
-                            function Confirm() {
-                                alertify.confirm('Confirmar', 'Quieres cerrar sesion?', function() {
-                                    alertify.success('Si')
-                                    window.location.href = "LogOut.php";
-                                }, function() {});
-                            }
-                        </script>
+                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div>
+                                <i class="material-icons">local_shipping</i>
+                            </div>
+                            Pedidos
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="show.php">Hacer un pedido</a></li>
+                            <li><a class="dropdown-item" href="edit.php">Ver historial de pedidos</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Información del pedido actual</a></li>
+                        </ul>
                     </li>
                 </ul>
+                <!-- Left links -->
+
+                <!-- Right links -->
+                <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div>
+                                <i class="material-icons">settings</i>
+                            </div>
+                            Opciones
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="show.php">Ver información personal</a></li>
+                            <li><a class="dropdown-item" href="edit.php">Editar información</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sobre las comisiones</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <div>
+                                <i class=" material-icons">logout</i>
+                            </div>
+                            Cerrar Sesión
+                        </button>
+
+                    </li>
+                </ul>
+                <!-- Right links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-dark">
+                <div class="modal-header ">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmarción</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ">
+                    ¿Seguro que quieres cerrar sesión?
+                </div>
+                <div class="modal-footer ">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                    <script>
+                        function Confirm() {
+                            window.location.href = "LogOut.php";
+                        }
+                    </script>
+                </div>
             </div>
         </div>
-    </nav>
-
-
+    </div>
 </body>
 
 </html>

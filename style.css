@@ -102,3 +102,28 @@
   color: var(--font-color);
   cursor: pointer;
 }
+
+.modal-dark {
+  background-color: rgb(33, 37, 41);
+  color: #ffffff;
+}
+.modal-dark .modal-header,
+.modal-dark .modal-footer {
+  border-color: #454d55;
+}
+.modal-dark .close {
+  color: #ffffff;
+}
+.modal-dark .btn-close {
+  filter: invert(1);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+textarea {
+  resize: none;
+}
