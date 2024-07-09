@@ -127,7 +127,7 @@
         <div class="modal-dialog">
             <div class="modal-content modal-dark">
                 <div class="modal-header ">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmarción</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body ">
@@ -286,7 +286,7 @@
             </div>
         </div>
         <center class="mt-5 mb-5">
-            <a href="historial-pedidos.php" class="btn btn-primary">Hacer un pedido</a>
+            <a href="/nuevo-pedido.php" class="btn btn-primary">Hacer un pedido</a>
         </center>
     </div>
 
