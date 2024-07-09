@@ -75,7 +75,7 @@
                             Pedidos
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="/nuevo-pedido.php">Nuevo pedido</a></li>
+                            <li><a class="dropdown-item" href="nuevo-pedido.php">Nuevo pedido</a></li>
                             <li><a class="dropdown-item" href="historial-pedidos.php">Ver historial de pedidos</a></li>
                             <li>
                                 <hr class="dropdown-divider">

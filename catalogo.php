@@ -286,7 +286,7 @@
             </div>
         </div>
         <center class="mt-5 mb-5">
-            <a href="/nuevo-pedido.php" class="btn btn-primary">Hacer un pedido</a>
+            <a href="nuevo-pedido.php" class="btn btn-primary">Hacer un pedido</a>
         </center>
     </div>
 
