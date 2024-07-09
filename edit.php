@@ -55,6 +55,14 @@
                             Inicio
                         </a>
                     </li>
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a class="nav-link" aria-current="page" href="catalogo.php">
+                            <div>
+                                <i class="material-icons">inventory_2</i>
+                            </div>
+                            Catálogo
+                        </a>
+                    </li>
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
@@ -63,23 +71,20 @@
                             Pedidos
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="show.php">Hacer un pedido</a></li>
-                            <li><a class="dropdown-item" href="edit.php">Ver historial de pedidos</a></li>
+                            <li><a class="dropdown-item" href="/nuevo-pedido.php">Nuevo pedido</a></li>
+                            <li><a class="dropdown-item" href="historial-pedidos.php">Ver historial de pedidos</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Información del pedido actual</a></li>
                         </ul>
                     </li>
-                </ul>
-                </li>
                 </ul>
                 <!-- Left links -->
 
                 <!-- Right links -->
                 <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
                                 <i class="material-icons">settings</i>
                             </div>
@@ -105,8 +110,6 @@
                     </li>
                 </ul>
                 <!-- Right links -->
-
-                <!-- Search form -->
             </div>
             <!-- Collapsible wrapper -->
         </div>
@@ -137,6 +140,9 @@
         </div>
     </div>
     <div class="container">
+        <center class="mt-4">
+            <a href="inicio.php" class=" btn btn-primary">Regresar</a>
+        </center>
         <h2 class="text-center mb-3 mt-5">Editar información personal</h2>
 
 
@@ -184,9 +190,9 @@
                     <input type="password" class="form-control" id="password" name="Password" disabled placeholder="" value="<?php echo $contraseña ?>">
                 </div>
             </div>
-            <div class="mb-3 row justify-content-md-center">
-                <button class="btn btn-success">Actualizar datos</button>
-            </div>
+            <center class="mb-3">
+                <button type="submit" class="btn btn-success">Actualizar datos</button>
+            </center>
 
         </form>
 
@@ -204,14 +210,9 @@
             $result = mysqli_query($Link, $sql);
 
             if ($result === true) {
-                echo '<div class="alert alert-success d-flex align-items-center" role="alert" style="height: 50px">
-                    <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                    <div>
-                        Datos Actualizados con exito
-                    </div>
-                </div>';
                 echo "<script>
-                    window.location.href = 'edit.php'
+                alert('Datos actualizados correctamente.');
+                window.location.href = 'edit.php';
                     </script>";
             } else {
                 echo '<div class="alert alert-warning d-flex align-items-center" role="alert">

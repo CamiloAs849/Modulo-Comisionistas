@@ -59,6 +59,14 @@
                             Inicio
                         </a>
                     </li>
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a class="nav-link" aria-current="page" href="catalogo.php">
+                            <div>
+                                <i class="material-icons">inventory_2</i>
+                            </div>
+                            Catálogo
+                        </a>
+                    </li>
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
@@ -67,12 +75,11 @@
                             Pedidos
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="show.php">Hacer un pedido</a></li>
-                            <li><a class="dropdown-item" href="edit.php">Ver historial de pedidos</a></li>
+                            <li><a class="dropdown-item" href="/nuevo-pedido.php">Nuevo pedido</a></li>
+                            <li><a class="dropdown-item" href="historial-pedidos.php">Ver historial de pedidos</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Información del pedido actual</a></li>
                         </ul>
                     </li>
                 </ul>
