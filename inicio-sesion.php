@@ -12,23 +12,17 @@ if (isset($_POST['UsuarioID']) && $_POST['password']) {
     }
 
     $usuario = validar($_POST['UsuarioID']);
-    $contraseña = validar($_POST['password']);
+    $password = validar($_POST['password']);
 
-    if (empty($usuario)) {
-        header("Location: index.php?error=El usuario es requerido");
-        exit();
-    } elseif (empty($contraseña)) {
-        header("Location: index.php?error=La contraseña es requerida");
-        exit();
-    } else {
+    if (!empty($usuario) && !empty($password)) {
         // $contraseña = md5($contraseña);
-        $sql = "SELECT * FROM gestion_productos.comisionista  WHERE UsuarioID = '$usuario' AND Password= '$contraseña'";
+        $sql = "SELECT * FROM gestion_productos.comisionista  WHERE UsuarioID = '$usuario' AND Password = '$password'";
 
         $result = mysqli_query($Link, $sql);
 
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
-            if ($row['UsuarioID'] === $usuario && $row['Password'] === $contraseña) {
+            if ($row['UsuarioID'] === $usuario && $row['Password'] === $password) {
                 $_SESSION['UsuarioID'] = $row['UsuarioID'];
                 $_SESSION['NombreUsuario'] = $row['NombreUsuario'];
                 $_SESSION['ApellidoUsuario'] = $row['ApellidoUsuario'];
@@ -49,8 +43,11 @@ if (isset($_POST['UsuarioID']) && $_POST['password']) {
             header("Location: index.php?error=El usuario o contraseña son incorrectos");
             exit();
         }
+    } else {
+        header("Location: index.php?error=El usuario y contraseña son requeridos");
+        exit();
     }
 } else {
-    header("Location: index.php");
+    header("Location: index.php?error=El usuario o contraseña es requerido");
     exit();
 }

@@ -145,6 +145,19 @@
         </center>
         <h2 class="text-center mb-3 mt-5">Editar información personal</h2>
 
+        <center>
+            <?php
+            if (isset($_GET['error'])) {
+            ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php
+                    echo $_GET['error']
+                    ?>
+                </div>
+            <?php
+            }
+            ?>
+        </center>
 
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="mb-3 row justify-content-md-center">
@@ -198,112 +211,132 @@
 
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $TelefonoUsuario = $_POST['TelefonoUsuario'];
-            $Correo = $_POST['Correo'];
-            $Dirrecion = $_POST['Dirrecion'];
-            $Ciudad = $_POST['Ciudad'];
+            if (isset($_POST['TelefonoUsuario']) && $_POST['Correo'] && $_POST['Dirrecion'] && $_POST['Ciudad']) {
+                function validar($data)
+                {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
 
-            $sql = "UPDATE gestion_productos.comisionista 
-        SET TelefonoUsuario = '$TelefonoUsuario', Correo = '$Correo', Ciudad = '$Ciudad', Direccion = '$Dirrecion'
-        WHERE UsuarioID = '$usuarioID'";
+                $TelefonoUsuario = validar($_POST['TelefonoUsuario']);
+                $Correo = validar($_POST['Correo']);
+                $Dirrecion = validar($_POST['Dirrecion']);
+                $Ciudad = validar($_POST['Ciudad']);
 
-            $result = mysqli_query($Link, $sql);
+                if (!empty($TelefonoUsuario) && !empty($Correo) || !empty($Dirrecion) || !empty($Ciudad)) {
+                    $sql = "UPDATE gestion_productos.comisionista 
+                    SET TelefonoUsuario = '$TelefonoUsuario', Correo = '$Correo', Ciudad = '$Ciudad', Direccion = '$Dirrecion'
+                    WHERE UsuarioID = '$usuarioID'";
 
-            if ($result === true) {
-                echo "<script>
+                    $result = mysqli_query($Link, $sql);
+
+                    if ($result === true) {
+                        echo "<script>
                 alert('Datos actualizados correctamente.');
                 window.location.href = 'edit.php';
                     </script>";
-            } else {
-                echo '<div class="alert alert-warning d-flex align-items-center" role="alert">
+                    } else {
+                        echo '<div class="alert alert-warning d-flex align-items-center" role="alert">
                     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                     <div>
                         An example warning alert with an icon
                     </div>
                 </div>';
+                    }
+                } else {
+                    echo "<h1> HOLA </h1>";
+                }
+            } else { ?><center>
+                    <div class="alert alert-danger" role="alert">
+                        Faltan campos por llenar.
+                </center>
+    </div>
+<?php
             }
         }
-        ?>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <!-- Footer -->
-    <footer class="text-center text-lg-start bg-body-tertiary text-muted">
-        <!-- Section: Social media -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-            <!-- Left -->
-            <div class="me-5 d-none d-lg-block">
-                <span>Contactanos mediante: </span>
-            </div>
-            <!-- Left -->
-
-            <!-- Right -->
-            <div>
-                <a href="" class="me-4 text-reset">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-            </div>
-            <!-- Right -->
-        </section>
-        <!-- Section: Social media -->
-
-        <!-- Section: Links  -->
-        <section class="">
-            <div class="container text-center text-md-start mt-5">
-                <!-- Grid row -->
-                <div class="row mt-3">
-                    <!-- Grid column -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <!-- Content -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i>Vision Limpieza
-                        </h6>
-                        <p>
-                            Los mejores productos para tu hogar y demás
-                        </p>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-
-                    <!-- Grid column --> <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
-                        <p><i class="material-icons">apartment</i> Cl 34B cra 115A</p>
-                        <p>
-                            <i class="material-icons">mail</i>
-                            info@example.com
-                        </p>
-                        <p><i class="material-icons">call</i> + 57 321201</p>
-                        <p><i class="material-icons">call</i> + 57 3230230</p>
-                    </div>
-                    <!-- Grid column -->
-                </div>
-                <!-- Grid row -->
-            </div>
-        </section>
-        <!-- Section: Links  -->
-
-        <!-- Copyright -->
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            © <?php echo date("Y"); ?> Copyright:
-            <a class="text-reset fw-bold" href="https://www.google.com/?hl=es">visionlimpieza.com</a>
+?>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+            <span>Contactanos mediante: </span>
         </div>
-        <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+            <a href="" class="me-4 text-reset">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+        <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3"></i>Vision Limpieza
+                    </h6>
+                    <p>
+                        Los mejores productos para tu hogar y demás
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <!-- Grid column -->
+
+                <!-- Grid column --> <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                    <p><i class="material-icons">apartment</i> Cl 34B cra 115A</p>
+                    <p>
+                        <i class="material-icons">mail</i>
+                        info@example.com
+                    </p>
+                    <p><i class="material-icons">call</i> + 57 321201</p>
+                    <p><i class="material-icons">call</i> + 57 3230230</p>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © <?php echo date("Y"); ?> Copyright:
+        <a class="text-reset fw-bold" href="https://www.google.com/?hl=es">visionlimpieza.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
 
 </body>
 

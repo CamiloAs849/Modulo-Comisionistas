@@ -155,7 +155,7 @@
 
             <!-- Right -->
             <div>
-                <a href="" class="me-4 text-reset">
+                <a href="https://wa.me/qr/JM4ANLSTGIAQK1" class="me-4 text-reset">
                     <i class="fa-brands fa-whatsapp"></i>
                 </a>
             </div>

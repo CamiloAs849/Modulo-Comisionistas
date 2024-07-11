@@ -14,7 +14,9 @@
 <body class="background-login">
 
     <form class="form" action="inicio-sesion.php" method="post">
-        <div class="title">Bienvenido<br><span>Comisionista</span></div>
+        <div class="title">
+            <center>Bienvenido<br><span>Comisionista</span></center>
+        </div>
         <hr>
         <?php
         if (isset($_GET['error'])) {
@@ -27,7 +29,7 @@
         <?php
         }
         ?>
-        <input type="text" placeholder="Numero de documento" name="UsuarioID" class="input">
+        <input type="number" placeholder="Numero de documento" name="UsuarioID" class="input">
         <input type="password" placeholder="Contraseña" name="password" class="input">
 
         <button class="button-confirm">Ingresar</button>
