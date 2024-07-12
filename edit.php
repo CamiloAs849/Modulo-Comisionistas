@@ -211,42 +211,38 @@
 
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['TelefonoUsuario']) && $_POST['Correo'] && $_POST['Dirrecion'] && $_POST['Ciudad']) {
-                function validar($data)
-                {
-                    $data = trim($data);
-                    $data = stripslashes($data);
-                    $data = htmlspecialchars($data);
-                    return $data;
-                }
+            function validar($data)
+            {
+                $data = trim($data);
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                return $data;
+            }
 
-                $TelefonoUsuario = validar($_POST['TelefonoUsuario']);
-                $Correo = validar($_POST['Correo']);
-                $Dirrecion = validar($_POST['Dirrecion']);
-                $Ciudad = validar($_POST['Ciudad']);
+            $TelefonoUsuario = validar($_POST['TelefonoUsuario']);
+            $Correo = validar($_POST['Correo']);
+            $Dirrecion = validar($_POST['Dirrecion']);
+            $Ciudad = validar($_POST['Ciudad']);
 
-                if (!empty($TelefonoUsuario) && !empty($Correo) || !empty($Dirrecion) || !empty($Ciudad)) {
-                    $sql = "UPDATE gestion_productos.comisionista 
+            if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty($Ciudad)) {
+                $sql = "UPDATE gestion_productos.comisionista 
                     SET TelefonoUsuario = '$TelefonoUsuario', Correo = '$Correo', Ciudad = '$Ciudad', Direccion = '$Dirrecion'
                     WHERE UsuarioID = '$usuarioID'";
 
-                    $result = mysqli_query($Link, $sql);
+                $result = mysqli_query($Link, $sql);
 
-                    if ($result === true) {
-                        echo "<script>
+                if ($result === true) {
+                    echo "<script>
                 alert('Datos actualizados correctamente.');
                 window.location.href = 'edit.php';
                     </script>";
-                    } else {
-                        echo '<div class="alert alert-warning d-flex align-items-center" role="alert">
+                } else {
+                    echo '<div class="alert alert-warning d-flex align-items-center" role="alert">
                     <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                     <div>
                         An example warning alert with an icon
                     </div>
                 </div>';
-                    }
-                } else {
-                    echo "<h1> HOLA </h1>";
                 }
             } else { ?><center>
                     <div class="alert alert-danger" role="alert">
@@ -256,6 +252,7 @@
 <?php
             }
         }
+
 ?>
 </div>
 <br>
