@@ -5,22 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <scrip src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js">
+    <link rel="stylesheet" href="../Components/bootstrap.min.css">
+    <script src="../Components/bootstrap.bundle.min.js"></script>
+    <scrip src="../Components/alertify.min.js">
         </script>
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css" />
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="../Components/alertify.min.css" />
+        <link rel="stylesheet" href="../Components/default.min.css" />
+        <link rel="stylesheet" href="../Components/icon.css">
+        <link rel="stylesheet" href="../CSS/style.css">
+        <link rel="stylesheet" href="../Components/all.min.css">
+
 
 </head>
 
 <body>
     <?php
     session_start();
-    include("conexion.php");
+    include("../DataBase/conexion.php");
     $usuario = $_SESSION['UsuarioID'];
     $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = '$usuario'";
 

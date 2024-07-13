@@ -4,29 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo pedido</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <scrip src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js">
+    <title>Información personal</title>
+    <link rel="stylesheet" href="../Components/bootstrap.min.css">
+    <script src="../Components/bootstrap.bundle.min.js"></script>
+    <scrip src="../Components/alertify.min.js">
         </script>
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css" />
-        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="../Components/alertify.min.css" />
+        <link rel="stylesheet" href="../Components/default.min.css" />
+        <link rel="stylesheet" href="../Components/icon.css">
+        <link rel="stylesheet" href="../CSS/style.css">
+        <link rel="stylesheet" href="../Components/all.min.css">
+
 
 </head>
 
 <body>
     <?php
+    include("../DataBase/conexion.php");
     session_start();
-    include("conexion.php");
     $usuario = $_SESSION['UsuarioID'];
     $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = '$usuario'";
-
-    $resultado = mysqli_query($Link, $sql);
-
-    $row = mysqli_fetch_array($resultado);
+    $result = mysqli_query($Link, $sql);
+    $row = mysqli_fetch_array($result);
     $nombreUsuario = $row['NombreUsuario'];
     $apellidoUsuario = $row['ApellidosUsuario'];
     $Edad = $row['Edad'];
@@ -34,10 +33,8 @@
     $telefonoUsuario = $row['TelefonoUsuario'];
     $direccionUsuario = $row['Direccion'];
     $Ciudad = $row['Ciudad'];
-    $usuarioID = $row['UsuarioID'];
     $contraseña = $row['Password'];
     ?>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <!-- Container wrapper -->
         <div class="container-fluid">
@@ -69,7 +66,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
-                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
                                 <i class="material-icons">local_shipping</i>
                             </div>
@@ -89,7 +86,7 @@
                 <!-- Right links -->
                 <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
                                 <i class="material-icons">settings</i>
                             </div>
@@ -145,20 +142,59 @@
         </div>
     </div>
     <div class="container">
-        <center>
-            <h2 class="mt-4">Nuevo pedido</h2>
-        </center>
-
-        <form action="">
-            <div class="mb-3 row justify-content-md-center">
-                <div class="col">
-                    <label for="" class="form-label">Productos</label>
-                    <select class="form-select" id="product" name="product">
-                </div>
-            </div>
-
-        </form>
+        <h2 class="text-center mb-3 mt-5">Información personal</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Numero de documento</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Ciudad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><?php echo $usuario ?></td>
+                        <td><?php echo $nombreUsuario ?></td>
+                        <td><?php echo $apellidoUsuario ?></td>
+                        <td><?php echo $Edad ?></td>
+                        <td><?php echo $telefonoUsuario ?></td>
+                        <td><?php echo $correoUsuario ?></td>
+                        <td><?php echo $direccionUsuario ?></td>
+                        <td><?php echo $Ciudad ?></td>
+                    </tr>
+            </table>
+        </div>
     </div>
+    <center>
+        <a class="btn btn-primary" href="edit.php">Editar informacion</a>
+    </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Footer -->
     <footer class="text-center text-lg-start bg-body-tertiary text-muted">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">

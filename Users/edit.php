@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Components/bootstrap.min.css">
+    <script src="../Components/bootstrap.bundle.min.js"></script>
+    <scrip src="../Components/alertify.min.js">
+        </script>
+        <link rel="stylesheet" href="../Components/alertify.min.css" />
+        <link rel="stylesheet" href="../Components/default.min.css" />
+        <link rel="stylesheet" href="../Components/icon.css">
+        <link rel="stylesheet" href="../CSS/style.css">
+        <link rel="stylesheet" href="../Components/all.min.css">
+        <script src="../Components/sweetalert2@11.js"></script>
+
 </head>
 
 <body>
     <?php
-    include("conexion.php");
+    include("../DataBase/conexion.php");
     session_start();
     $usuario = $_SESSION['UsuarioID'];
     $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID= '$usuario'";
@@ -232,17 +236,30 @@
                 $result = mysqli_query($Link, $sql);
 
                 if ($result === true) {
-                    echo "<script>
-                alert('Datos actualizados correctamente.');
-                window.location.href = 'edit.php';
-                    </script>";
+                    echo '<script>
+                        Swal.fire({
+                            title: "Datos actualizados exitosamente!",
+                            icon: "success",
+                            confirmButtonText: "Aceptar"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "./edit.php";
+                            }
+                        });
+                    </script>';
                 } else {
-                    echo '<div class="alert alert-warning d-flex align-items-center" role="alert">
-                    <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                    <div>
-                        An example warning alert with an icon
-                    </div>
-                </div>';
+                    echo  '<script>
+                    Swal.fire({
+                        title: "Error al actualizar los datos!",
+                        text: "Por favor, intenta de nuevo.",
+                        icon: "error",
+                        confirmButtonText: "Aceptar"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "./edit.php";
+                        }
+                    });
+                </script>';
                 }
             } else { ?><center>
                     <div class="alert alert-danger" role="alert">
