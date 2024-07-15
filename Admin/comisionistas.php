@@ -16,8 +16,9 @@
         <link rel="stylesheet" href="../Components/default.min.css" />
         <link rel="stylesheet" href="../Components/icon.css">
         <link rel="stylesheet" href="../CSS/style.css">
-        <link rel="stylesheet" href="../Components/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="../Components/sweetalert2@11.js"></script>
+
 
 </head>
 
@@ -146,6 +147,7 @@
     <center>
         <h2 class="mt-4 mb-4">Información de los comisionistas</h2>
     </center>
+
     <div class="table-responsive">
         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear">Agregar comisionista</button>
         <table class="table table-striped table-bordered">
@@ -161,9 +163,10 @@
                     <th scope="col">Ciudad</th>
                     <th scope="col">Acción</th>
                 </tr>
+            </thead>
             <tbody>
                 <?php
-                $sql = "SELECT * FROM gestion_productos.comisionista";
+                $sql = "SELECT * FROM gestion_productos.comisionista ORDER BY NombreUsuario ASC";
 
                 $result = mysqli_query($Link, $sql);
 
@@ -177,19 +180,42 @@
                         <td><?php echo $row['Correo'] ?></td>
                         <td><?php echo $row['Direccion'] ?></td>
                         <td><?php echo $row['Ciudad'] ?></td>
-                        <td class="d-flex justify-content-between">
-                            <a href="deleteComisionista.php?id=<?php echo $row['UsuarioID'] ?>" class="btn btn-danger" title="Eliminar">Eliminar</a>
-                            <a href="reporteComisionista.php?id=<?php echo $row['UsuarioID'] ?>" class="btn btn-secondary" title="Ver">Ver</a>
+                        <td>
+                            <div class="d-flex justify-content-around">
+                                <button class="btn btn-warning me-2" href="" data-bs-toggle="modal" data-bs-id="<?php echo $row['UsuarioID']; ?>" data-bs-target=" #editar<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                                <button class="btn btn-info me-2"><i class="fa-solid fa-eye"></i> Ver</button>
+                                <button class="btn btn-danger"><i class="fa-solid fa-delete-left"></i> Eliminar</button>
+                            </div>
                         </td>
                     </tr>
                 <?php
                 }
                 ?>
-
             </tbody>
-            </thead>
-            <?php include("crear.php") ?>
         </table>
+        <?php
+        include("./Crud-comisionistas/crear.php");
+        include("./Crud-comisionistas/editar.php");
+        ?>
+        <script>
+            var editar = document.getElementById('editar');
+
+            editar.addEventListener('show.bs.modal', event => {
+                let button = event.relatedTarget
+                let UsuarioID = button.getAttribute('data-bs-id')
+
+                let InputID = editar = editar.querySelector('.modal-body #documento')
+                let InputNombre = editar.querySelector('.modal-body #nombre')
+                let InputApellido = editar.querySelector('.modal-body #apellido')
+                let InputEdad = editar.querySelector('.modal-body #edad')
+                let InputTelefono = editar.querySelector('.modal-body #telefono')
+                let InputCorreo = editar.querySelector('.modal-body #correo')
+                let InputDireccion = editar.querySelector('.modal-body #direccion')
+                let InputCiudad = editar.querySelector('.modal-body #ciudad')
+                let inputPassword = editar.querySelector('.modal-body #password')
+            })
+        </script>
+
 
     </div>
 </div>

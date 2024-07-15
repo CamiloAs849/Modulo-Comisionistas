@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="../Components/default.min.css" />
         <link rel="stylesheet" href="../Components/icon.css">
         <link rel="stylesheet" href="../CSS/style.css">
-        <link rel="stylesheet" href="../Components/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="../Components/sweetalert2@11.js"></script>
 
 </head>
@@ -43,8 +43,6 @@
                                 <label for="message-text" class="col-form-label">Apellido:</label>
                                 <input type="text" class="form-control" id="message-text" name="Apellido" required>
                             </div>
-                            <script>
-                            </script>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
@@ -76,9 +74,8 @@
                                 <input type="password" class="form-control" id="password" name="Password" required>
                             </div>
                         </div>
-
                         <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary"><i class=" material-icons">save</i>Guardar</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
                         </div>
                     </form>
                     <?php
@@ -117,9 +114,9 @@
                                         window.location.href = "./comisionistas.php";
                                     }
                                 });
-                            </script>';
+                            </scrip>';
                         } else {
-                            '<script>
+                            echo '<script>
                                 Swal.fire({
                                     title: "Error al añadir el comisionista!",
                                     text: "Por favor, intenta de nuevo.",
