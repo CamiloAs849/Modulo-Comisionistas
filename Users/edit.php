@@ -149,20 +149,6 @@
         </center>
         <h2 class="text-center mb-3 mt-5">Editar información personal</h2>
 
-        <center>
-            <?php
-            if (isset($_GET['error'])) {
-            ?>
-                <div class="alert alert-danger" role="alert">
-                    <?php
-                    echo $_GET['error']
-                    ?>
-                </div>
-            <?php
-            }
-            ?>
-        </center>
-
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="mb-3 row justify-content-md-center">
                 <div class="col">

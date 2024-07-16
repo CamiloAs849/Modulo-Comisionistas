@@ -29,8 +29,9 @@
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
+                                <input type="hidden" name="identificador" value="crear">
                                 <label for="documento" class="col-form-label">Número de documento:</label>
-                                <input type="number" class="form-control" id="documento" name="UsuarioID" required>
+                                <input type="number" class="form-control" id="documento" name="UsuarioID" value="<?php echo $row['UsuarioID'] ?>" required>
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
@@ -80,30 +81,31 @@
                     <?php
 
                     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                        include("../DataBase/conexion.php");
+                        if ($_POST['identificador'] == "crear") {
+                            include("../DataBase/conexion.php");
 
-                        function validar($data)
-                        {
-                            $data = trim($data);
-                            $data = stripslashes($data);
-                            $data = htmlspecialchars($data);
-                            return $data;
-                        }
-                        $Documento = validar($_POST['UsuarioID']);
-                        $Nombre = validar($_POST['Nombre']);
-                        $Apellido = validar($_POST['Apellido']);
-                        $Edad = validar($_POST['Edad']);
-                        $Telefono = validar($_POST['Telefono']);
-                        $Correo = validar($_POST['Correo']);
-                        $Direccion = validar($_POST['Direccion']);
-                        $Ciudad = validar($_POST['Ciudad']);
-                        $Password = validar($_POST['Password']);
+                            function validar($data)
+                            {
+                                $data = trim($data);
+                                $data = stripslashes($data);
+                                $data = htmlspecialchars($data);
+                                return $data;
+                            }
+                            $Documento = validar($_POST['UsuarioID']);
+                            $Nombre = validar($_POST['Nombre']);
+                            $Apellido = validar($_POST['Apellido']);
+                            $Edad = validar($_POST['Edad']);
+                            $Telefono = validar($_POST['Telefono']);
+                            $Correo = validar($_POST['Correo']);
+                            $Direccion = validar($_POST['Direccion']);
+                            $Ciudad = validar($_POST['Ciudad']);
+                            $Password = validar($_POST['Password']);
 
-                        $sql = "INSERT INTO gestion_productos.comisionista (UsuarioID, NombreUsuario, ApellidosUsuario, Edad, TelefonoUsuario, Correo, Direccion, Ciudad, Password) 
+                            $sql = "INSERT INTO gestion_productos.comisionista (UsuarioID, NombreUsuario, ApellidosUsuario, Edad, TelefonoUsuario, Correo, Direccion, Ciudad, Password) 
                             VALUES ('$Documento', '$Nombre', '$Apellido', '$Edad', '$Telefono', '$Correo', '$Direccion', '$Ciudad', '$Password')";
-                        $result = mysqli_query($Link, $sql);
-                        if ($result === true) {
-                            echo  '<script>
+                            $result = mysqli_query($Link, $sql);
+                            if ($result === true) {
+                                echo  '<script>
                                  Swal.fire({
                                      title: "Comisionista añadido exitosamente!",
                                      icon: "success",
@@ -114,8 +116,8 @@
                                      }
                                  });
                              </script>';
-                        } else {
-                            '<script>
+                            } else {
+                                '<script>
                                  Swal.fire({
                                      title: "Error al añadir el comisionista!",
                                      text: "Por favor, intenta de nuevo.",
@@ -127,6 +129,7 @@
                                      }
                                  });
                              </script>';
+                            }
                         }
                     }
                     ?>

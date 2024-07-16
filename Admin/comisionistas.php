@@ -32,7 +32,6 @@
     $result = mysqli_query($Link, $sql);
 
     $row = mysqli_fetch_array($result);
-
     $nombreUsuario = $row['NombreUsuario'];
     $apellidoUsuario = $row['ApellidosUsuario'];
     $emailUsuario = $row['Email'];
@@ -148,8 +147,8 @@
             <h2 class="mt-4 mb-4">Información de los comisionistas</h2>
         </center>
 
+        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-plus"></i> Agregar comisionista</button>
         <div class="table-responsive">
-            <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-plus"></i> Agregar comisionista</button>
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr class="">
@@ -200,10 +199,13 @@
                             </div>
                             <div class="modal-body">
                                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
                                     <div class="mb-3 row justify-content-md-center">
                                         <div class="col">
-                                            <label for="documento" class="col-form-label">Número de documento:</label>
-                                            <input type="number" disabled class="form-control" id="documento" name="UsuarioID" value="<?php echo $row['UsuarioID']; ?>" required>
+                                            <input type="hidden" name="documento" value="<?php echo $row['UsuarioID'] ?>">
+                                            <input type="hidden" name="identificador" value="editar">
+                                            <label for="document" class="col-form-label">Número de documento:</label>
+                                            <input type="number" class="form-control" disabled id="document" name="" value="<?php echo $row['UsuarioID'] ?>">
                                         </div>
                                     </div>
                                     <div class="mb-3 row justify-content-md-center">
@@ -249,28 +251,31 @@
                                     <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
                                         <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
                                     </div>
-                                </form>
-                                <script>
-                                    function ConfirmDelete(id) {
-                                        Swal.fire({
-                                            title: "¿Quieres eliminar el comisionista?",
-                                            icon: "warning",
-                                            showCancelButton: true,
-                                            confirmButtonColor: "#3085d6",
-                                            cancelButtonColor: "#d33",
-                                            confirmButtonText: "Sí quiero",
-                                            cancelButtonText: "Cancelar"
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                window.location.href = `./Crud-comisionistas/eliminar.php?id=${id}`;
-                                            }
-                                        })
-                                    }
-                                </script>
-                            <?php
-                        }
-                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                            // $id = $_POST['UsuarioID'];
+                            </div>
+                            </form>
+                            <!-- Button trigger modal -->
+                            <script>
+                                function ConfirmDelete(id) {
+                                    Swal.fire({
+                                        title: "¿Quieres eliminar el comisionista?",
+                                        icon: "warning",
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#3085d6",
+                                        cancelButtonColor: "#d33",
+                                        confirmButtonText: "Sí quiero",
+                                        cancelButtonText: "Cancelar"
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            window.location.href = `./Crud-comisionistas/eliminar.php?id=${id}`;
+                                        }
+                                    })
+                                }
+                            </script>
+                        <?php
+                    }
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        if ($_POST['identificador'] == 'editar') {
+                            $id = $_POST['documento'];
                             $nombre = $_POST['Nombre'];
                             $apellido = $_POST['Apellido'];
                             $edad = $_POST['Edad'];
@@ -305,7 +310,8 @@
                                 ';
                             }
                         }
-                            ?>
+                    }
+                        ?>
             </table>
             <?php
             include("./Crud-comisionistas/crear.php");
