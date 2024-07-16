@@ -36,12 +36,90 @@
     $Ciudad = $row['Ciudad'];
     $usuarioID = $row['UsuarioID'];
     $contraseña = $row['Password'];
-
-
-    include("../navbar.php")
     ?>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="inicio.php"><?php echo $nombreUsuario ?></a>
 
-    <!-- Navbar -->
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span> </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left links -->
+                <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a class="nav-link" aria-current="page" href="inicio.php">
+                            <div>
+                                <i class="material-icons">home</i>
+                            </div>
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <a class="nav-link" aria-current="page" href="catalogo.php">
+                            <div>
+                                <i class="material-icons">inventory_2</i>
+                            </div>
+                            Catálogo
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div>
+                                <i class="material-icons">local_shipping</i>
+                            </div>
+                            Pedidos
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="nuevo-pedido.php">Nuevo pedido</a></li>
+                            <li><a class="dropdown-item" href="historial-pedidos.php">Ver historial de pedidos</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Left links -->
+
+                <!-- Right links -->
+                <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div>
+                                <i class="material-icons">settings</i>
+                            </div>
+                            Opciones
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="show.php">Ver información personal</a></li>
+                            <li><a class="dropdown-item" href="edit.php">Editar información</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sobre las comisiones</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item text-center mx-2 mx-lg-1">
+                        <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <div>
+                                <i class=" material-icons">logout</i>
+                            </div>
+                            Cerrar Sesión
+                        </button>
+
+                    </li>
+                </ul>
+                <!-- Right links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -86,6 +164,12 @@
         </center>
 
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <div class="mb-3 row justify-content-md-center">
+                <div class="col">
+                    <label for="Documento" class="form-label">Numero de documento</label>
+                    <input type="email" class="form-control" id="Documento" name="Documento" aria-describedby="emailHelp" placeholder="" disabled value="<?php echo $usuario ?>">
+                </div>
+            </div>
             <div class="mb-3 row justify-content-md-center">
                 <div class="col">
                     <label for="Nombre" class="form-label">Nombre</label>
@@ -151,14 +235,27 @@
             $Ciudad = validar($_POST['Ciudad']);
 
             if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty($Ciudad)) {
-                $sql = "UPDATE gestion_productos.comisionista 
+                if ($TelefonoUsuario == $row['TelefonoUsuario'] && $Correo == $row['Correo'] && $Dirrecion == $row['Dirrecion'] && $Ciudad == $row['Ciudad']) {
+                    echo '<script>
+                        Swal.fire({
+                            title: "No se ha modificado ningún dato!",
+                            icon: "warning",
+                            confirmButtonText: "Aceptar"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = "./edit.php";
+                            }
+                        });
+                    </script>';
+                } else {
+                    $sql = "UPDATE gestion_productos.comisionista 
                     SET TelefonoUsuario = '$TelefonoUsuario', Correo = '$Correo', Ciudad = '$Ciudad', Direccion = '$Dirrecion'
                     WHERE UsuarioID = '$usuarioID'";
 
-                $result = mysqli_query($Link, $sql);
+                    $result = mysqli_query($Link, $sql);
 
-                if ($result === true) {
-                    echo '<script>
+                    if ($result === true) {
+                        echo '<script>
                         Swal.fire({
                             title: "Datos actualizados exitosamente!",
                             icon: "success",
@@ -169,8 +266,8 @@
                             }
                         });
                     </script>';
-                } else {
-                    echo  '<script>
+                    } else {
+                        echo  '<script>
                     Swal.fire({
                         title: "Error al actualizar los datos!",
                         text: "Por favor, intenta de nuevo.",
@@ -182,6 +279,7 @@
                         }
                     });
                 </script>';
+                    }
                 }
             } else { ?><center>
                     <div class="alert alert-danger" role="alert">

@@ -141,83 +141,177 @@
             </div>
         </div>
     </div>
-</body>
 
-<div class="container">
-    <center>
-        <h2 class="mt-4 mb-4">Información de los comisionistas</h2>
-    </center>
 
-    <div class="table-responsive">
-        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear">Agregar comisionista</button>
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr class="">
-                    <th scope="col">Numero de documento</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                    <th scope="col">Edad</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Dirección</th>
-                    <th scope="col">Ciudad</th>
-                    <th scope="col">Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $sql = "SELECT * FROM gestion_productos.comisionista ORDER BY NombreUsuario ASC";
+    <div class="container">
+        <center>
+            <h2 class="mt-4 mb-4">Información de los comisionistas</h2>
+        </center>
 
-                $result = mysqli_query($Link, $sql);
-
-                while ($row = mysqli_fetch_array($result)) { ?>
-                    <tr>
-                        <td><?php echo $row['UsuarioID'] ?></td>
-                        <td><?php echo $row['NombreUsuario'] ?></td>
-                        <td><?php echo $row['ApellidosUsuario'] ?></td>
-                        <td><?php echo $row['Edad'] ?></td>
-                        <td><?php echo $row['TelefonoUsuario'] ?></td>
-                        <td><?php echo $row['Correo'] ?></td>
-                        <td><?php echo $row['Direccion'] ?></td>
-                        <td><?php echo $row['Ciudad'] ?></td>
-                        <td>
-                            <div class="d-flex justify-content-around">
-                                <button class="btn btn-warning me-2" href="" data-bs-toggle="modal" data-bs-id="<?php echo $row['UsuarioID']; ?>" data-bs-target=" #editar<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
-                                <button class="btn btn-info me-2"><i class="fa-solid fa-eye"></i> Ver</button>
-                                <button class="btn btn-danger"><i class="fa-solid fa-delete-left"></i> Eliminar</button>
-                            </div>
-                        </td>
+        <div class="table-responsive">
+            <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-plus"></i> Agregar comisionista</button>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr class="">
+                        <th scope="col">Numero de documento</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Contraseña</th>
+                        <th scope="col">Acción</th>
                     </tr>
-                <?php
-                }
-                ?>
-            </tbody>
-        </table>
-        <?php
-        include("./Crud-comisionistas/crear.php");
-        include("./Crud-comisionistas/editar.php");
-        ?>
-        <script>
-            var editar = document.getElementById('editar');
+                </thead>
+                <tbody>
+                    <?php
+                    $sql = "SELECT * FROM gestion_productos.comisionista ORDER BY NombreUsuario ASC";
 
-            editar.addEventListener('show.bs.modal', event => {
-                let button = event.relatedTarget
-                let UsuarioID = button.getAttribute('data-bs-id')
+                    $result = mysqli_query($Link, $sql);
 
-                let InputID = editar = editar.querySelector('.modal-body #documento')
-                let InputNombre = editar.querySelector('.modal-body #nombre')
-                let InputApellido = editar.querySelector('.modal-body #apellido')
-                let InputEdad = editar.querySelector('.modal-body #edad')
-                let InputTelefono = editar.querySelector('.modal-body #telefono')
-                let InputCorreo = editar.querySelector('.modal-body #correo')
-                let InputDireccion = editar.querySelector('.modal-body #direccion')
-                let InputCiudad = editar.querySelector('.modal-body #ciudad')
-                let inputPassword = editar.querySelector('.modal-body #password')
-            })
-        </script>
+                    while ($row = mysqli_fetch_array($result)) { ?>
+                        <tr>
+                            <td><?php echo $row['UsuarioID'] ?></td>
+                            <td><?php echo $row['NombreUsuario'] ?></td>
+                            <td><?php echo $row['ApellidosUsuario'] ?></td>
+                            <td><?php echo $row['Edad'] ?></td>
+                            <td><?php echo $row['TelefonoUsuario'] ?></td>
+                            <td><?php echo $row['Correo'] ?></td>
+                            <td><?php echo $row['Direccion'] ?></td>
+                            <td><?php echo $row['Ciudad'] ?></td>
+                            <td><?php echo $row['Password'] ?></td>
 
+                            <td>
+                                <div class="d-flex justify-content-around">
+                                    <button class="btn btn-warning me-2" href="" data-bs-toggle="modal" data-bs-target=" #editar<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                                    <button class="btn btn-info me-2" data-bs-toggle="modal" data-bs-target="#ver<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-eye"></i> Ver</button>
+                                    <button class="btn btn-danger" onclick="ConfirmDelete(<?php echo $row['UsuarioID']; ?>)"><i class="fa-solid fa-delete-left"></i> Eliminar</button>
+                                </div>
+                            </td>
+                </tbody>
+                <div class="modal fade" id="editar<?php echo $row['UsuarioID'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content ">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar a <?php echo $row['NombreUsuario'] . " " . $row['ApellidosUsuario'] ?></h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                                    <div class="mb-3 row justify-content-md-center">
+                                        <div class="col">
+                                            <label for="documento" class="col-form-label">Número de documento:</label>
+                                            <input type="number" disabled class="form-control" id="documento" name="UsuarioID" value="<?php echo $row['UsuarioID']; ?>" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row justify-content-md-center">
+                                        <div class="col">
+                                            <label for="nombre" class="col-form-label">Nombre:</label>
+                                            <input type="text" class="form-control" value="<?php echo $row['NombreUsuario'] ?>" id="nombre" name="Nombre" required>
+                                        </div>
+                                        <div class="col">
+                                            <label for="apellido" class="col-form-label">Apellido:</label>
+                                            <input type="text" class="form-control" value="<?php echo $row['ApellidosUsuario'] ?>" id="apellido" name="Apellido" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row justify-content-md-center">
+                                        <div class="col">
+                                            <label for="edad" class="col-form-label">Edad:</label>
+                                            <input type="number" class="form-control" value="<?php echo $row['Edad'] ?>" id="edad" name="Edad" required>
+                                        </div>
+                                        <div class="col">
+                                            <label for="telefono" class="col-form-label">Teléfono:</label>
+                                            <input type="tel" class="form-control" value="<?php echo $row['TelefonoUsuario'] ?>" id="telefono" name="Telefono" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row justify-content-md-center">
+                                        <div class="col">
+                                            <label for="correo" class="col-form-label">Correo:</label>
+                                            <input type="email" class="form-control" value="<?php echo $row['Correo'] ?>" id="correo" name="Correo" required>
+                                        </div>
+                                        <div class="col">
+                                            <label for="direccion" class="col-form-label">Dirección:</label>
+                                            <input type="text" class="form-control" value="<?php echo $row['Direccion'] ?>" id="direccion" name="Direccion" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row justify-content-md-center">
+                                        <div class="col">
+                                            <label for="ciudad" class="col-form-label">Ciudad:</label>
+                                            <input type="text" class="form-control" value="<?php echo $row['Ciudad'] ?>" id="ciudad" name="Ciudad" required>
+                                        </div>
+                                        <div class="col">
+                                            <label for="password" class="col-form-label">Contraseña:</label>
+                                            <input type="password" class="form-control" value="<?php echo $row['Password'] ?>" id="password" name="Password" required>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
+                                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+                                    </div>
+                                </form>
+                                <script>
+                                    function ConfirmDelete(id) {
+                                        Swal.fire({
+                                            title: "¿Quieres eliminar el comisionista?",
+                                            icon: "warning",
+                                            showCancelButton: true,
+                                            confirmButtonColor: "#3085d6",
+                                            cancelButtonColor: "#d33",
+                                            confirmButtonText: "Sí quiero",
+                                            cancelButtonText: "Cancelar"
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location.href = `./Crud-comisionistas/eliminar.php?id=${id}`;
+                                            }
+                                        })
+                                    }
+                                </script>
+                            <?php
+                        }
+                        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                            // $id = $_POST['UsuarioID'];
+                            $nombre = $_POST['Nombre'];
+                            $apellido = $_POST['Apellido'];
+                            $edad = $_POST['Edad'];
+                            $telefono = $_POST['Telefono'];
+                            $correo = $_POST['Correo'];
+                            $direccion = $_POST['Direccion'];
+                            $ciudad = $_POST['Ciudad'];
+                            $password = $_POST['Password'];
+                            $sql = "UPDATE gestion_productos.comisionista SET NombreUsuario = '$nombre', ApellidosUsuario = '$apellido', Edad = '$edad', TelefonoUsuario = '$telefono', Correo = '$correo', Direccion = '$direccion', Ciudad = '$ciudad', Password = '$password' WHERE UsuarioID = '$id'";
 
+                            $result = mysqli_query($Link, $sql);
+                            if ($result === true) {
+                                echo '<script>
+                                        Swal.fire({
+                                        title: "Comisionista actualizado correctamente!",
+                                        icon: "success",
+                                        confirmButtonText: "Aceptar"
+                                        }).then((result) => {
+                                        if (result.isConfirmed) {
+                                        window.location.href = "./comisionistas.php";
+                                        }
+                                        })
+                                    </script>';
+                            } else {
+                                echo '<script> 
+                                    Swal.fire({
+                                     title: "Hubo un error al actualizar el comisionista!",
+                                     icon: "error",
+                                     confirmButtonText: "Aceptar
+                                    )}
+                                    </script>
+                                ';
+                            }
+                        }
+                            ?>
+            </table>
+            <?php
+            include("./Crud-comisionistas/crear.php");
+            ?>
+        </div>
     </div>
-</div>
+</body>
 
 </html>

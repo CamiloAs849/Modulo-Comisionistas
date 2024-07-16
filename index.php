@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de sesión</title>
-    <link rel="stylesheet" href="/Components/bootstrap.min.css">
-    <script src="/Components/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./Components/bootstrap.min.css">
+    <script src="./Components/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="/Components/icon.css">
+    <link rel="stylesheet" href="./Components/icon.css">
 
 </head>
 

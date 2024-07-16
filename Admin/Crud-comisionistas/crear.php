@@ -14,8 +14,7 @@
         <link rel="stylesheet" href="../Components/icon.css">
         <link rel="stylesheet" href="../CSS/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <script src="../Components/sweetalert2@11.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -74,7 +73,7 @@
                                 <input type="password" class="form-control" id="password" name="Password" required>
                             </div>
                         </div>
-                        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
                             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
                         </div>
                     </form>
@@ -105,29 +104,29 @@
                         $result = mysqli_query($Link, $sql);
                         if ($result === true) {
                             echo  '<script>
-                                Swal.fire({
-                                    title: "Comisionista añadido exitosamente!",
-                                    icon: "success",
-                                    confirmButtonText: "Aceptar"
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        window.location.href = "./comisionistas.php";
-                                    }
-                                });
-                            </scrip>';
+                                 Swal.fire({
+                                     title: "Comisionista añadido exitosamente!",
+                                     icon: "success",
+                                     confirmButtonText: "Aceptar"
+                                 }).then((result) => {
+                                     if (result.isConfirmed) {
+                                         window.location.href = "./comisionistas.php";
+                                     }
+                                 });
+                             </script>';
                         } else {
-                            echo '<script>
-                                Swal.fire({
-                                    title: "Error al añadir el comisionista!",
-                                    text: "Por favor, intenta de nuevo.",
-                                    icon: "error",
-                                    confirmButtonText: "Aceptar"
-                                }).then((result) => {
-                                    if (result.isConfirmed) {
-                                        window.location.href = "./comisionistas.php";
-                                    }
-                                });
-                            </script>';
+                            '<script>
+                                 Swal.fire({
+                                     title: "Error al añadir el comisionista!",
+                                     text: "Por favor, intenta de nuevo.",
+                                     icon: "error",
+                                     confirmButtonText: "Aceptar"
+                                 }).then((result) => {
+                                     if (result.isConfirmed) {
+                                         window.location.href = "./comisionistas.php";
+                                     }
+                                 });
+                             </script>';
                         }
                     }
                     ?>
