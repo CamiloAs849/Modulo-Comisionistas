@@ -9,32 +9,74 @@
     <script src="./Components/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./Components/icon.css">
-
+    <link rel="icon" href="https://i.ibb.co/NjnmCjy/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
-<body class="background-login">
+<body class="scroll">
 
-    <form class="form" action="./Validation/inicioSesion.php" method="post">
-        <div class="title">
-            <center>Bienvenido<br><span>Comisionista</span></center>
-        </div>
-        <hr>
-        <?php
-        if (isset($_GET['error'])) {
-        ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="row">
+        <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12 m-0">
+            <form class="form_container" action="./Validation/inicioSesion.php" method="post">
+                <img src="https://i.ibb.co/NjnmCjy/logo.png" class=".logo_container" width="90px" alt="">
+                <div class="title_container">
+                    <p class="title text-center">Ingresar al portal</p>
+                    <span class="subtitle text-center">Ingresa mediante la clave que te han dado.</span>
+                </div>
+                <br>
                 <?php
-                echo $_GET['error']
+                if (isset($_GET['error'])) {
                 ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <?php
-        }
-        ?>
-        <input type="number" placeholder="Numero de documento" name="UsuarioID" class="input">
-        <input type="password" placeholder="Contraseña" name="password" class="input">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <?php
+                        echo $_GET['error']; ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php
+                }
+                ?>
 
-        <button class="button-confirm">Ingresar</button>
-    </form>
+                <div class="input_container">
+                    <i class="fa-solid fa-user icon text-center"></i>
+                    <input placeholder="Numero de documento" name="UsuarioID" type="text" class="input_field" id="email_field">
+                </div>
+                <div class="input_container">
+                    <i class="fa-solid fa-lock icon text-center"></i>
+                    <input placeholder="Contraseña" name="password" type="password" class="input_field" id="password_field">
+                </div>
+                <button type="submit" class="sign-in_btn">
+                    <span>Ingresar</span>
+                </button>
+                <p class="note text-center">No des tu clave de acceso a terceros.</p>
+            </form>
+        </div>
+        <div class="col-xxl-8 col-xl-8 col-lg-6 col-md-12 col-sm-12 m-0 p-0">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://i.ibb.co/8mw9F2t/1256x990.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.ibb.co/PDhN4Fb/png-1.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.ibb.co/pnj0Vbr/png.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
 
 </html>
