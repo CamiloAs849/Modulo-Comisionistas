@@ -22,6 +22,11 @@
     session_start();
     include("../DataBase/conexion.php");
     $usuario = $_SESSION['UsuarioID'];
+    if (empty($_SESSION['UsuarioID'])) {
+        header("Location:../index.php");
+        exit();
+    }
+
     $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = '$usuario'";
 
     $resultado = mysqli_query($Link, $sql);
@@ -55,7 +60,7 @@
                     <li class="nav-item text-center mx-2 mx-lg-1">
                         <a class="nav-link" aria-current="page" href="inicio.php">
                             <div>
-                                <i class="material-icons">home</i>
+                                <i class="fa-solid fa-house"></i>
                             </div>
                             Inicio
                         </a>
@@ -63,7 +68,7 @@
                     <li class="nav-item text-center mx-2 mx-lg-1">
                         <a class="nav-link active" aria-current="page" href="catalogo.php">
                             <div>
-                                <i class="material-icons">inventory_2</i>
+                                <i class="fa-solid fa-cart-shopping"></i>
                             </div>
                             Catálogo
                         </a>
@@ -91,7 +96,7 @@
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
-                                <i class="material-icons">settings</i>
+                                <i class="fa-solid fa-gear"></i>
                             </div>
                             Opciones
                         </a>
@@ -107,7 +112,7 @@
                     <li class="nav-item text-center mx-2 mx-lg-1">
                         <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <div>
-                                <i class=" material-icons">logout</i>
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
                             </div>
                             Cerrar Sesión
                         </button>

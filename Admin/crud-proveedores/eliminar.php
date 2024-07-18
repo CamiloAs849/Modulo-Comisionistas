@@ -32,23 +32,22 @@ if (empty($_SESSION['AdminID'])) {
     header("Location:../index.php");
     exit();
 }
-
-$id = $_GET["id"];
-if (isset($_GET["id"])) {
-    $sql = "DELETE FROM gestion_productos.comisionista WHERE UsuarioID = '$id'";
+$id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $sql = "DELETE FROM gestion_productos.proveedor WHERE ProveedorID = '$id'";
     $result = mysqli_query($Link, $sql);
     if ($result) {
-        echo '<script>
+        echo "<script>
             Swal.fire({
-            title: "Comisionista Eliminado Correctamente",
-            icon: "success",
-            confirmButtonText: "Aceptar"
+            title: 'Proveedor Eliminado Correctamente',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
             }).then((result) => {
             if (result.isConfirmed) {
-            window.location.href = "../comisionistas.php";
+            window.location.href = '../proveedores.php';
             }
             });
-            </script>';
+            </script>";
     }
 }
 ?>

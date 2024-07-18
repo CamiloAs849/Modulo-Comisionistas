@@ -63,14 +63,11 @@
                     <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
-                        <p><i class="material-icons">apartment</i> Cl 34B cra 115A</p>
-                        <p>
-                            <i class="material-icons">mail</i>
-                            info@example.com
-                        </p>
-                        <p><i class="material-icons">call</i> + 57 321201</p>
-                        <p><i class="material-icons">call</i> + 57 3230230</p>
+                        <h6 class="text-uppercase fw-bold mb-4"> Contacto</h6>
+                        <p><i class="fa-solid fa-location-dot"></i> Cl 34B cra 115A</p>
+                        <p><i class="fa-solid fa-envelope"></i> info@example.com</p>
+                        <p><i class="fa-solid fa-phone"></i> + 57 321201</p>
+                        <p><i class="fa-solid fa-phone"></i> + 57 3230230</p>
                     </div>
                     <!-- Grid column -->
                 </div>

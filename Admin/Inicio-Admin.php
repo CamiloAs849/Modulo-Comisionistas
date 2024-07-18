@@ -24,6 +24,11 @@
     include("../DataBase/conexion.php");
     session_start();
     $usuario = $_SESSION['AdminID'];
+    if (empty($_SESSION['AdminID'])) {
+        header("Location:../index.php");
+        exit();
+    }
+
     $sql = "SELECT * FROM gestion_productos.administrador WHERE AdminID = '$usuario'";
 
     $result = mysqli_query($Link, $sql);
@@ -43,7 +48,7 @@
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="inicio.php"><?php echo $nombreUsuario ?></a>
+            <a class="navbar-brand" href="Inicio-Admin.php"><?php echo $nombreUsuario ?></a>
 
             <!-- Toggle button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,25 +61,25 @@
                     <li class="nav-item text-center mx-2 mx-lg-1">
                         <a class="nav-link active" aria-current="page" href="inicio.php">
                             <div>
-                                <i class="material-icons">home</i>
+                                <i class="fa-solid fa-house"></i>
                             </div>
                             Inicio
-                        </a>
-                    </li>
-                    <li class="nav-item text-center mx-2 mx-lg-1">
-                        <a class="nav-link" aria-current="page" href="catalogo.php">
-                            <div>
-                                <i class="material-icons">inventory_2</i>
-                            </div>
-                            Catálogo
                         </a>
                     </li>
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link" href="comisionistas.php" role="button">
                             <div>
-                                <i class="material-icons">person</i>
+                                <i class="fa-solid fa-user"></i>
                             </div>
                             Gestionar comisionistas
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+                        <a class="nav-link" href="proveedores.php" role="button">
+                            <div>
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            Gestionar Proveedores
                         </a>
                     </li>
                 </ul>
@@ -85,7 +90,7 @@
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
-                                <i class="material-icons">settings</i>
+                                <i class="fa-solid fa-gear"></i>
                             </div>
                             Opciones
                         </a>
@@ -101,7 +106,7 @@
                     <li class="nav-item text-center mx-2 mx-lg-1">
                         <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <div>
-                                <i class=" material-icons">logout</i>
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
                             </div>
                             Cerrar sesion
                         </button>

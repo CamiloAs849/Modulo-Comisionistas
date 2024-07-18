@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="../Components/icon.css">
         <link rel="stylesheet" href="../CSS/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 
 <body style="width: 100%; height: 100%;">
@@ -21,6 +22,10 @@
     session_start();
     include("../DataBase/conexion.php");
     $usuario = $_SESSION['UsuarioID'];
+    if (empty($_SESSION['UsuarioID'])) {
+        header("Location:../index.php");
+        exit();
+    }
     $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = '$usuario'";
 
     $resultado = mysqli_query($Link, $sql);
@@ -53,7 +58,7 @@
                     <li class="nav-item text-center mx-2 mx-lg-1">
                         <a class="nav-link active" aria-current="page" href="inicio.php">
                             <div>
-                                <i class="material-icons">home</i>
+                                <i class="fa-solid fa-house"></i>
                             </div>
                             Inicio
                         </a>
@@ -61,7 +66,7 @@
                     <li class="nav-item text-center mx-2 mx-lg-1">
                         <a class="nav-link" aria-current="page" href="catalogo.php">
                             <div>
-                                <i class="material-icons">inventory_2</i>
+                                <i class="fa-solid fa-cart-shopping"></i>
                             </div>
                             Catálogo
                         </a>
@@ -69,7 +74,7 @@
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
-                                <i class="material-icons">local_shipping</i>
+                                <i class="fa-solid fa-truck"></i>
                             </div>
                             Pedidos
                         </a>
@@ -89,7 +94,7 @@
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
-                                <i class="material-icons">settings</i>
+                                <i class="fa-solid fa-gear"></i>
                             </div>
                             Opciones
                         </a>
@@ -105,7 +110,7 @@
                     <li class="nav-item text-center mx-2 mx-lg-1">
                         <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <div>
-                                <i class=" material-icons">logout</i>
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
                             </div>
                             Cerrar Sesión
                         </button>

@@ -13,6 +13,7 @@ function validar($data)
 $usuario = validar($_POST['UsuarioID']);
 $password = validar($_POST['password']);
 
+
 if (empty($usuario) && empty($password)) {
     header("Location: ../index.php?error=El usuario y contraseña son requeridos");
     exit();

@@ -27,6 +27,11 @@
     include("../DataBase/conexion.php");
     session_start();
     $usuario = $_SESSION['AdminID'];
+    if (empty($_SESSION['AdminID'])) {
+        header("Location: ../index.php");
+        exit();
+    }
+
     $sql = "SELECT * FROM gestion_productos.administrador WHERE AdminID = '$usuario'";
 
     $result = mysqli_query($Link, $sql);
@@ -58,25 +63,25 @@
                     <li class="nav-item text-center mx-2 mx-lg-1">
                         <a class="nav-link" aria-current="page" href="Inicio-Admin.php">
                             <div>
-                                <i class="material-icons">home</i>
+                                <i class="fa-solid fa-house"></i>
                             </div>
                             Inicio
-                        </a>
-                    </li>
-                    <li class="nav-item text-center mx-2 mx-lg-1">
-                        <a class="nav-link" aria-current="page" href="catalogo.php">
-                            <div>
-                                <i class="material-icons">inventory_2</i>
-                            </div>
-                            Catálogo
                         </a>
                     </li>
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link active" href="comisionistas.php" role="button">
                             <div>
-                                <i class="material-icons">person</i>
+                                <i class="fa-solid fa-user"></i>
                             </div>
                             Gestionar comisionistas
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+                        <a class="nav-link" href="proveedores.php" role="button">
+                            <div>
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            Gestionar Proveedores
                         </a>
                     </li>
                 </ul>
@@ -87,7 +92,7 @@
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
-                                <i class="material-icons">settings</i>
+                                <i class="fa-solid fa-gear"></i>
                             </div>
                             Opciones
                         </a>
@@ -103,7 +108,7 @@
                     <li class="nav-item text-center mx-2 mx-lg-1">
                         <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <div>
-                                <i class=" material-icons">logout</i>
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
                             </div>
                             Cerrar sesion
                         </button>
@@ -149,7 +154,7 @@
 
         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-plus"></i> Agregar comisionista</button>
         <div class="table-responsive">
-            <table class="table table-striped table-bordered">
+            <table class="table table-bordered table-hover">
                 <thead>
                     <tr class="">
                         <th scope="col">Numero de documento</th>
@@ -162,6 +167,7 @@
                         <th scope="col">Ciudad</th>
                         <th scope="col">Contraseña</th>
                         <th scope="col">Acción</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -183,13 +189,14 @@
                             <td><?php echo $row['Password'] ?></td>
 
                             <td>
-                                <div class="d-flex justify-content-around">
+                                <div class="d-flex mb-3">
                                     <button class="btn btn-warning me-2" href="" data-bs-toggle="modal" data-bs-target=" #editar<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
                                     <button class="btn btn-info me-2" data-bs-toggle="modal" data-bs-target="#ver<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-eye"></i> Ver</button>
                                     <button class="btn btn-danger" onclick="ConfirmDelete(<?php echo $row['UsuarioID']; ?>)"><i class="fa-solid fa-delete-left"></i> Eliminar</button>
                                 </div>
                             </td>
                 </tbody>
+                <!-- Modal de editar -->
                 <div class="modal fade" id="editar<?php echo $row['UsuarioID'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content ">
@@ -205,7 +212,7 @@
                                             <input type="hidden" name="documento" value="<?php echo $row['UsuarioID'] ?>">
                                             <input type="hidden" name="identificador" value="editar">
                                             <label for="document" class="col-form-label">Número de documento:</label>
-                                            <input type="number" class="form-control" disabled id="document" name="" value="<?php echo $row['UsuarioID'] ?>">
+                                            <input type="number" class="form-control" id="document" disabled name="document" value="<?php echo $row['UsuarioID'] ?>">
                                         </div>
                                     </div>
                                     <div class="mb-3 row justify-content-md-center">
@@ -251,27 +258,85 @@
                                     <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
                                         <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
                                     </div>
+                                </form>
                             </div>
-                            </form>
-                            <!-- Button trigger modal -->
-                            <script>
-                                function ConfirmDelete(id) {
-                                    Swal.fire({
-                                        title: "¿Quieres eliminar el comisionista?",
-                                        icon: "warning",
-                                        showCancelButton: true,
-                                        confirmButtonColor: "#3085d6",
-                                        cancelButtonColor: "#d33",
-                                        confirmButtonText: "Sí quiero",
-                                        cancelButtonText: "Cancelar"
-                                    }).then((result) => {
-                                        if (result.isConfirmed) {
-                                            window.location.href = `./Crud-comisionistas/eliminar.php?id=${id}`;
-                                        }
-                                    })
-                                }
-                            </script>
-                        <?php
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal de ver -->
+                <div class="modal fade" id="ver<?php echo $row['UsuarioID'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Información de <?php echo $row['NombreUsuario'] . " " . $row['ApellidosUsuario'] ?></h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row mb-4 justify-content-center">
+                                    <div class="col text-center">
+                                        <b>Número de Documento: </b>
+                                        <div><?php echo $row['UsuarioID'] ?></div>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-6">
+                                        <b>Nombre: </b><?php echo $row['NombreUsuario'] ?>
+                                    </div>
+                                    <div class="col-6">
+                                        <b>Apellido: </b><?php echo $row['ApellidosUsuario'] ?>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-6">
+                                        <b>Edad: </b><?php echo $row['Edad'] ?>
+                                    </div>
+                                    <div class="col-6">
+                                        <b>Teléfono: </b><?php echo $row['TelefonoUsuario'] ?>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-6">
+                                        <b>Correo Electrónico: </b><?php echo $row['Correo'] ?>
+                                    </div>
+                                    <div class="col-6">
+                                        <b>Dirección: </b><?php echo $row['Direccion'] ?>
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-6">
+                                        <b>Ciudad: </b><?php echo $row['Ciudad'] ?>
+                                    </div>
+                                    <div class="col-6">
+                                        <b>Contraseña: </b><?php echo $row['Password'] ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button trigger modal -->
+                <script>
+                    function ConfirmDelete(id) {
+                        Swal.fire({
+                            title: "¿Quieres eliminar el comisionista?",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "Sí, eliminar!",
+                            cancelButtonText: "Cancelar"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.location.href = `./Crud-comisionistas/eliminar.php?id=${id}`;
+                            }
+                        })
+                    }
+                </script>
+            <?php
                     }
                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         if ($_POST['identificador'] == 'editar') {
@@ -311,7 +376,7 @@
                             }
                         }
                     }
-                        ?>
+            ?>
             </table>
             <?php
             include("./Crud-comisionistas/crear.php");
