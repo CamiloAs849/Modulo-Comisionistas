@@ -13,15 +13,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 </head>
 
 <body class="scroll">
-
     <div class="row">
         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12 m-0">
             <form class="form_container" action="./Validation/inicioSesion.php" method="post">
-                <img src="https://i.ibb.co/NjnmCjy/logo.png" class=".logo_container" width="90px" alt="">
+                <h1 class="text-center titulo">Visión Limpieza</h1>
+                <img src="https://i.ibb.co/mH9byMP/vision-limpieza.png" class=".logo_container" width="90px" alt="">
                 <div class="title_container">
                     <p class="title text-center">Ingresar al portal</p>
                     <span class="subtitle text-center">Ingresa mediante la clave que te han dado.</span>

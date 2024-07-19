@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="../CSS/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="../Components/sweetalert2@11.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
 </head>
 
 <body>
@@ -149,10 +150,23 @@
                 Información de los proveedores
             </h2>
         </center>
-        <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-plus"></i> Agregar Proveedor</button>
+        <div class="row">
+            <div class="col-xxl-9 col-xl-9 col-lg-8">
+                <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-plus"></i> Agregar Proveedor</button>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-lg-4">
+                <form action="" method="post">
+                    <div class="input-group mb-3">
+                        <input type="hidden" name="identificador" value="busca">
+                        <input type="text" class="form-control" name="busqueda" placeholder="Buscar proveedor" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-success" type="submit" id="button-addon2" name="buscar">Buscar</button>
+                </form>
+            </div>
+        </div>
+
         <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
+            <table class="table table-bordered border-dark table-hover">
+                <thead class="table-success">
                     <tr>
                         <th scope="col">NIT</th>
                         <th scope="col">Nombre</th>
@@ -163,7 +177,16 @@
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM gestion_productos.proveedor";
+                    $sql = "SELECT * FROM gestion_productos.proveedor LIMIT 8";
+                    if (isset($_GET['col'])) {
+                        $num = $_GET['col'];
+                        $sql = "SELECT * FROM gestion_productos.proveedor LIMIT $num,8";
+                    }
+
+                    if (isset($_POST['buscar']) && $_POST['identificador'] == "busca") {
+                        $busqueda = $_POST['busqueda'];
+                        $sql = "SELECT * FROM gestion_productos.proveedor WHERE ProveedorID LIKE '%$busqueda%' OR NombreProveedor LIKE '%$busqueda%' OR Telefono LIKE '%$busqueda%' OR Direccion LIKE '%$busqueda%'";
+                    }
                     $result = mysqli_query($Link, $sql);
                     while ($row = mysqli_fetch_array($result)) { ?>
                         <tr>
@@ -304,8 +327,17 @@
     <?php
     include("./crud-proveedores/crear.php");
     ?>
+    <nav aria-label="Page navigation example" class="d-flex justify-content-center mb-5">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Atrás</a></li>
+            <li class="page-item"><a class="page-link" href="./proveedores.php">1</a></li>
+            <li class="page-item"><a class="page-link" href="./proveedores.php?col=8">2</a></li>
+            <li class="page-item"><a class="page-link" href="./proveedores.php?col=16">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+        </ul>
+    </nav>
     </div>
-    </div>
+
 </body>
 
 </html>
