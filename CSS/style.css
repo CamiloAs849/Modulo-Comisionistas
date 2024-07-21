@@ -21,9 +21,9 @@
     0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1); */
 }
 
-
-
-
+h2 {
+  font-family: "Righteous";
+}
 
 .photos {
   min-height: 100vh;

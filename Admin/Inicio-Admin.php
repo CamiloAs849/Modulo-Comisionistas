@@ -12,6 +12,7 @@
     <script src="../Components/bootstrap.bundle.min.js"></script>
     <scrip src="../Components/alertify.min.js">
         </script>
+
         <link rel="stylesheet" href="../Components/alertify.min.css" />
         <link rel="stylesheet" href="../Components/default.min.css" />
         <link rel="stylesheet" href="../Components/icon.css">

@@ -7,18 +7,15 @@
     <title>Administrador</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
     <link rel="stylesheet" href="../Components/bootstrap.min.css">
-    <script src="../Components/bootstrap.bundle.min.js"></script>
-    <scrip src="../Components/alertify.min.js">
-        </script>
-        <link rel="stylesheet" href="../Components/alertify.min.css" />
-        <link rel="stylesheet" href="../Components/default.min.css" />
-        <link rel="stylesheet" href="../Components/icon.css">
-        <link rel="stylesheet" href="../CSS/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <script src="../Components/sweetalert2@11.js"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="../Components/alertify.min.css" />
+    <link rel="stylesheet" href="../Components/default.min.css" />
+    <link rel="stylesheet" href="../Components/icon.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="../Components/sweetalert2@11.js"></script>
+    <link rel="stylesheet" href="../Components/datatables.min.css">
+    <script src="https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"></script>
 </head>
 
 <body>
@@ -154,20 +151,12 @@
             <div class="col-xxl-9 col-xl-9 col-lg-8">
                 <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-plus"></i> Agregar Proveedor</button>
             </div>
-            <div class="col-xxl-3 col-xl-3 col-lg-4">
-                <form action="" method="post">
-                    <div class="input-group mb-3">
-                        <input type="hidden" name="identificador" value="busca">
-                        <input type="text" class="form-control" name="busqueda" placeholder="Buscar proveedor" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-success" type="submit" id="button-addon2" name="buscar">Buscar</button>
-                </form>
-            </div>
         </div>
-
         <div class="table-responsive">
-            <table class="table table-bordered border-dark table-hover">
+            <table class="table table-bordered border-dark table-hover" id="proveedores">
                 <thead class="table-success">
                     <tr>
+                        <th scope="col">Número</th>
                         <th scope="col">NIT</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Teléfono</th>
@@ -177,19 +166,14 @@
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT * FROM gestion_productos.proveedor LIMIT 8";
-                    if (isset($_GET['col'])) {
-                        $num = $_GET['col'];
-                        $sql = "SELECT * FROM gestion_productos.proveedor LIMIT $num,8";
-                    }
+                    $num = 1;
+                    $sql = "SELECT * FROM gestion_productos.proveedor";
 
-                    if (isset($_POST['buscar']) && $_POST['identificador'] == "busca") {
-                        $busqueda = $_POST['busqueda'];
-                        $sql = "SELECT * FROM gestion_productos.proveedor WHERE ProveedorID LIKE '%$busqueda%' OR NombreProveedor LIKE '%$busqueda%' OR Telefono LIKE '%$busqueda%' OR Direccion LIKE '%$busqueda%'";
-                    }
                     $result = mysqli_query($Link, $sql);
+
                     while ($row = mysqli_fetch_array($result)) { ?>
                         <tr>
+                            <td><?php echo $num++ ?></td>
                             <td><?php echo $row['ProveedorID'] ?></td>
                             <td><?php echo $row['NombreProveedor'] ?></td>
                             <td><?php echo $row['Telefono'] ?></td>
@@ -198,144 +182,30 @@
                                 <div class="d-flex justify-content-around mb-3">
                                     <button class="btn btn-warning me-2" data-bs-toggle="modal" data-bs-target="#editar<?php echo $row['ProveedorID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
                                     <button class="btn btn-info me-2" data-bs-toggle="modal" data-bs-target="#ver<?php echo $row['ProveedorID'] ?>"><i class="fa-solid fa-eye"></i> Ver</button>
-                                    <button class="btn btn-danger" onclick="ConfirmDelete(<?php echo $row['ProveedorID']; ?>)"><i class="fa-solid fa-trash-alt"></i> Eliminar</button>
+                                    <button class="btn btn-danger" onclick="ConfirmDeletePro(<?php echo $row['ProveedorID']; ?>)"><i class="fa-solid fa-trash-alt"></i> Eliminar</button>
                                 </div>
                             </td>
+                        <?php
+                    }
+                        ?>
                 </tbody>
-                <!-- Modal de editar -->
-                <div class="modal fade" id="editar<?php echo $row['ProveedorID'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content ">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir un proveedor</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                                    <div class="mb-3 row justify-content-md-center">
-                                        <div class="col">
-                                            <input type="hidden" name="identificador" value="editar-p">
-                                            <input type="hidden" name="ProveedorID" value="<?php echo $row['ProveedorID']; ?>">
-                                            <label for="nit" class="col-form-label">NIT de la empresa:</label>
-                                            <input type="number" class="form-control" disabled id="nit" name="nit" value="<?php echo $row['ProveedorID'] ?>" required>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row justify-content-md-center">
-                                        <div class="col">
-                                            <label for="nombre" class="col-form-label">Nombre o razón social:</label>
-                                            <input type="text" class="form-control" id="nombre" value="<?php echo $row['NombreProveedor'] ?>" name="nombre" required>
-                                        </div>
-                                        <div class="col">
-                                            <label for="telefono" class="col-form-label">Teléfono:</label>
-                                            <input type="number" class="form-control" value="<?php echo $row['Telefono'] ?>" id="telefono" name="telefono" required>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 row justify-content-md-center">
-                                        <div class="col">
-                                            <label for="direccion" class="col-form-label">Dirección:</label>
-                                            <input type="text" class="form-control" value="<?php echo $row['Direccion'] ?>" id="edad" name="direccion" required>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
-                                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Modal de ver -->
-                <div class="modal fade" id="ver<?php echo $row['ProveedorID'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Información de <?php echo $row['NombreProveedor'] ?></h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="text-center">
-                                    <div>
-                                        <b>NIT: </b>
-                                        <?php echo $row['ProveedorID'] ?>
-                                    </div>
-                                    <div>
-                                        <b>Nombre: </b><?php echo $row['NombreProveedor'] ?>
-                                    </div>
-                                    <div>
-                                        <b>Teléfono: </b><?php echo $row['Telefono'] ?>
-                                    </div>
-                                    <div>
-                                        <b>Dirección: </b>
-                                        <?php echo $row['Direccion'] ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </table>
+            <script src="../Components/jquery-3.7.1.min.js"></script>
+            <script src="../Components/bootstrap.bundle.min.js"></script>
+            <script src="../Components/datatables.min.js"></script>
+            <script src="../JS/scripts.js"></script>
+
+            <?php
+            include("./crud-proveedores/create.php");
+            include("./crud-proveedores/edit.php");
+            include("./crud-proveedores/show.php");
+            include("./crud-proveedores/delete.php");
+            ?>
         </div>
 
-        <script>
-            function ConfirmDelete(id) {
-                Swal.fire({
-                    title: '¿Estás seguro de eliminar este proveedor?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Sí, eliminar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = `./crud-proveedores/eliminar.php?id=${id}`;
-                    }
-                });
-            }
-        </script>
-
-    <?php
-                    }
-                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                        if ($_POST['identificador'] == "editar-p") {
-                            $id = $_POST['ProveedorID'];
-                            $nombre = $_POST['nombre'];
-                            $telefono = $_POST['telefono'];
-                            $direccion = $_POST['direccion'];
-
-                            $sql = "UPDATE gestion_productos.proveedor SET NombreProveedor = '$nombre', Telefono = '$telefono', Direccion = '$direccion'  WHERE ProveedorID = '$id' ";
-
-                            $result = mysqli_query($Link, $sql);
-                            if ($result) {
-                                echo '<script>
-                                        Swal.fire({
-                                        title: "Proveedor actualizado correctamente!",
-                                        icon: "success",
-                                        confirmButtonText: "Aceptar"
-                                        }).then((result) => {
-                                        if (result.isConfirmed) {
-                                        window.location.href = "./proveedores.php";
-                                        }
-                                        })
-                                    </script>';
-                            }
-                        }
-                    }
-    ?>
-    </table>
-    <?php
-    include("./crud-proveedores/crear.php");
-    ?>
-    <nav aria-label="Page navigation example" class="d-flex justify-content-center mb-5">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Atrás</a></li>
-            <li class="page-item"><a class="page-link" href="./proveedores.php">1</a></li>
-            <li class="page-item"><a class="page-link" href="./proveedores.php?col=8">2</a></li>
-            <li class="page-item"><a class="page-link" href="./proveedores.php?col=16">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
-        </ul>
-    </nav>
+        <br>
+        <br>
+        <br>
     </div>
 
 </body>

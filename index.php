@@ -30,10 +30,9 @@
                 <?php
                 if (isset($_GET['error'])) {
                 ?>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <div class="alert alert-danger" role="alert">
                         <?php
                         echo $_GET['error']; ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php
                 }
@@ -51,6 +50,7 @@
                     <span>Ingresar</span>
                 </button>
                 <p class="note text-center">No des tu clave de acceso a terceros.</p>
+                <a href="https://wa.me/3053396000/?text=" class="note text-center">He olvidado mi contraseña</a>
             </form>
         </div>
         <div class="col-xxl-8 col-xl-8 col-lg-6 col-md-12 col-sm-12 m-0 p-0">
