@@ -60,7 +60,7 @@
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
                     <li class="nav-item text-center mx-2 mx-lg-1">
-                        <a class="nav-link active" aria-current="page" href="inicio.php">
+                        <a class="nav-link active" aria-current="page" href="Inicio-Admin.php">
                             <div>
                                 <i class="fa-solid fa-house"></i>
                             </div>

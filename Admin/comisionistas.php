@@ -149,7 +149,7 @@
 
     <div class="container">
         <center>
-            <h2 class="mt-4 mb-4">Información de los comisionistas</h2>
+            <p class="mt-4 mb-4 title">Información de los comisionistas</p>
         </center>
         <div class="row">
             <div class="col-xxl-9 col-xl-9 col-lg-8">

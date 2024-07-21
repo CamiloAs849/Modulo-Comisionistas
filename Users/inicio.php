@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="../Components/icon.css">
         <link rel="stylesheet" href="../CSS/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
 </head>
 
@@ -63,14 +64,7 @@
                             Inicio
                         </a>
                     </li>
-                    <li class="nav-item text-center mx-2 mx-lg-1">
-                        <a class="nav-link" aria-current="page" href="catalogo.php">
-                            <div>
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </div>
-                            Catálogo
-                        </a>
-                    </li>
+
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
@@ -143,6 +137,66 @@
                             window.location.href = "LogOut.php";
                         }
                     </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-1">
+                <div class="card">
+                    <div class="img">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+                        </svg>
+                    </div>
+                    <span><?php echo $nombreUsuario ?></span>
+                    <p class="apellido text-center"><?php echo $apellidoUsuario ?></p>
+                    <p class="text-center">Comisionista</p>
+                    <div class="text-center mb-4">
+                        <button data-bs-toggle="modal" data-bs-target="#info" class="perfil"><i class="fa-solid fa-user fa-sm" style="color: #3b685b;"></i></button>
+                        <br>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#info" class="link-perfil"><strong>Mi perfil</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-dark">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Información personal</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-5 text-center">
+                            <div class="text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="100" width="150" viewBox="0 0 448 512">
+                                    <path fill="#bababa" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+                                </svg>
+                                <br>
+                                <br>
+                                <span class="modal-name"><?php echo $nombreUsuario ?></span>
+                                <br>
+                                <span class="apellido"><?php echo $apellidoUsuario ?></span>
+                                <p><?php echo $usuarioID ?></p>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <p><i class="fa-solid fa-star"></i> <?php echo $Edad ?></p>
+                            <p><i class="fa-solid fa-phone-flip fa-flip-horizontal"></i> <?php echo $telefonoUsuario ?></p>
+                            <p><i class="fa-solid fa-envelope"></i> <?php echo $correoUsuario ?></p>
+                            <p><i class="fa-solid fa-location-dot"></i> <?php echo $direccionUsuario ?></p>
+                            <p><i class="fa-solid fa-city"></i> <?php echo $Ciudad ?></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

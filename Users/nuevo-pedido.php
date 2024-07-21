@@ -64,14 +64,6 @@
                             Inicio
                         </a>
                     </li>
-                    <li class="nav-item text-center mx-2 mx-lg-1">
-                        <a class="nav-link" aria-current="page" href="catalogo.php">
-                            <div>
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </div>
-                            Catálogo
-                        </a>
-                    </li>
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>

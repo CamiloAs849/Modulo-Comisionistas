@@ -64,14 +64,6 @@
                             Inicio
                         </a>
                     </li>
-                    <li class="nav-item text-center mx-2 mx-lg-1">
-                        <a class="nav-link" aria-current="page" href="catalogo.php">
-                            <div>
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </div>
-                            Catálogo
-                        </a>
-                    </li>
                     <li class="nav-item dropdown text-center mx-2 mx-lg-1">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div>
@@ -152,7 +144,7 @@
         <center class="mt-4">
             <a href="inicio.php" class=" btn btn-primary">Regresar</a>
         </center>
-        <h2 class="text-center mb-3 mt-5">Editar información personal</h2>
+        <p class="text-center mb-3 mt-5 title">Editar información personal</p>
 
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div class="mb-3 row justify-content-md-center">

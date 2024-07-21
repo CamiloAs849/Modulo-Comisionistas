@@ -37,9 +37,6 @@ while ($row = mysqli_fetch_array($result)) { ?>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
-                </div>
             </div>
         </div>
     </div>

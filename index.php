@@ -21,7 +21,7 @@
         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12 m-0">
             <form class="form_container" action="./Validation/inicioSesion.php" method="post">
                 <h1 class="text-center titulo">Visión Limpieza</h1>
-                <img src="https://i.ibb.co/mH9byMP/vision-limpieza.png" class=".logo_container" width="90px" alt="">
+                <img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" class=".logo_container" width="90px" alt="">
                 <div class="title_container">
                     <p class="title text-center">Ingresar al portal</p>
                     <span class="subtitle text-center">Ingresa mediante la clave que te han dado.</span>
@@ -79,4 +79,4 @@
     </div>
 </body>
 
-</html>
+</html><img src=" alt=" vision-limpieza-removebg-preview" border="0">

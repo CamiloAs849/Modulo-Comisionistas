@@ -21,9 +21,6 @@
     0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1); */
 }
 
-h2 {
-  font-family: "Righteous";
-}
 
 .photos {
   min-height: 100vh;
@@ -49,7 +46,6 @@ h2 {
 }
 
 .title {
-  margin: 0;
   font-size: 2rem;
   font-weight: 700;
   color: #212121;
@@ -227,65 +223,98 @@ textarea {
   resize: none;
 }
 
+/* Perfil */
 
 .card {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  background-color: #f2f2f2;
   border-radius: 10px;
+  width: 17em;
+  height: 22.5em;
+  background: rgb(248, 249, 250);
+  transition: 1s ease-in-out;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+
+.card span {
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  display: block;
+  font-size: 1.5em;
+  font-family: "Righteous";
+}
+
+.apellido {
+  font-size: 1.1em;
+  font-family: "Righteous";
+}
+
+.card .info {
+  font-weight: 400;
+  color: black;
+  display: block;
+  text-align: center;
+  font-size: 0.72em;
+  margin: 1em;
+}
+
+.card .img {
+  width: 4.8em;
+  height: 4.8em;
+  background: rgba(115, 115, 115, 0);
+  border-radius: 15px;
+  margin: auto;
+}
+
+.card .share {
+  margin-top: 1em;
+  display: flex;
   justify-content: center;
-  overflow: hidden;
-  perspective: 1000px;
-  box-shadow: 0 0 0 5px #ffffff80;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  gap: 1em;
 }
 
-.card svg {
-  width: 48px;
-  fill: #333;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+/* .card a {
+  color: white;
+  transition: .4s ease-in-out;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+.card a:hover {
+  color: red;
+} */
+
+/* .card button {
+  padding: 0.8em 1.7em;
+  display: block;
+  margin: auto;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  transition: .4s ease-in-out;
+} */
+
+.perfil {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: rgb(95, 184, 193);
+  border-radius: 50px;
 }
 
-.card__content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: #f2f2f2;
-  transform: rotateX(-90deg);
-  transform-origin: bottom;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.link-perfil {
+  color: rgb(95, 184, 193);
+  text-decoration: none;
+  font-size: .9em;
 }
 
-.card:hover .card__content {
-  transform: rotateX(0deg);
+.modal-name {
+  font-family: "Righteous";
+  font-size: 1.5rem;
 }
 
-.card__title {
-  margin: 0;
-  font-size: 24px;
-  color: #333;
-  font-weight: 700;
-}
-
-.card:hover svg {
-  scale: 0;
-}
-
-.card__description {
-  margin: 10px 0 0;
-  font-size: 14px;
-  color: #777;
-  line-height: 1.4;
-}
+/* .card button:hover {
+  background: red;
+  color: white;
+  cursor: pointer;
+} */

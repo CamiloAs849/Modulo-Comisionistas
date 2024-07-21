@@ -25,7 +25,6 @@ $(document).ready(function () {
             ": active para ordenar la columna en orden descendente",
         },
       },
-      scrollY: 750,
       lengthMenu: [
         [10, 25, -1],
         [10, 25, "All"],
@@ -55,7 +54,6 @@ $(document).ready(function () {
           last: "Ultimo",
         },
       },
-      scrollY: 750,
       lengthMenu: [
         [10, 25, -1],
         [10, 25, "All"],
@@ -63,6 +61,7 @@ $(document).ready(function () {
     });
   });
 });
+
 // Funciones de eliminar
 function ConfirmDeleteCom(id) {
   Swal.fire({

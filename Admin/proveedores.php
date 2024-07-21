@@ -58,7 +58,7 @@
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
                     <li class="nav-item text-center mx-2 mx-lg-1">
-                        <a class="nav-link" aria-current="page" href="inicio.php">
+                        <a class="nav-link" aria-current="page" href="Inicio-Admin.php">
                             <div>
                                 <i class="fa-solid fa-house"></i>
                             </div>
@@ -143,9 +143,9 @@
 
     <div class="container">
         <center>
-            <h2 class="mt-4 mb-4">
+            <p class="mt-4 mb-4 title">
                 Información de los proveedores
-            </h2>
+            </p>
         </center>
         <div class="row">
             <div class="col-xxl-9 col-xl-9 col-lg-8">
@@ -199,7 +199,6 @@
             include("./crud-proveedores/create.php");
             include("./crud-proveedores/edit.php");
             include("./crud-proveedores/show.php");
-            include("./crud-proveedores/delete.php");
             ?>
         </div>
 
