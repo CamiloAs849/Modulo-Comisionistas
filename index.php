@@ -9,7 +9,7 @@
     <script src="./Components/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./Components/icon.css">
-    <link rel="icon" href="https://i.ibb.co/NjnmCjy/logo.png">
+    <link rel="icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,4 +79,4 @@
     </div>
 </body>
 
-</html><img src=" alt=" vision-limpieza-removebg-preview" border="0">
+</html>

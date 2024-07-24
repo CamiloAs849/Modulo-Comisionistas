@@ -42,184 +42,192 @@
     $usuarioID = $row['UsuarioID'];
     $contraseña = $row['Password'];
     ?>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-            <!-- Navbar brand -->
-            <a class="navbar-brand" href="inicio.php"><?php echo $nombreUsuario ?></a>
+    <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</a>
 
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span> </button>
+        <ul class="navbar-nav flex-row d-md-none">
+            <li class="nav-item text-nowrap">
+                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i>
+                </button>
+            </li>
+        </ul>
+    </header>
 
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
-                    <li class="nav-item text-center mx-2 mx-lg-1">
-                        <a class="nav-link" aria-current="page" href="inicio.php">
-                            <div>
-                                <i class="fa-solid fa-house"></i>
-                            </div>
-                            Inicio
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div>
-                                <i class="fa-solid fa-truck"></i>
-                            </div>
-                            Pedidos
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="nuevo-pedido.php">Nuevo pedido</a></li>
-                            <li><a class="dropdown-item" href="historial-pedidos.php">Ver historial de pedidos</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar bg-dark col-md-3 col-lg-2 p-0 ">
+                <div class="offcanvas-md bg-dark offcanvas-end" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header bg-dark">
+                        <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body  d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 text-center d-flex align-items-center gap-2" aria-current="page" href="./inicio.php">
+                                    <i class="fa-solid fa-house"></i> Inicio
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./nuevo-pedido.php">
+                                    <i class="fa-solid fa-cart-shopping"></i> Nuevo pedido
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="#">
+                                    <i class="fa-solid fa-boxes-stacked"></i> Catálogo
+                                </a>
                             </li>
                         </ul>
-                    </li>
-                </ul>
-                <!-- Left links -->
-
-                <!-- Right links -->
-                <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
-                    <li class="nav-item dropdown text-center mx-2 mx-lg-1">
-                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div>
-                                <i class="fa-solid fa-gear"></i>
-                            </div>
-                            Opciones
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="show.php">Ver información personal</a></li>
-                            <li><a class="dropdown-item" href="edit.php">Editar información</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
+                        <hr style="color: white;">
+                        <ul class="nav flex-column mb-auto">
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center gap-2 active" href="./edit.php">
+                                    <i class="fa-solid fa-pen-to-square"></i> Actualizar datos
+                                </a>
                             </li>
-                            <li><a class="dropdown-item" href="#">Sobre las comisiones</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="#">
+                                    <i class="fa-solid fa-circle-question"></i> Sobre las comisiones
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="#">
+                                    <i class="fa-solid fa-circle-info"></i> Acumulado de comisión
+                                </a>
+                            </li>
                         </ul>
-                    </li>
-                    <li class="nav-item text-center mx-2 mx-lg-1">
-                        <button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <div>
-                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+                        <hr class="" style="color: white;">
+
+                        <ul class="nav flex-column mb-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Log Out Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content modal-dark">
+                            <div class="modal-header ">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            Cerrar Sesión
-                        </button>
-
-                    </li>
-                </ul>
-                <!-- Right links -->
-            </div>
-            <!-- Collapsible wrapper -->
-        </div>
-        <!-- Container wrapper -->
-    </nav>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content modal-dark">
-                <div class="modal-header ">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body ">
-                    ¿Seguro que quieres cerrar sesión?
-                </div>
-                <div class="modal-footer ">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
-                    <script>
-                        function Confirm() {
-                            window.location.href = "LogOut.php";
-                        }
-                    </script>
+                            <div class="modal-body ">
+                                ¿Seguro que quieres cerrar sesión?
+                            </div>
+                            <div class="modal-footer ">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                                <script>
+                                    function Confirm() {
+                                        window.location.href = "LogOut.php";
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <center class="mt-4">
-            <a href="inicio.php" class=" btn btn-primary">Regresar</a>
-        </center>
-        <p class="text-center mb-3 mt-5 title">Editar información personal</p>
+            <div class="col mt-4">
+                <p class="text-center mb-3 mt-5 title">Editar información personal</p>
+                <div class="mx-4">
+                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                        <div class="mb-3 row justify-content-md-center">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="Documento" name="Documento" aria-describedby="emailHelp" placeholder="" disabled value="<?php echo $usuario ?>">
+                                    <label for="Documento">Numero de documento</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 row justify-content-md-center">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="NombreUsuario" name="NombreUsuario" placeholder="" disabled value="<?php echo $nombreUsuario ?>">
+                                    <label for="Nombre" class="form-label">Nombre</label>
+                                </div>
+                            </div>
 
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <div class="mb-3 row justify-content-md-center">
-                <div class="col">
-                    <label for="Documento" class="form-label">Numero de documento</label>
-                    <input type="email" class="form-control" id="Documento" name="Documento" aria-describedby="emailHelp" placeholder="" disabled value="<?php echo $usuario ?>">
-                </div>
-            </div>
-            <div class="mb-3 row justify-content-md-center">
-                <div class="col">
-                    <label for="Nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="NombreUsuario" name="NombreUsuario" placeholder="" disabled value="<?php echo $nombreUsuario ?>">
-                </div>
+                            <div class="mb-3 col">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="ApellidosUsuario" name="ApellidosUsuario" placeholder="" disabled value="<?php echo $apellidoUsuario ?>">
+                                    <label for="Apellidos" class="form-label">Apellidos</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 row justify-content-md-center">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="Edad" name="Edad" placeholder="" disabled value="<?php echo $Edad ?>">
+                                    <label for="Edad" class="form-label">Edad</label>
+                                </div>
+                            </div>
 
-                <div class="mb-3 col">
-                    <label for="Apellidos" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="ApellidosUsuario" name="ApellidosUsuario" placeholder="" disabled value="<?php echo $apellidoUsuario ?>">
-                </div>
-            </div>
-            <div class="mb-3 row justify-content-md-center">
-                <div class="col">
-                    <label for="Edad" class="form-label">Edad</label>
-                    <input type="number" class="form-control" id="Edad" name="Edad" placeholder="" disabled value="<?php echo $Edad ?>">
-                </div>
+                            <div class="mb-3 col">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="Telefono" name="TelefonoUsuario" placeholder="" value="<?php echo $telefonoUsuario ?>">
+                                    <label for="Telefono" class="form-label">Teléfono</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 row justify-content-md-center">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="Correo" name="Correo" placeholder="" value="<?php echo $correoUsuario ?>">
+                                    <label for="Correo" class="form-label">Correo Electrónico</label>
+                                </div>
+                            </div>
 
-                <div class="mb-3 col">
-                    <label for="Telefono" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" id="Telefono" name="TelefonoUsuario" placeholder="" value="<?php echo $telefonoUsuario ?>">
+                            <div class="mb-3 col">
+                                <div class="form-floating">
+                                    <textarea type="number" class="form-control" id="Direccion" name="Dirrecion" placeholder="" rows="1"><?php echo $direccionUsuario ?></textarea>
+                                    <label for="Dirrecion" class="form-label">Dirreción</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 row justify-content-md-center">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="Ciudad" name="Ciudad" placeholder="" value="<?php echo $Ciudad ?>">
+                                    <label for="Ciudad" class="form-label">Ciudad</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="password" name="Password" disabled placeholder="" value="<?php echo $contraseña ?>">
+                                    <label for="password" class="form-label">Contraseña</label>
+                                </div>
+                            </div>
+                        </div>
+                        <center class="mb-3">
+                            <button type="submit" class="btn btn-outline-success">Actualizar datos</button>
+                        </center>
                 </div>
-            </div>
-            <div class="mb-3 row justify-content-md-center">
-                <div class="col">
-                    <label for="Correo" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="Correo" name="Correo" placeholder="" value="<?php echo $correoUsuario ?>">
-                </div>
+                </form>
 
-                <div class="mb-3 col">
-                    <label for="Dirrecion" class="form-label">Dirreción</label>
-                    <textarea type="number" class="form-control" id="Direccion" name="Dirrecion" placeholder="" rows="1"><?php echo $direccionUsuario ?></textarea>
-                </div>
-            </div>
-            <div class="mb-3 row justify-content-md-center">
-                <div class="col">
-                    <label for="Ciudad" class="form-label">Ciudad</label>
-                    <input type="text" class="form-control" id="Ciudad" name="Ciudad" placeholder="" value="<?php echo $Ciudad ?>">
-                </div>
-                <div class="col">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="Password" disabled placeholder="" value="<?php echo $contraseña ?>">
-                </div>
-            </div>
-            <center class="mb-3">
-                <button type="submit" class="btn btn-outline-success">Actualizar datos</button>
-            </center>
+                <?php
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    function validar($data)
+                    {
+                        $data = trim($data);
+                        $data = stripslashes($data);
+                        $data = htmlspecialchars($data);
+                        return $data;
+                    }
 
-        </form>
+                    $TelefonoUsuario = validar($_POST['TelefonoUsuario']);
+                    $Correo = validar($_POST['Correo']);
+                    $Dirrecion = validar($_POST['Dirrecion']);
+                    $Ciudad = validar($_POST['Ciudad']);
 
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            function validar($data)
-            {
-                $data = trim($data);
-                $data = stripslashes($data);
-                $data = htmlspecialchars($data);
-                return $data;
-            }
-
-            $TelefonoUsuario = validar($_POST['TelefonoUsuario']);
-            $Correo = validar($_POST['Correo']);
-            $Dirrecion = validar($_POST['Dirrecion']);
-            $Ciudad = validar($_POST['Ciudad']);
-
-            if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty($Ciudad)) {
-                if ($TelefonoUsuario == $row['TelefonoUsuario'] && $Correo == $row['Correo'] && $Dirrecion == $row['Direccion'] && $Ciudad == $row['Ciudad']) {
-                    echo '<script>
+                    if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty($Ciudad)) {
+                        if ($TelefonoUsuario == $row['TelefonoUsuario'] && $Correo == $row['Correo'] && $Dirrecion == $row['Direccion'] && $Ciudad == $row['Ciudad']) {
+                            echo '<script>
                         Swal.fire({
                             title: "No se ha modificado ningún dato!",
                             icon: "warning",
@@ -230,15 +238,15 @@
                             }
                         });
                     </script>';
-                } else {
-                    $sql = "UPDATE gestion_productos.comisionista 
+                        } else {
+                            $sql = "UPDATE gestion_productos.comisionista 
                     SET TelefonoUsuario = '$TelefonoUsuario', Correo = '$Correo', Ciudad = '$Ciudad', Direccion = '$Dirrecion'
                     WHERE UsuarioID = '$usuarioID'";
 
-                    $result = mysqli_query($Link, $sql);
+                            $result = mysqli_query($Link, $sql);
 
-                    if ($result === true) {
-                        echo '<script>
+                            if ($result === true) {
+                                echo '<script>
                         Swal.fire({
                             title: "Datos actualizados exitosamente!",
                             icon: "success",
@@ -249,8 +257,8 @@
                             }
                         });
                     </script>';
-                    } else {
-                        echo  '<script>
+                            } else {
+                                echo  '<script>
                     Swal.fire({
                         title: "Error al actualizar los datos!",
                         text: "Por favor, intenta de nuevo.",
@@ -262,30 +270,21 @@
                         }
                     });
                 </script>';
+                            }
+                        }
+                    } else { ?><center>
+                            <div class="alert alert-danger" role="alert">
+                                Faltan campos por llenar.
+                        </center>
+            </div>
+    <?php
                     }
                 }
-            } else { ?><center>
-                    <div class="alert alert-danger" role="alert">
-                        Faltan campos por llenar.
-                </center>
-    </div>
-<?php
-            }
-        }
 
-?>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<?php include("../footer.php") ?>
+                include("../footer.php") ?>
+        </div>
+
+    </div>
 
 </body>
 

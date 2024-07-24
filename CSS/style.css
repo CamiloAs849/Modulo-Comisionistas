@@ -318,3 +318,17 @@ textarea {
   color: white;
   cursor: pointer;
 } */
+
+.nav-link:hover {
+  color: white;
+  background-color: rgb(66, 70, 73);
+}
+
+.active {
+  color: white;
+  background-color: rgb(66, 70, 73);
+}
+
+.nav-link:active {
+  background-color: rgb(131, 141, 149);
+}
