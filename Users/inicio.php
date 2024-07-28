@@ -57,7 +57,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="sidebar bg-dark col-md-3 col-lg-2 p-0 ">
-                <div class="offcanvas-md bg-dark offcanvas-end" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                <div class="offcanvas-md bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -103,55 +103,62 @@
 
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
-                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <a href="" class="nav-link text-white-50 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content modal-dark">
-                                <div class="modal-header ">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body ">
-                                    ¿Seguro que quieres cerrar sesión?
-                                </div>
-                                <div class="modal-footer ">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
-                                    <script>
-                                        function Confirm() {
-                                            window.location.href = "LogOut.php";
-                                        }
-                                    </script>
-                                </div>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content modal-dark">
+                            <div class="modal-header ">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body ">
+                                ¿Seguro que quieres cerrar sesión?
+                            </div>
+                            <div class="modal-footer ">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                                <script>
+                                    function Confirm() {
+                                        window.location.href = "LogOut.php";
+                                    }
+                                </script>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col mt-4">
-                <center>
-                    <p class="title">Perfil</p>
-                    <div class="card mb-4 ">
-                        <div class="img">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-                            </svg>
-                        </div>
-                        <span><?php echo $nombreUsuario ?></span>
-                        <p class="apellido text-center"><?php echo $apellidoUsuario ?></p>
-                        <p class="text-center">Comisionista</p>
-                        <div class="text-center mb-4">
-                            <button data-bs-toggle="modal" data-bs-target="#info" class="perfil"><i class="fa-solid fa-user fa-sm" style="color: #3b685b;"></i></button>
-                            <br>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#info" class="link-perfil"><strong>Mi perfil</strong></a>
-                        </div>
+                <div class="row">
+                    <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12">
+                        <p class="title text-center">Perfil</p>
+                        <center>
+                            <div class="tarjeta mb-4 ">
+                                <div class="img">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+                                    </svg>
+                                </div>
+                                <span><?php echo $nombreUsuario ?></span>
+                                <p class="apellido text-center"><?php echo $apellidoUsuario ?></p>
+                                <p class="text-center">Comisionista</p>
+                                <div class="text-center mb-4">
+                                    <button data-bs-toggle="modal" data-bs-target="#info" class="perfil"><i class="fa-solid fa-user fa-sm" style="color: #3b685b;"></i></button>
+                                    <br>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#info" class="link-perfil"><strong>Mi perfil</strong></a>
+                                </div>
+                            </div>
+                        </center>
                     </div>
-                </center>
+                    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-12  mt-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel perspiciatis ea modi, quaerat ipsa sit placeat exercitationem ratione quidem quod id consequatur quia, tenetur alias. Laborum similique ipsam magnam provident!
+                    </div>
+                </div>
                 <p class="text-center title">Historial de pedidos</p>
                 <div class="table-responsive">
                     <table class="table" id="historial">
