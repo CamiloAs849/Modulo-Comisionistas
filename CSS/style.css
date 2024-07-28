@@ -21,7 +21,6 @@
     0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1); */
 }
 
-
 .photos {
   min-height: 100vh;
 }
@@ -30,9 +29,14 @@
   box-sizing: border-box;
   width: 80px;
   height: 80px;
-  background: linear-gradient(180deg, rgba(248, 248, 248, 0) 50%, #F8F8F888 100%);
-  border: 1px solid #F7F7F8;
-  filter: drop-shadow(0px 0.5px 0.5px #EFEFEF) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+  background: linear-gradient(
+    180deg,
+    rgba(248, 248, 248, 0) 50%,
+    #f8f8f888 100%
+  );
+  border: 1px solid #f7f7f8;
+  filter: drop-shadow(0px 0.5px 0.5px #efefef)
+    drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
   border-radius: 11px;
 }
 
@@ -56,7 +60,7 @@
   max-width: 80%;
   text-align: center;
   line-height: 1.1rem;
-  color: #8B8E98
+  color: #8b8e98;
 }
 
 .input_container {
@@ -79,7 +83,7 @@
 
 .input_label {
   font-size: 0.75rem;
-  color: #8B8E98;
+  color: #8b8e98;
   font-weight: 600;
 }
 
@@ -90,7 +94,8 @@
   border-radius: 7px;
   outline: none;
   border: 1px solid #e5e5e5;
-  filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+  filter: drop-shadow(0px 1px 0px #efefef)
+    drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
   transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
 }
 
@@ -109,7 +114,7 @@
   outline: none;
   color: #ffffff;
   cursor: pointer;
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
 
 .sign-in_btn:hover {
@@ -128,7 +133,8 @@
   outline: none;
   color: #242424;
   border: 1px solid #e5e5e5;
-  filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+  filter: drop-shadow(0px 1px 0px #efefef)
+    drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
   cursor: pointer;
 }
 
@@ -144,7 +150,8 @@
   outline: none;
   color: #ffffff;
   border: 1px solid #e5e5e5;
-  filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+  filter: drop-shadow(0px 1px 0px #efefef)
+    drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
   cursor: pointer;
 }
 
@@ -154,7 +161,7 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
-  color: #8B8E98;
+  color: #8b8e98;
 }
 
 .separator .line {
@@ -167,10 +174,8 @@
 
 .note {
   font-size: 0.75rem;
-  color: #8B8E98;
+  color: #8b8e98;
 }
-
-
 
 .button-log {
   cursor: pointer;
@@ -192,8 +197,6 @@
   height: 24px;
   fill: var(--main-color);
 }
-
-
 
 .modal-dark {
   background-color: rgb(33, 37, 41);
@@ -305,7 +308,7 @@ textarea {
 .link-perfil {
   color: rgb(95, 184, 193);
   text-decoration: none;
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 .modal-name {
