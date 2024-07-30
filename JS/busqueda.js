@@ -7,7 +7,7 @@ document.addEventListener("keyup", e => {
 
       producto.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "").includes(e.target.value.toLowerCase())
         ? producto.classList.remove("filtro")
-        : producto.classList.add("filtro")
+        : producto.classList.add("filtro");
     });
 
   }

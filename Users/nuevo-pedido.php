@@ -137,11 +137,16 @@
                     <p class="title mt-4">Nuevo pedido</p>
                     <div class="mx-4">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-8">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="buscador" placeholder="">
                                     <label for="buscador">Buscar producto</label>
                                 </div>
+                            </div>
+                            <div class="col d-flex justify-content-end mb-4">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carrito">
+                                    <i class="fa-solid fa-cart-shopping"></i> Carrito
+                                </button>
                             </div>
                         </div>
                         <div class="row ">
@@ -154,20 +159,22 @@
 
                             ?>
 
-                                <div class="col-xxl-3 col-xl-3 articulo col-lg-3 col-md-4 col-sm-4 col-12 mb-4 ">
-                                    <div class="card mb-4 rounded-3 shadow-sm border-dark">
+                                <div class="col-xxl-3 col-xl-3 articulo col-lg-3 col-md-4 col-sm-4 col-12 mb-4">
+                                    <div class="card mb-4 rounded-3 shadow-sm border-dark" style="height: 350px;">
                                         <div class="card-header py-3 text-bg-dark border-dark">
-                                            <h4 class="my-0 fw-normal"><?php echo $row['NombreProducto'] ?></h4>
+                                            <h5 class="my-0 fw-normal"><?php echo $row['NombreProducto'] ?></h5>
                                         </div>
                                         <div class="card-body">
-                                            <h1 class="card-title pricing-card-title"><?php echo $row['Precio'] ?> $
-                                            </h1>
-                                            <p><?php echo $row['Descripcion'] ?></p>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control " placeholder="" type="number">
-                                                <label class="form-label">Cantidad</label>
-                                            </div>
-                                            <button type="button" class="w-100 btn btn-lg btn-dark"><i class="fa-solid fa-plus"></i> Agregar</button>
+                                            <p class="card-title pricing-card-title fs-2"><span><?php echo $row['Precio'] ?> $
+                                                </span></p>
+                                            <p class=""><?php echo $row['Descripcion'] ?></p>
+                                            <form action="./carrito.php" method="post">
+                                                <input type="hidden" value="<?php $row['NombreProducto'] ?>" name="nombre">
+                                                <input type="hidden" value="<?php $row['Precio'] ?>" name="precio">
+                                                <input class="form-control mb-4 " placeholder="Cantidad" type="number" name="cantidad" value="1" required>
+                                                <button type="submit" class="w-100 btn btn-lg btn-dark"><i class="fa-solid fa-plus"></i> Agregar</button>
+
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -176,7 +183,10 @@
                     </div>
 
                 </center>
-                <?php include("../footer.php") ?>
+                <?php
+                include("../footer.php");
+                // include("./carrito.php");
+                ?>
             </div>
 
         </div>
@@ -184,6 +194,72 @@
 
 
     <script src="../JS/busqueda.js"></script>
+
+    <?php
+    $carritoMio = $_SESSION['carrito'];
+    // $_SESSION['carrito'] = $carritoMio;
+
+    if (isset($_SESSION['carrito'])) {
+        for ($i = 0; $i <= count($carritoMio) - 1; $i++) {
+            if ($carritoMio[$i] != NULL) {
+                $total_cantidad = $carritoMio['cantidad'];
+                $total_cantidad++;
+                $totalCantidad += $totalCantidad;
+            }
+        }
+    }
+    ?>
+
+    <div class="modal fade" id="carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content modal-dark">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Productos en el carrito</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $total = 0;
+                            if (isset($_SESSION['carrito'])) {
+                                for ($i = 0; $i <= count($carritoMio) - 1; $i++) {
+                                    if ($carritoMio[$i] != NULL) {
+                                        $nombre = $carritoMio[$i]['nombre'];
+                                        $precio = $carritoMio[$i]['precio'];
+                                        $cantidad = $carritoMio[$i]['cantidad'];
+                                        $total_precio = $precio * $cantidad;
+                                        $total += $total_precio;
+                            ?>
+                                        <tr>
+                                            <td><?php echo $nombre; ?></td>
+                                            <td><?php echo $precio; ?></td>
+                                            <td><?php echo $cantidad; ?></td>
+                                            <td><?php echo $total_precio; ?></td>
+                                        </tr>
+                            <?php }
+                                }
+                            }
+                            ?>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger">Vaciar Carrito</button>
+                    <button type="button" class="btn btn-success">Hacer pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

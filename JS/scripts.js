@@ -26,8 +26,8 @@ $(document).ready(function () {
         },
       },
       lengthMenu: [
-        [10, 25, -1],
-        [10, 25, "Todos"],
+        [5, 10, 25, -1],
+        [5, 10, 25, "Todos"],
       ],
     });
   });
@@ -55,8 +55,8 @@ $(document).ready(function () {
         },
       },
       lengthMenu: [
-        [10, 25, -1],
-        [10, 25, "Todos"],
+        [5, 10, 25, -1],
+        [5, 10, 25, "Todos"],
       ],
     });
   });

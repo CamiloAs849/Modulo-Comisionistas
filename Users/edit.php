@@ -136,7 +136,7 @@
             <div class="col mt-4">
                 <p class="text-center mb-3 mt-5 title">Editar información personal</p>
                 <div class="mx-4">
-                    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                    <form method="post" id="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <div class="form-floating">
@@ -178,8 +178,11 @@
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="Correo" name="Correo" placeholder="" value="<?php echo $correoUsuario ?>">
+                                    <input type="text" class="form-control" id="Correo" name="Correo" placeholder="" value="<?php echo $correoUsuario ?>">
                                     <label for="Correo" class="form-label">Correo Electrónico</label>
+                                    <div class="text-danger" id="mensaje-correo">
+
+                                    </div>
                                 </div>
                             </div>
 
@@ -274,7 +277,7 @@
                         }
                     } else { ?><center>
                             <div class="alert alert-danger" role="alert">
-                                <?php  ?>
+                                <?php echo "Llene todos los campos" ?>
                             </div>
                         </center><?php
                                 }
@@ -286,7 +289,6 @@
         </div>
 
     </div>
-
 </body>
 
 </html>
