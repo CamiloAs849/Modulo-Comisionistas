@@ -207,9 +207,9 @@
                                 </div>
                             </div>
                         </div>
-                        <center class="mb-3">
+                        <div class="text-center mb-4">
                             <button type="submit" class="btn btn-outline-success">Actualizar datos</button>
-                        </center>
+                        </div>
                 </div>
                 </form>
 
@@ -241,6 +241,11 @@
                             }
                         });
                     </script>';
+                        } else if (!filter_var($Correo, FILTER_VALIDATE_EMAIL)) { ?>
+                            <div class="alert alert-danger text-center">
+                                El correo es invalido
+                            </div>
+                        <?php
                         } else {
                             $sql = "UPDATE gestion_productos.comisionista 
                     SET TelefonoUsuario = '$TelefonoUsuario', Correo = '$Correo', Ciudad = '$Ciudad', Direccion = '$Dirrecion'
@@ -275,15 +280,15 @@
                 </script>';
                             }
                         }
-                    } else { ?><center>
-                            <div class="alert alert-danger" role="alert">
-                                <?php echo "Llene todos los campos" ?>
-                            </div>
-                        </center><?php
-                                }
-                            }
+                    } else { ?>
+                        <div class="alert alert-danger text-center" role="alert">
+                            Llene todos los campos
+                        </div>
+                <?php
+                    }
+                }
 
-                            include("../footer.php") ?>
+                include("../footer.php") ?>
             </div>
 
         </div>

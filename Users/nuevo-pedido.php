@@ -156,9 +156,8 @@
                             $result = mysqli_query($Link, $sql);
 
                             while ($row = mysqli_fetch_array($result)) {
-
+                                $status = false;
                             ?>
-
                                 <div class="col-xxl-3 col-xl-3 articulo col-lg-3 col-md-4 col-sm-4 col-12 mb-4">
                                     <div class="card mb-4 rounded-3 shadow-sm border-dark" style="height: 350px;">
                                         <div class="card-header py-3 text-bg-dark border-dark">
@@ -168,12 +167,26 @@
                                             <p class="card-title pricing-card-title fs-2"><span><?php echo $row['Precio'] ?> $
                                                 </span></p>
                                             <p class=""><?php echo $row['Descripcion'] ?></p>
-                                            <form action="./carrito.php" method="post">
-                                                <input type="hidden" value="<?php $row['NombreProducto'] ?>" name="nombre">
-                                                <input type="hidden" value="<?php $row['Precio'] ?>" name="precio">
-                                                <input class="form-control mb-4 " placeholder="Cantidad" type="number" name="cantidad" value="1" required>
-                                                <button type="submit" class="w-100 btn btn-lg btn-dark"><i class="fa-solid fa-plus"></i> Agregar</button>
+                                            <form action="./Cart/addCart.php" method="post">
+                                                <input type="hidden" value="<?php echo $row['ProductoID'] ?>" name="id">
 
+                                                <?php if (isset($_SESSION["carrito"])) {
+                                                    foreach ($_SESSION["carrito"] as $c) {
+                                                        if ($c["id"] == $row['ProductoID']) {
+                                                            $status = true;
+                                                            break;
+                                                        }
+                                                    }
+                                                }
+                                                ?>
+                                                <?php if ($status) { ?>
+                                                    <input class="form-control mb-4 " disabled min="1 placeholder=" type="number" name="cantidad" value="1" required>
+                                                    <button type="button" class="w-100 btn btn-lg btn-info" data-bs-toggle="modal" data-bs-target="#carrito"><i class="fa-solid fa-check"></i> Agregado</button>
+                                                <?php
+                                                } else { ?>
+                                                    <input class="form-control mb-4 " min="1 placeholder=" type="number" name="cantidad" value="1" required>
+                                                    <button type="submit" class="w-100 btn btn-lg btn-dark"><i class="fa-solid fa-plus"></i> Agregar</button>
+                                                <?php } ?>
                                             </form>
                                         </div>
                                     </div>
@@ -185,7 +198,7 @@
                 </center>
                 <?php
                 include("../footer.php");
-                // include("./carrito.php");
+                include("./cart.php")
                 ?>
             </div>
 
@@ -194,72 +207,6 @@
 
 
     <script src="../JS/busqueda.js"></script>
-
-    <?php
-    $carritoMio = $_SESSION['carrito'];
-    // $_SESSION['carrito'] = $carritoMio;
-
-    if (isset($_SESSION['carrito'])) {
-        for ($i = 0; $i <= count($carritoMio) - 1; $i++) {
-            if ($carritoMio[$i] != NULL) {
-                $total_cantidad = $carritoMio['cantidad'];
-                $total_cantidad++;
-                $totalCantidad += $totalCantidad;
-            }
-        }
-    }
-    ?>
-
-    <div class="modal fade" id="carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content modal-dark">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Productos en el carrito</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-dark">
-                        <thead>
-                            <tr>
-                                <th>Producto</th>
-                                <th>Precio</th>
-                                <th>Cantidad</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $total = 0;
-                            if (isset($_SESSION['carrito'])) {
-                                for ($i = 0; $i <= count($carritoMio) - 1; $i++) {
-                                    if ($carritoMio[$i] != NULL) {
-                                        $nombre = $carritoMio[$i]['nombre'];
-                                        $precio = $carritoMio[$i]['precio'];
-                                        $cantidad = $carritoMio[$i]['cantidad'];
-                                        $total_precio = $precio * $cantidad;
-                                        $total += $total_precio;
-                            ?>
-                                        <tr>
-                                            <td><?php echo $nombre; ?></td>
-                                            <td><?php echo $precio; ?></td>
-                                            <td><?php echo $cantidad; ?></td>
-                                            <td><?php echo $total_precio; ?></td>
-                                        </tr>
-                            <?php }
-                                }
-                            }
-                            ?>
-                    </table>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-danger">Vaciar Carrito</button>
-                    <button type="button" class="btn btn-success">Hacer pedido</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>
