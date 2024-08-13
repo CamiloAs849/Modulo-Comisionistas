@@ -54,10 +54,11 @@
             </li>
         </ul>
     </header>
-    <div class="container-fluid">
+    <div class="container-fluid ">
+        <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
-            <div class="sidebar bg-dark col-md-3 col-lg-2 p-0 ">
-                <div class="offcanvas-md bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+            <div class="sidebar bg-dark col-md-3 col-lg-2 p-0">
+                <div class=" offcanvas-md bg-dark offcanvas-start" tabindex=" -1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -133,7 +134,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col mt-4">
+            <div class="col mt-4 ">
                 <div class="row">
                     <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12">
                         <p class="title text-center">Perfil</p>

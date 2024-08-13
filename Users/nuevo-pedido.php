@@ -54,14 +54,15 @@
         </ul>
     </header>
     <div class="container-fluid">
+        <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
             <div class="sidebar bg-dark col-md-3 col-lg-2 p-0 ">
-                <div class="offcanvas-md bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                <div class="offcanvas-md bg-dark offcanvas-start min-vh-100 " tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
                     </div>
-                    <div class="offcanvas-body  d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                    <div class="offcanvas-body  d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto ">
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link text-white-50 text-center d-flex align-items-center gap-2" aria-current="page" href="./inicio.php">
@@ -132,7 +133,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-xxl-10 col-lg-10 col-md-9">
                 <center>
                     <p class="title mt-4">Nuevo pedido</p>
                     <div class="mx-4">
@@ -149,7 +150,10 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="row ">
+                        <div class="row justify-content-md-center">
+                            <div id="noResult" class="filtro alert alert-danger w-25">
+                                <i class="fa-solid fa-circle-notch fa-spin"></i> No se encontraron productos.
+                            </div>
                             <?php
                             $sql = "SELECT * FROM gestion_productos.producto";
 
@@ -158,15 +162,15 @@
                             while ($row = mysqli_fetch_array($result)) {
                                 $status = false;
                             ?>
-                                <div class="col-xxl-3 col-xl-3 articulo col-lg-3 col-md-4 col-sm-4 col-12 mb-4">
+                                <div class="col-xxl-3 col-xl-3 articulo col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
                                     <div class="card mb-4 rounded-3 shadow-sm border-dark" style="height: 350px;">
                                         <div class="card-header py-3 text-bg-dark border-dark">
                                             <h5 class="my-0 fw-normal"><?php echo $row['NombreProducto'] ?></h5>
                                         </div>
                                         <div class="card-body">
-                                            <p class="card-title pricing-card-title fs-2"><span><?php echo $row['Precio'] ?> $
+                                            <p class="card-title pricing-card-title fs-2"><span>$<?php echo number_format($row['Precio'], 0, '', '.') ?>
                                                 </span></p>
-                                            <p class=""><?php echo $row['Descripcion'] ?></p>
+                                            <p class="fs-6"><?php echo $row['Descripcion'] ?></p>
                                             <form action="./Cart/addCart.php" method="post">
                                                 <input type="hidden" value="<?php echo $row['ProductoID'] ?>" name="id">
 
@@ -180,12 +184,15 @@
                                                 }
                                                 ?>
                                                 <?php if ($status) { ?>
-                                                    <input class="form-control mb-4 " disabled min="1 placeholder=" type="number" name="cantidad" value="1" required>
-                                                    <button type="button" class="w-100 btn btn-lg btn-info" data-bs-toggle="modal" data-bs-target="#carrito"><i class="fa-solid fa-check"></i> Agregado</button>
+                                                    <input class="form-control mb-3 " disabled min="1 placeholder=" type="number" name="cantidad" value="1" required>
+                                                    <button type="button" class="w-100 btn btn-info" data-bs-toggle="modal" data-bs-target="#carrito"><i class="fa-solid fa-check"></i> Agregado</button>
                                                 <?php
                                                 } else { ?>
-                                                    <input class="form-control mb-4 " min="1 placeholder=" type="number" name="cantidad" value="1" required>
-                                                    <button type="submit" class="w-100 btn btn-lg btn-dark"><i class="fa-solid fa-plus"></i> Agregar</button>
+                                                    <div class="form-floating">
+                                                        <input class="form-control mb-2 " min="1 placeholder=" type="number" id="cantidad" placeholder="" name="cantidad" value="1" required>
+                                                        <label for="cantidad">Cantidad</label>
+                                                        <button type="submit" class=" w-100 btn btn-dark"><i class="fa-solid fa-plus"></i> Agregar</button>
+                                                    </div>
                                                 <?php } ?>
                                             </form>
                                         </div>
@@ -201,7 +208,6 @@
                 include("./cart.php")
                 ?>
             </div>
-
         </div>
     </div>
 

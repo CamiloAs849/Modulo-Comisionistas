@@ -14,12 +14,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <script src="./Components/jquery-3.7.1.min.js"></script>
 </head>
 
 <body class="scroll">
     <div class="row">
         <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12 m-0">
-            <form class="form_container" action="./Validation/inicioSesion.php" method="post">
+            <form class="form_container" id="FormLogin" method="post">
                 <h1 class="text-center titulo">Visión Limpieza</h1>
                 <img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" class=".logo_container" width="90px" alt="">
                 <div class="title_container">
@@ -27,17 +28,8 @@
                     <span class="subtitle text-center">Ingresa mediante la clave que te han dado.</span>
                 </div>
                 <br>
-                <?php
-                if (isset($_GET['error'])) {
-                ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php
-                        echo $_GET['error']; ?>
-                    </div>
-                <?php
-                }
-                ?>
-
+                <div id="message">
+                </div>
                 <div class="input_container">
                     <i class="fa-solid fa-user icon text-center"></i>
                     <input placeholder="Numero de documento" name="UsuarioID" type="text" class="input_field" id="email_field">
@@ -77,6 +69,25 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#FormLogin").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: './Validation/inicioSesion.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#message').html(response)
+                    }
+                })
+            })
+        });
+    </script>
+
 </body>
 
 </html>

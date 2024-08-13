@@ -54,6 +54,7 @@
     </header>
 
     <div class="container-fluid">
+        <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
             <div class="sidebar bg-dark col-md-3 col-lg-2 p-0 ">
                 <div class="offcanvas-md bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">

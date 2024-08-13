@@ -1,6 +1,9 @@
 <?php
-session_start();
-include "../DataBase/conexion.php"
+include "../DataBase/conexion.php";
+
+if (empty($_SESSION['UsuarioID'])) {
+    header("Location: ./nuevo-pedido.php");
+}
 ?>
 
 <div class="modal fade" id="carrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -15,51 +18,66 @@ include "../DataBase/conexion.php"
                 $productos = $Link->query("select * from gestion_productos.producto");
                 if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
                     $total = 0;
+                    $comision = 0;
+                    $totalFactura = 0;
 
                 ?>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Cantidad</th>
-                                <th>Producto</th>
-                                <th>Precio</th>
-                                <th>Total</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <?php
-                        foreach ($_SESSION['carrito'] as $c) {
-                            $productos = $Link->query("SELECT * FROM gestion_productos.producto WHERE ProductoID=$c[id]");
-                            $r = $productos->fetch_object();
-                            $total += $c['cantidad'] * $r->Precio;
-                        ?>
-                            <tbody>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
                                 <tr>
-                                    <th><?php echo $c['cantidad'] ?></th>
-                                    <th><?php echo $r->NombreProducto ?></th>
-                                    <th>$<?php echo $r->Precio ?></th>
-                                    <th>$<?php echo $c['cantidad'] * $r->Precio ?></th>
-                                    <th><a href="./Cart/delProduct.php?id=<?php echo $c['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></th>
+                                    <th>Cantidad</th>
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                                    <th>Comisión</th>
+                                    <th>Total</th>
+                                    <th></th>
                                 </tr>
-                            </tbody>
-                    <?php
+                            </thead>
+                            <?php
+                            foreach ($_SESSION['carrito'] as $c) {
+                                $productos = $Link->query("SELECT * FROM gestion_productos.producto WHERE ProductoID=$c[id]");
+                                $r = $productos->fetch_object();
+                                $total += $c['cantidad'] * $r->Precio;
+                            ?>
+                                <tbody>
+                                    <tr>
+                                        <th><?php echo $c['cantidad'] ?></th>
+                                        <th><?php echo $r->NombreProducto ?></th>
+                                        <th>$<?php echo number_format($r->Precio, 0, '', '.') ?></th>
+                                        <th>$<?php echo number_format($r->Precio * 0.19, 0, '', '.') ?></th>
+                                        <th>$<?php echo number_format($c['cantidad'] * $r->Precio, 0, '', '.') ?></th>
+                                        <th><a href="./Cart/delProduct.php?id=<?php echo $c['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></th>
+                                    </tr>
+                                </tbody>
+                    </div>
+            <?php
+                            }
                         }
-                    }
-                    ?>
-                    </table>
-                    <?php if (empty($total)) { ?>
-                        <h3 class="text-center"><i class="fa-solid fa-hourglass fa-2xl"></i> El carrito está vacío</h3>
-                    <?php
-                    } else { ?>
-                        <h3>Total a pagar: <?php echo $total ?></h3>
-                    <?php } ?>
+            ?>
+
+            </table>
+            <?php if (empty($total)) { ?>
+                <h3 class="text-center mt-4 mb-4"><i class="fa-solid fa-hourglass fa-2xl"></i> El carrito está vacío</h3>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            <?php
+            } else {
+                $comision = $total * 0.19;
+                $totalFactura = $total - $comision;
+            ?>
+                <h4>Total de factura: $<?php echo number_format($total, 0, '', '.') ?></h4>
+                <h4>Comisión: $<?php echo number_format($comision, 0, '', '.') ?></h4>
+                <h4>Total a pagar: $<?php echo number_format($totalFactura, 0, '', '.')  ?></h4>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <a href="./Cart/delAll.php" class="btn btn-danger">Vaciar Carrito</a>
-                <button type="button" class="btn btn-success">Hacer pedido</button>
+                <a href="./hacerPedido.php" class="btn btn-success">Hacer pedido <i class="fa-solid fa-arrow-right"></i></a>
             </div>
+        <?php } ?>
         </div>
     </div>
 </div>
