@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="../CSS/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="../Components/sweetalert2@11.js"></script>
+        <script src="../Components/jquery-3.7.1.min.js"></script>
 
 </head>
 
@@ -56,13 +57,13 @@
     <div class="container-fluid">
         <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
-            <div class="sidebar bg-dark col-md-3 col-lg-2 p-0 ">
-                <div class="offcanvas-md bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+            <div class="sidebar col-md-3 col-lg-2 p-0 ">
+                <div class="offcanvas-md bg-dark offcanvas-start min-vh-100" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
                     </div>
-                    <div class="offcanvas-body  d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                    <div class="offcanvas-body min-vh-100  d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link text-white-50 text-center d-flex align-items-center gap-2" aria-current="page" href="./inicio.php">
@@ -137,7 +138,11 @@
             <div class="col mt-4">
                 <p class="text-center mb-3 mt-5 title">Editar información personal</p>
                 <div class="mx-4">
-                    <form method="post" id="formulario" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                    <center>
+                        <div class="text-center w-25" id="message">
+                        </div>
+                    </center>
+                    <form method="post" id="FormEdit">
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <div class="form-floating">
@@ -211,90 +216,34 @@
                         <div class="text-center mb-4">
                             <button type="submit" class="btn btn-outline-success">Actualizar datos</button>
                         </div>
+                    </form>
                 </div>
-                </form>
 
                 <?php
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    function validar($data)
-                    {
-                        $data = trim($data);
-                        $data = stripslashes($data);
-                        $data = htmlspecialchars($data);
-                        return $data;
-                    }
-
-                    $TelefonoUsuario = validar($_POST['TelefonoUsuario']);
-                    $Correo = validar($_POST['Correo']);
-                    $Dirrecion = validar($_POST['Dirrecion']);
-                    $Ciudad = validar($_POST['Ciudad']);
-
-                    if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty($Ciudad)) {
-                        if ($TelefonoUsuario == $row['TelefonoUsuario'] && $Correo == $row['Correo'] && $Dirrecion == $row['Direccion'] && $Ciudad == $row['Ciudad']) {
-                            echo '<script>
-                        Swal.fire({
-                            title: "No se ha modificado ningún dato!",
-                            icon: "warning",
-                            confirmButtonText: "Aceptar"
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = "./edit.php";
-                            }
-                        });
-                    </script>';
-                        } else if (!filter_var($Correo, FILTER_VALIDATE_EMAIL)) { ?>
-                            <div class="alert alert-danger text-center">
-                                El correo es invalido
-                            </div>
-                        <?php
-                        } else {
-                            $sql = "UPDATE gestion_productos.comisionista 
-                    SET TelefonoUsuario = '$TelefonoUsuario', Correo = '$Correo', Ciudad = '$Ciudad', Direccion = '$Dirrecion'
-                    WHERE UsuarioID = '$usuarioID'";
-
-                            $result = mysqli_query($Link, $sql);
-
-                            if ($result === true) {
-                                echo '<script>
-                        Swal.fire({
-                            title: "Datos actualizados exitosamente!",
-                            icon: "success",
-                            confirmButtonText: "Aceptar"
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                window.location.href = "./edit.php";
-                            }
-                        });
-                    </script>';
-                            } else {
-                                echo  '<script>
-                    Swal.fire({
-                        title: "Error al actualizar los datos!",
-                        text: "Por favor, intenta de nuevo.",
-                        icon: "error",
-                        confirmButtonText: "Aceptar"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = "./edit.php";
-                        }
-                    });
-                </script>';
-                            }
-                        }
-                    } else { ?>
-                        <div class="alert alert-danger text-center" role="alert">
-                            Llene todos los campos
-                        </div>
-                <?php
-                    }
-                }
-
                 include("../footer.php") ?>
             </div>
 
         </div>
 
     </div>
+    <script>
+        $(document).ready(function() {
+            $("#FormEdit").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: '../Validation/editarDatos.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#message').html(response)
+                    }
+                })
+            })
+        });
+    </script>
 </body>
 
 </html>

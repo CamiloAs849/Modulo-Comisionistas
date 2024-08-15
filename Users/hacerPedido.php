@@ -37,6 +37,7 @@ $row = mysqli_fetch_array($result);
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link rel="stylesheet" href="../Components/datatables.min.css">
+    <script src="../Components/jquery-3.7.1.min.js"></script>
 
 </head>
 
@@ -57,7 +58,7 @@ $row = mysqli_fetch_array($result);
             <a href="./nuevo-pedido.php" class="btn btn-primary mt-4 btn-lg"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
         </div>
         <p class="title mt-4 text-center">Información de entrega del pedido</p>
-        <form action="" method="post">
+        <form action="" id="FormPedido" method="post">
             <div class="row">
                 <h3 class="text-center mb-3 fw-semibold">Informacion personal</h3>
                 <div class="col-12">
@@ -101,7 +102,7 @@ $row = mysqli_fetch_array($result);
                 <h3 class="fw-semibold text-center mb-3">Información de contacto</h3>
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="form-floating mb-4">
-                        <input type="email" class="form-control" value="<?php echo $row['Correo'] ?>" name="Correo" id="Correo" placeholder="">
+                        <input type="text" class="form-control" value="<?php echo $row['Correo'] ?>" name="Correo" id="Correo" placeholder="">
                         <label for="Correo">Correo electronico</label>
                     </div>
                 </div>
@@ -118,8 +119,8 @@ $row = mysqli_fetch_array($result);
                     <table class="table table-striped  table-hover">
                         <thead>
                             <tr>
-                                <th>Cantidad</th>
                                 <th>Producto</th>
+                                <th>Cantidad</th>
                                 <th>Precio</th>
                                 <th>Comsión</th>
                                 <th>Total del producto</th>
@@ -135,8 +136,8 @@ $row = mysqli_fetch_array($result);
                             ?>
 
                                 <tr>
-                                    <td><?php echo $c['cantidad'] ?></td>
                                     <td><?php echo $r->NombreProducto ?></td>
+                                    <td><?php echo $c['cantidad'] ?></td>
                                     <td>$<?php echo number_format($r->Precio, 0, '', '.') ?></td>
                                     <td>$<?php echo number_format($r->Precio * 0.19, 0, '', '.') ?></td>
                                     <td>$<?php echo number_format($c['cantidad'] * $r->Precio, 0, '', '.') ?></td>
@@ -181,30 +182,31 @@ $row = mysqli_fetch_array($result);
                 <button type="submit" class="btn btn-primary my-4">Confirmar entrega</button>
             </div>
         </form>
-        <?php
-        if (isset($_POST['fechaPedido'])) {
-            $usuarioID = $_SESSION['UsuarioID'];
-            $direccion = $_POST['Direccion'];
-            $ciudad = $_POST['Ciudad'];
-            $telefono = $_POST['Telefono'];
-            $correo = $_POST['Correo'];
-            $fechaPedido = $_POST['fechaPedido'];
-            $totalPagar = $_POST['TotalPagar'];
-
-            echo "<hr>$usuarioID";
-            echo "<hr>$direccion";
-            echo "<hr>$ciudad";
-            echo "<hr>$telefono";
-            echo "<hr>$correo";
-            echo "<hr>$fechaPedido";
-            echo "<hr>$totalPagar";
-        }
-        ?>
+        <center>
+            <div id="message" class="text-center w-25"></div>
+        </center>
     </div>
     <?php
     include("../footer.php");
     ?>
-
+    <script>
+        $(document).ready(function() {
+            $("#FormPedido").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: '../Validation/pedido.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#message').html(response)
+                    }
+                })
+            })
+        });
+    </script>
 </body>
 
 </html>

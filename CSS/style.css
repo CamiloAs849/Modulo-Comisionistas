@@ -249,3 +249,8 @@ textarea {
   right: 25px;
   z-index: 1;
 }
+
+/* Sidebar estatica */
+.offcanvas-start {
+  position: fixed;
+}

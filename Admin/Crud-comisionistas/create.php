@@ -34,52 +34,55 @@ if (empty($_SESSION['AdminID'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <form action="" id="FormCrateComisionista" method="post">
+                        <div id="message" class="text-center">
+
+                        </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <input type="hidden" name="identificador" value="crear">
                                 <label for="documento" class="col-form-label">Número de documento:</label>
-                                <input type="number" class="form-control" id="documento" name="UsuarioID" value="<?php echo $row['UsuarioID'] ?>" required>
+                                <input type="number" class="form-control" id="documento" name="UsuarioID" value="<?php echo $row['UsuarioID'] ?>">
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="recipient-name" class="col-form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="recipient-name" name="Nombre" required>
+                                <input type="text" class="form-control" id="recipient-name" name="Nombre">
                             </div>
                             <div class="col">
                                 <label for="message-text" class="col-form-label">Apellido:</label>
-                                <input type="text" class="form-control" id="message-text" name="Apellido" required>
+                                <input type="text" class="form-control" id="message-text" name="Apellido">
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="edad" class="col-form-label">Edad:</label>
-                                <input type="number" class="form-control" id="edad" name="Edad" required>
+                                <input type="number" class="form-control" id="edad" name="Edad">
                             </div>
                             <div class="col">
                                 <label for="telefono" class="col-form-label">Teléfono:</label>
-                                <input type="tel" class="form-control" id="telefono" name="Telefono" required>
+                                <input type="tel" class="form-control" id="telefono" name="Telefono">
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="correo" class="col-form-label">Correo:</label>
-                                <input type="email" class="form-control" id="correo" name="Correo" required>
+                                <input type="text" class="form-control" id="correo" name="Correo">
                             </div>
                             <div class="col">
                                 <label for="direccion" class="col-form-label">Dirección:</label>
-                                <input type="text" class="form-control" id="direccion" name="Direccion" required>
+                                <input type="text" class="form-control" id="direccion" name="Direccion">
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="ciudad" class="col-form-label">Ciudad:</label>
-                                <input type="text" class="form-control" id="ciudad" name="Ciudad" required>
+                                <input type="text" class="form-control" id="ciudad" name="Ciudad">
                             </div>
                             <div class="col">
                                 <label for="password" class="col-form-label">Contraseña:</label>
-                                <input type="password" class="form-control" id="password" name="Password" required>
+                                <input type="password" class="form-control" id="password" name="Password">
                             </div>
                         </div>
                         <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>

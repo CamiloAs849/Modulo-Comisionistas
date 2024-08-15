@@ -56,13 +56,13 @@
     <div class="container-fluid">
         <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
-            <div class="sidebar bg-dark col-md-3 col-lg-2 p-0 ">
+            <div class="sidebar col-md-3 col-lg-2 p-0 ">
                 <div class="offcanvas-md bg-dark offcanvas-start min-vh-100 " tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
                     </div>
-                    <div class="offcanvas-body  d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto ">
+                    <div class="offcanvas-body min-vh-100 d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto ">
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link text-white-50 text-center d-flex align-items-center gap-2" aria-current="page" href="./inicio.php">
@@ -189,7 +189,7 @@
                                                 <?php
                                                 } else { ?>
                                                     <div class="form-floating">
-                                                        <input class="form-control mb-2 " min="1 placeholder=" type="number" id="cantidad" placeholder="" name="cantidad" value="1" required>
+                                                        <input class="form-control mb-2" placeholder="" min="1" max="5" type="number" id="cantidad" placeholder="" name="cantidad" value="1" required>
                                                         <label for="cantidad">Cantidad</label>
                                                         <button type="submit" class=" w-100 btn btn-dark"><i class="fa-solid fa-plus"></i> Agregar</button>
                                                     </div>

@@ -26,8 +26,8 @@ if (empty($_SESSION['UsuarioID'])) {
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Cantidad</th>
                                     <th>Producto</th>
+                                    <th>Cantidad</th>
                                     <th>Precio</th>
                                     <th>Comisión</th>
                                     <th>Total</th>
@@ -42,12 +42,12 @@ if (empty($_SESSION['UsuarioID'])) {
                             ?>
                                 <tbody>
                                     <tr>
-                                        <th><?php echo $c['cantidad'] ?></th>
                                         <th><?php echo $r->NombreProducto ?></th>
-                                        <th>$<?php echo number_format($r->Precio, 0, '', '.') ?></th>
-                                        <th>$<?php echo number_format($r->Precio * 0.19, 0, '', '.') ?></th>
-                                        <th>$<?php echo number_format($c['cantidad'] * $r->Precio, 0, '', '.') ?></th>
-                                        <th><a href="./Cart/delProduct.php?id=<?php echo $c['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></th>
+                                        <td><?php echo $c['cantidad'] ?></td>
+                                        <td>$<?php echo number_format($r->Precio, 0, '', '.') ?></td>
+                                        <td>$<?php echo number_format($r->Precio * 0.19, 0, '', '.') ?></td>
+                                        <td>$<?php echo number_format($c['cantidad'] * $r->Precio, 0, '', '.') ?></td>
+                                        <td><a href="./Cart/delProduct.php?id=<?php echo $c['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
                                     </tr>
                                 </tbody>
                     </div>

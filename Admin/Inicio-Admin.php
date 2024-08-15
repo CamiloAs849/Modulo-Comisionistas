@@ -57,8 +57,8 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <div class="sidebar bg-dark col-md-3 col-lg-2 p-0 ">
-                <div class="offcanvas-md bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+            <div class="sidebar  col-md-3 col-lg-2 p-0 ">
+                <div class="offcanvas-md min-vh-100 bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -93,25 +93,25 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content modal-dark">
-                                <div class="modal-header ">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body ">
-                                    ¿Seguro que quieres cerrar sesión?
-                                </div>
-                                <div class="modal-footer ">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
-                                    <script>
-                                        function Confirm() {
-                                            window.location.href = "LogOut.php";
-                                        }
-                                    </script>
-                                </div>
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content modal-dark">
+                            <div class="modal-header ">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body ">
+                                ¿Seguro que quieres cerrar sesión?
+                            </div>
+                            <div class="modal-footer ">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                                <script>
+                                    function Confirm() {
+                                        window.location.href = "LogOut.php";
+                                    }
+                                </script>
                             </div>
                         </div>
                     </div>
