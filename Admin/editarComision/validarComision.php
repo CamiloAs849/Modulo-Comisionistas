@@ -1,14 +1,13 @@
 <?php
 include("../../DataBase/conexion.php");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $comision = $_POST['comision'];
+    $comision = trim($_POST['comision']);
     $id = $_POST['id'];
     $sql = "SELECT * FROM gestion_productos.comision WHERE UsuarioID = $id";
     $result = mysqli_query($Link, $sql);
     $row = mysqli_fetch_array($result);
     if ($comision == $row['PorcentajeComision']) {
         echo '<div class="alert alert-warning">No se ha modificado el porcentaje de comisión.</div>';
-        exit();
     } else {
         if (empty($comision)) {
             echo '<div class="alert alert-danger">El porcentaje de comisión está vacío.</div>';

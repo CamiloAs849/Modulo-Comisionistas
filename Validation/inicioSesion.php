@@ -15,11 +15,11 @@ $password = validar($_POST['password']);
 
 
 if (empty($usuario) && empty($password)) {
-    echo '<div class="alert alert-danger"> El usuario y contraseña son requeridos </div>';
+    echo '<div class="alert alert-danger"> El usuario y contraseña son requeridos.</div>';
 } else if (empty($usuario)) {
-    echo '<div class="alert alert-danger"> El usuario es requerido </div>';
+    echo '<div class="alert alert-danger"> El usuario es requerido.</div>';
 } else if (empty($password)) {
-    echo '<div class="alert alert-danger"> La contraseña es requerida </div>';
+    echo '<div class="alert alert-danger"> La contraseña es requerida.</div>';
 } else {
     // $contraseña = md5($contraseña);
     $sql = "SELECT * FROM gestion_productos.comisionista  WHERE UsuarioID = '$usuario' AND Password = '$password'";
@@ -36,7 +36,7 @@ if (empty($usuario) && empty($password)) {
             $_SESSION['UsuarioID'] = $row['UsuarioID'];
             echo "<script>window.location.href = '../../Modulo-Comisionistas/Users/inicio.php';</script>";
         } else {
-            echo '<div class="alert alert-danger">El usuario o contraseña son incorrectos </div>';
+            echo '<div class="alert alert-danger">El usuario o contraseña son incorrectos.</div>';
         }
     } else {
         $sql = "SELECT * FROM gestion_productos.administrador WHERE AdminID = '$usuario' AND Password = '$password'";
@@ -49,10 +49,10 @@ if (empty($usuario) && empty($password)) {
                 sleep(1);
                 echo "<script>window.location.href = '../../Modulo-Comisionistas/Admin/Inicio-Admin.php';</script>";
             } else {
-                echo '<div class="alert alert-danger">El usuario o contraseña son incorrectos </div>';
+                echo '<div class="alert alert-danger">El usuario o contraseña son incorrectos,</div>';
             }
         } else {
-            echo '<div class="alert alert-danger">El usuario y contraseña son incorrectos </div>';
+            echo '<div class="alert alert-danger">El usuario y contraseña son incorrectos./div>';
         }
     }
 }

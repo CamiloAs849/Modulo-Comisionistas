@@ -60,7 +60,7 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <div class="sidebar  col-md-3 col-lg-2 p-0 ">
+            <div class="sidebar col-xl-2  col-md-4 col-lg-3 p-0 ">
                 <div class="offcanvas-md min-vh-100 bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
@@ -134,7 +134,7 @@
                         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-plus"></i> Agregar comisionista</button>
                     </div>
                 </div>
-                <div class="table-responsive ">
+                <div class="table-responsive mb-5 ">
                     <table class="table table-bordered border-dark table-hover" id="comisionistas">
                         <thead class="table-success">
                             <tr>
@@ -172,7 +172,7 @@
                                         <div class="d-flex justify-content-around mb-3">
                                             <button class="btn btn-warning me-2" href="" data-bs-toggle="modal" data-bs-target=" #editar<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
                                             <button class="btn btn-info me-2" data-bs-toggle="modal" data-bs-target="#ver<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-eye"></i> Ver</button>
-                                            <button class="btn btn-danger" onclick="ConfirmDeleteCom(<?php echo $row['UsuarioID']; ?>)"><i class="fa-solid fa-delete-left"></i> Eliminar</button>
+                                            <button class="btn btn-danger" onclick="ConfirmDeleteCom(<?php echo $row['UsuarioID']; ?>, '<?php echo $row['NombreUsuario'] . ' ' . $row['ApellidosUsuario'] ?>')"><i class="fa-solid fa-delete-left"></i> Eliminar</button>
                                         </div>
                                     </td>
                                 <?php

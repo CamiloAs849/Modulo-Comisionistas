@@ -44,7 +44,7 @@ if (empty($_SESSION['AdminID'])) {
     </header>
     <div class="container-fluid">
         <div class="row">
-            <div class="sidebar  col-md-3 col-lg-2 p-0 ">
+            <div class="sidebar col-xl-2  col-md-4 col-lg-3 p-0 ">
                 <div class="offcanvas-md min-vh-100 bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
@@ -115,35 +115,37 @@ if (empty($_SESSION['AdminID'])) {
                         Comisión de comisionistas
                     </p>
                 </center>
-                <table class="table table-bordered border-dark table-hover" id="comisionTable">
-                    <thead class="table-success">
-                        <tr>
-                            <th>Documento</th>
-                            <th>Nombre</th>
-                            <th>Apellidos</th>
-                            <th>Porcentaje de comisión</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $sql = "SELECT c.UsuarioID, c.NombreUsuario, c.ApellidosUsuario,
+                <div class="table-responsive mb-5">
+                    <table class="table table-bordered border-dark table-hover" id="comisionTable">
+                        <thead class="table-success">
+                            <tr>
+                                <th>Documento</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Porcentaje de comisión</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql = "SELECT c.UsuarioID, c.NombreUsuario, c.ApellidosUsuario,
                                     cm.PorcentajeComision FROM comisionista c JOIN comision cm ON c.UsuarioID = cm.UsuarioID;";
 
-                        $result = mysqli_query($Link, $sql);
-                        while ($row = mysqli_fetch_assoc($result)) { ?>
-                            <tr>
-                                <td><?php echo $row['UsuarioID'] ?></td>
-                                <td><?php echo $row['NombreUsuario'] ?></td>
-                                <td><?php echo $row['ApellidosUsuario'] ?></td>
-                                <td><?php echo $row['PorcentajeComision'] ?>%</td>
-                                <td class="text-center"><button type="button" data-bs-toggle="modal" data-bs-target="#editarComision<?php echo $row['UsuarioID'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                            $result = mysqli_query($Link, $sql);
+                            while ($row = mysqli_fetch_assoc($result)) { ?>
+                                <tr>
+                                    <td><?php echo $row['UsuarioID'] ?></td>
+                                    <td><?php echo $row['NombreUsuario'] ?></td>
+                                    <td><?php echo $row['ApellidosUsuario'] ?></td>
+                                    <td><?php echo $row['PorcentajeComision'] ?>%</td>
+                                    <td class="text-center"><button type="button" data-bs-toggle="modal" data-bs-target="#editarComision<?php echo $row['UsuarioID'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <?php
             include("../footer.php");

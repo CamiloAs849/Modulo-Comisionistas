@@ -56,7 +56,7 @@
     <div class="container-fluid ">
         <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
-            <div class="sidebar  col-md-3 col-lg-2 p-0">
+            <div class="sidebar col-xl-2  col-md-3 col-lg-3 p-0 ">
                 <div class=" offcanvas-md bg-dark offcanvas-start min-vh-100 " tabindex=" -1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark ">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
@@ -133,9 +133,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col mt-4 ">
+            <div class="col-md-9 col-xl-10 col-lg-9 mt-4">
                 <div class="row">
-                    <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-12">
+                    <div class="col-xxl-3 col-xl-4 col-lg-12 col-md-12">
                         <p class="title text-center">Perfil</p>
                         <center>
                             <div class="tarjeta mb-4 ">
@@ -155,7 +155,7 @@
                             </div>
                         </center>
                     </div>
-                    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-12 ">
+                    <div class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 ">
                         <h2 class="text-center fw-bold">Lorem, ipsum dolor</h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati, iure neque, suscipit id aliquid non ipsum ducimus ullam perferendis blanditiis, hic delectus dolor error tenetur? Accusamus laudantium ipsum dolor et?</p>
                     </div>

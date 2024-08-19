@@ -33,13 +33,11 @@ if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty(
                         });
                     </script>';
     } else if (!filter_var($Correo, FILTER_VALIDATE_EMAIL)) {
-        echo '<div class="alert alert-danger text-center">
-            El correo es invalido
-        </div>';
+        echo '<div class="alert alert-danger text-center">El correo es invalido.</div>';
     } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $Ciudad)) {
-        echo '<div class="alert alert-danger text-center">
-            Ciudad solo puede contener letras
-        </div>';
+        echo '<div class="alert alert-danger text-center">La ciudad solo puede contener letras.</div>';
+    } else if (strlen($TelefonoUsuario) != 10) {
+        echo '<div class="alert alert-danger text-center">El número de teléfono es invalido.</div>';
     } else {
         $sql = "UPDATE gestion_productos.comisionista 
                     SET TelefonoUsuario = '$TelefonoUsuario', Correo = '$Correo', Ciudad = '$Ciudad', Direccion = '$Dirrecion'
@@ -75,7 +73,5 @@ if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty(
         }
     }
 } else {
-    echo "<div class='alert alert-danger text-center' role='alert'>
-            Llene todos los campos
-            </div>";
+    echo "<div class='alert alert-danger text-center' role='alert'>Llene todos los campos.</div>";
 }

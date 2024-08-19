@@ -14,10 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $telefono = validar($_POST['telefono']);
         $direccion = validar($_POST['direccion']);
         if (empty($nit) || empty($telefono) || empty($direccion) || empty($nombre)) {
-            echo "<div class='alert alert-danger'> Llene todos los campos </div>";
+            echo "<div class='alert alert-danger'> Llene todos los campos.</div>";
         } else {
             if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $nombre)) {
-                echo "<div class='alert alert-danger'> El nombre es invalido</div>";
+                echo "<div class='alert alert-danger'> El nombre es invalido.</div>";
+            } else if (strlen($nit) < 7 || strlen($nit) > 11) {
+                echo "<div class='alert alert-danger'>El NIT es invalido.</div>";
+            } else if (strlen($telefono) != 10) {
+                echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";
             } else {
 
                 $sql = "INSERT INTO gestion_productos.proveedor (ProveedorID, NombreProveedor, Telefono, Direccion) VALUES ('$nit', '$nombre', '$telefono', '$direccion')";
