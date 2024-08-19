@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="../Components/sweetalert2@11.js"></script>
         <script src="../Components/jquery-3.7.1.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
 
 </head>
 
@@ -137,6 +138,7 @@
             </div>
             <div class="col mt-4">
                 <p class="text-center mb-3 mt-5 title">Editar información personal</p>
+                <p class="note text-center fs-6">Comunicate al <a href="https://wa.me/3127087946/?text=HOLA%20MUNDO"><i class="fa-brands fa-whatsapp"></i></a> para cambiar los datos en grises</p>
                 <div class="mx-4">
                     <center>
                         <div class="text-center w-25" id="message">
@@ -219,9 +221,9 @@
                     </form>
                 </div>
 
-                <?php
-                include("../footer.php") ?>
             </div>
+            <?php
+            include("../footer.php") ?>
 
         </div>
 

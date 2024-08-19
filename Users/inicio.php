@@ -155,51 +155,51 @@
                             </div>
                         </center>
                     </div>
-                    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-12  mt-4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel perspiciatis ea modi, quaerat ipsa sit placeat exercitationem ratione quidem quod id consequatur quia, tenetur alias. Laborum similique ipsam magnam provident!
+                    <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-12 ">
+                        <h2 class="text-center fw-bold">Lorem, ipsum dolor</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati, iure neque, suscipit id aliquid non ipsum ducimus ullam perferendis blanditiis, hic delectus dolor error tenetur? Accusamus laudantium ipsum dolor et?</p>
                     </div>
+                    <p class="text-center title">Historial de pedidos</p>
+                    <div class="table-responsive">
+                        <table class="table" id="historial">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Pedido ID</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Shampoo</td>
+                                    <td>$15.00</td>
+                                    <td>2</td>
+                                    <td>2022-01-01</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Crema</td>
+                                    <td>$10.00</td>
+                                    <td>1</td>
+                                    <td>2022-01-02</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php
+                    include("./show.php");
+                    ?>
                 </div>
-                <p class="text-center title">Historial de pedidos</p>
-                <div class="table-responsive">
-                    <table class="table" id="historial">
-                        <thead>
-                            <tr>
-                                <th scope="col">Pedido ID</th>
-                                <th scope="col">Producto</th>
-                                <th scope="col">Precio</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">Fecha</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Shampoo</td>
-                                <td>$15.00</td>
-                                <td>2</td>
-                                <td>2022-01-01</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Crema</td>
-                                <td>$10.00</td>
-                                <td>1</td>
-                                <td>2022-01-02</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <?php
-                include("../footer.php");
-                include("./show.php");
-                ?>
+                <?php include("../footer.php"); ?>
             </div>
         </div>
-    </div>
-    <script src="../Components/jquery-3.7.1.min.js"></script>
-    <script src="../Components/bootstrap.bundle.min.js"></script>
-    <script src="../Components/datatables.min.js"></script>
-    <script src="../JS/scripts.js"></script>
+        <script src="../Components/jquery-3.7.1.min.js"></script>
+        <script src="../Components/bootstrap.bundle.min.js"></script>
+        <script src="../Components/datatables.min.js"></script>
+        <script src="../JS/scripts.js"></script>
 </body>
 
 </html>

@@ -35,6 +35,7 @@ if (empty($_SESSION['UsuarioID'])) {
                                 </tr>
                             </thead>
                             <?php
+                            $porcentajeComision = $_SESSION['comision'] / 100;
                             foreach ($_SESSION['carrito'] as $c) {
                                 $productos = $Link->query("SELECT * FROM gestion_productos.producto WHERE ProductoID=$c[id]");
                                 $r = $productos->fetch_object();
@@ -43,9 +44,15 @@ if (empty($_SESSION['UsuarioID'])) {
                                 <tbody>
                                     <tr>
                                         <th><?php echo $r->NombreProducto ?></th>
-                                        <td><?php echo $c['cantidad'] ?></td>
+                                        <td class="w-25 cantidad">
+                                            <form action="./Cart/editCant.php" method="post" class="d-flex ">
+                                                <input type="hidden" name="id" value="<?php echo $c['id'] ?>">
+                                                <input type="number" name="cantidad" max="5" class="form-control w-25" value="<?php echo $c['cantidad'] ?>">
+                                                <button type="submit" class="btn btn-primary ms-4"> <i class="fa-solid fa-rotate-right"></i></i></button>
+                                            </form>
+                                        </td>
                                         <td>$<?php echo number_format($r->Precio, 0, '', '.') ?></td>
-                                        <td>$<?php echo number_format($r->Precio * 0.19, 0, '', '.') ?></td>
+                                        <td>$<?php echo number_format($r->Precio * $porcentajeComision, 0, '', '.') ?></td>
                                         <td>$<?php echo number_format($c['cantidad'] * $r->Precio, 0, '', '.') ?></td>
                                         <td><a href="./Cart/delProduct.php?id=<?php echo $c['id'] ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a></td>
                                     </tr>
@@ -64,7 +71,7 @@ if (empty($_SESSION['UsuarioID'])) {
                 </div>
             <?php
             } else {
-                $comision = $total * 0.19;
+                $comision = $total * $porcentajeComision;
                 $totalFactura = $total - $comision;
             ?>
                 <h4>Total de factura: $<?php echo number_format($total, 0, '', '.') ?></h4>

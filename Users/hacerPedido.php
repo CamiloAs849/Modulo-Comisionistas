@@ -113,7 +113,7 @@ $row = mysqli_fetch_array($result);
                     </div>
                 </div>
             </div>
-            <h3 class="fw-semibold text-center mb-3">Productos a pedir</h3>
+            <h3 class="fw-semibold text-center mb-3">Pedido</h3>
             <div class="row">
                 <div class="table-responsive">
                     <table class="table table-striped  table-hover">

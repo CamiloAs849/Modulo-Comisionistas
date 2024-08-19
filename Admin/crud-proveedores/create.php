@@ -49,3 +49,21 @@ if (empty($_SESSION['AdminID'])) {
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $("#FormCrateProveedor").on('submit', function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type: 'POST',
+                url: './crud-proveedores/ValidationCrud/validarCrear.php',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    $('#message').html(response)
+                }
+            })
+        })
+    });
+</script>

@@ -18,8 +18,8 @@ while ($row = mysqli_fetch_array($result)) { ?>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-
+                    <form action="" id="FormEditarComisionista<?php echo $row['UsuarioID'] ?>" method="post">
+                        <div class="text-center" id="messageComisionista<?php echo $row['UsuarioID'] ?>"></div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <input type="hidden" name="documento" value="<?php echo $row['UsuarioID'] ?>">
@@ -31,41 +31,41 @@ while ($row = mysqli_fetch_array($result)) { ?>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="nombre" class="col-form-label">Nombre:</label>
-                                <input type="text" class="form-control" value="<?php echo $row['NombreUsuario'] ?>" id="nombre" name="Nombre" required>
+                                <input type="text" class="form-control" value="<?php echo $row['NombreUsuario'] ?>" id="nombre" name="Nombre">
                             </div>
                             <div class="col">
                                 <label for="apellido" class="col-form-label">Apellido:</label>
-                                <input type="text" class="form-control" value="<?php echo $row['ApellidosUsuario'] ?>" id="apellido" name="Apellido" required>
+                                <input type="text" class="form-control" value="<?php echo $row['ApellidosUsuario'] ?>" id="apellido" name="Apellido">
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="edad" class="col-form-label">Edad:</label>
-                                <input type="number" class="form-control" value="<?php echo $row['Edad'] ?>" id="edad" name="Edad" required>
+                                <input type="number" class="form-control" value="<?php echo $row['Edad'] ?>" id="edad" name="Edad">
                             </div>
                             <div class="col">
                                 <label for="telefono" class="col-form-label">Teléfono:</label>
-                                <input type="tel" class="form-control" value="<?php echo $row['TelefonoUsuario'] ?>" id="telefono" name="Telefono" required>
+                                <input type="tel" class="form-control" value="<?php echo $row['TelefonoUsuario'] ?>" id="telefono" name="Telefono">
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="correo" class="col-form-label">Correo:</label>
-                                <input type="email" class="form-control" value="<?php echo $row['Correo'] ?>" id="correo" name="Correo" required>
+                                <input type="email" class="form-control" value="<?php echo $row['Correo'] ?>" id="correo" name="Correo">
                             </div>
                             <div class="col">
                                 <label for="direccion" class="col-form-label">Dirección:</label>
-                                <input type="text" class="form-control" value="<?php echo $row['Direccion'] ?>" id="direccion" name="Direccion" required>
+                                <input type="text" class="form-control" value="<?php echo $row['Direccion'] ?>" id="direccion" name="Direccion">
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="ciudad" class="col-form-label">Ciudad:</label>
-                                <input type="text" class="form-control" value="<?php echo $row['Ciudad'] ?>" id="ciudad" name="Ciudad" required>
+                                <input type="text" class="form-control" value="<?php echo $row['Ciudad'] ?>" id="ciudad" name="Ciudad">
                             </div>
                             <div class="col">
                                 <label for="password" class="col-form-label">Contraseña:</label>
-                                <input type="password" class="form-control" value="<?php echo $row['Password'] ?>" id="password" name="Password" required>
+                                <input type="password" class="form-control" value="<?php echo $row['Password'] ?>" id="password" name="Password">
                             </div>
                         </div>
                         <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
@@ -76,46 +76,24 @@ while ($row = mysqli_fetch_array($result)) { ?>
             </div>
         </div>
     </div>
-
+    <script>
+        $(document).ready(function() {
+            $("#FormEditarComisionista<?php echo $row['UsuarioID'] ?>").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: './Crud-comisionistas/ValidationCrud/validarEditar.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#messageComisionista<?php echo $row['UsuarioID'] ?>').html(response)
+                    }
+                })
+            })
+        });
+    </script>
 <?php
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if ($_POST['identificador'] == 'editar') {
-        $id = $_POST['documento'];
-        $nombre = $_POST['Nombre'];
-        $apellido = $_POST['Apellido'];
-        $edad = $_POST['Edad'];
-        $telefono = $_POST['Telefono'];
-        $correo = $_POST['Correo'];
-        $direccion = $_POST['Direccion'];
-        $ciudad = $_POST['Ciudad'];
-        $password = $_POST['Password'];
-        $sql = "UPDATE gestion_productos.comisionista SET NombreUsuario = '$nombre', ApellidosUsuario = '$apellido', Edad = '$edad', TelefonoUsuario = '$telefono', Correo = '$correo', Direccion = '$direccion', Ciudad = '$ciudad', Password = '$password' WHERE UsuarioID = '$id'";
-
-        $result = mysqli_query($Link, $sql);
-        if ($result === true) {
-            echo '<script>
-                    Swal.fire({
-                    title: "Comisionista actualizado correctamente!",
-                    icon: "success",
-                    confirmButtonText: "Aceptar"
-                    }).then((result) => {
-                    if (result.isConfirmed) {
-                    window.location.href = "./comisionistas.php";
-                    }
-                    })
-                </script>';
-        } else {
-            echo '<script> 
-                Swal.fire({
-                 title: "Hubo un error al actualizar el comisionista!",
-                 icon: "error",
-                 confirmButtonText: "Aceptar
-                )}
-                </script>
-            ';
-        }
-    }
-}
-
 ?>

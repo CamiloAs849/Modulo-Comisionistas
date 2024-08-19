@@ -32,8 +32,10 @@ if (empty($_SESSION['AdminID'])) {
 $id = $_GET["id"];
 if (isset($_GET["id"])) {
     $sql = "DELETE FROM gestion_productos.comisionista WHERE UsuarioID = '$id'";
+    $sql2 = "DELETE FROM gestion_productos.comision WHERE UsuarioID = '$id'";
+    $result2 = mysqli_query($Link, $sql2);
     $result = mysqli_query($Link, $sql);
-    if ($result) {
+    if ($result === true && $result2 === true) {
         echo '<script>
             Swal.fire({
             title: "Comisionista Eliminado Correctamente",

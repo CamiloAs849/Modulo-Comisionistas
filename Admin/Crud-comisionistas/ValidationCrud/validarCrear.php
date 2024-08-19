@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $Direccion = validar($_POST['Direccion']);
         $Ciudad = validar($_POST['Ciudad']);
         $Password = validar($_POST['Password']);
+        $porcentaje = validar($_POST['PorcentajeComision']);
 
         if (empty($Documento) || empty($Nombre) || empty($Apellido) || empty($Edad) || empty($Telefono) || empty($Correo) || empty($Direccion) || empty($Ciudad) || empty($Password)) {
             echo "<div class='alert alert-danger'>Llene todos los campos</div>";
@@ -33,6 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<div class='alert alert-danger'>La edad es invalida</div>";
             } else if (strlen($Documento) < 7 || strlen($Documento) > 11) {
                 echo "<div class='alert alert-danger'>El documento es invalido</div>";
+            } else if (!preg_match('/^-?\d+(\.\d{2}+)?$/', $porcentaje)) {
+                echo "<div class='alert alert-danger'>El porcentaje de comision es invalido</div>";
+            } else if ($porcentaje > 100) {
+                echo "<div class='alert alert-danger'>El porcentaje de comision no puede ser mayor a 100%</div>";
             } else {
                 $sql = "INSERT INTO gestion_productos.comisionista (UsuarioID, NombreUsuario, ApellidosUsuario, Edad, TelefonoUsuario, Correo, Direccion, Ciudad, Password) 
                             VALUES ('$Documento', '$Nombre', '$Apellido', '$Edad', '$Telefono', '$Correo', '$Direccion', '$Ciudad', '$Password')";
@@ -49,6 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                      }
                                  });
                              </script>';
+                    $sql = "INSERT INTO gestion_productos.comision (ComisionID, UsuarioID, PorcentajeComision) VALUES (NULL, '$Documento', '$porcentaje')";
+                    $result = mysqli_query($Link, $sql);
+                    if ($result === true) {
+                    }
                 } else {
                     '<script>
                                  Swal.fire({

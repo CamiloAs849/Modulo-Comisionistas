@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="../Components/icon.css">
         <link rel="stylesheet" href="../CSS/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
 </head>
 
 <body>
@@ -74,13 +75,18 @@
                         <hr class="text-white">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./comisionistas.php">
+                                <a class="nav-link  text-white-50 d-flex align-items-center gap-2" href="./comisionistas.php">
                                     <i class="fa-solid fa-user"></i> Gestión de comisionistas
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./proveedores.php">
                                     <i class="fa-solid fa-building"></i> Gestión de proveedores
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./comision.php">
+                                    <i class="fa-solid fa-percent"></i> Gestión de comisión
                                 </a>
                             </li>
                         </ul>

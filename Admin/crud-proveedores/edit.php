@@ -20,8 +20,8 @@ while ($row = mysqli_fetch_array($result)) { ?>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" id="FormEditProveedor" method="post">
-                        <div id="messageEditar" class="text-center"></div>
+                    <form action="" id="FormEditProveedor<?php echo $row['ProveedorID'] ?>" method="post">
+                        <div id="messageEditar<?php echo $row['ProveedorID'] ?>" class="text-center"></div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <input type="hidden" name="identificador" value="editar-p">
@@ -54,61 +54,24 @@ while ($row = mysqli_fetch_array($result)) { ?>
             </div>
         </div>
     </div>
-<?php
-}
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if ($_POST['identificador'] == "editar-p") {
-        $id = $_POST['ProveedorID'];
-        $sql = "SELECT * FROM gestion_productos.proveedor WHERE ProveedorID = '$id' ";
-        $result = mysqli_query($Link, $sql);
-        $row = mysqli_fetch_array($result);
-        $nombre = $_POST['nombre'];
-        $telefono = $_POST['telefono'];
-        $direccion = $_POST['direccion'];
-        if ($nombre == $row['NombreProveedor'] && $telefono == $row['Telefono'] && $direccion == $row['Direccion']) {
-            echo '<script>
-                    Swal.fire({
-                    title: "No hay cambios en el proveedor.",
-                    icon: "info",
-                    confirmButtonText: "Aceptar"
-                    })
-                </script>';
-        } else {
-            if (empty($nombre) || empty($telefono) || empty($direccion)) {
-                echo '<script>
-                Swal.fire({
-                title: "Todos los campos son obligatorios.",
-                icon: "warning",
-                confirmButtonText: "Aceptar"
+    <script>
+        $(document).ready(function() {
+            $("#FormEditProveedor<?php echo $row['ProveedorID'] ?>").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: './crud-proveedores/ValidationCrud/ValidarEditar.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#messageEditar<?php echo $row['ProveedorID'] ?>').html(response)
+                    }
                 })
-                </script>';
-            } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $nombre)) {
-                echo '<script>
-                        Swal.fire({
-                        title: "El nombre debe contener solo letras.",
-                        icon: "warning",
-                        confirmButtonText: "Aceptar"
-                        })
-                </script>';
-            } else {
-                $sql = "UPDATE gestion_productos.proveedor SET NombreProveedor = '$nombre', Telefono = '$telefono', Direccion = '$direccion'  WHERE ProveedorID = '$id' ";
-
-                $result = mysqli_query($Link, $sql);
-                if ($result) {
-                    echo '<script>
-                        Swal.fire({
-                        title: "Proveedor actualizado correctamente!",
-                        icon: "success",
-                        confirmButtonText: "Aceptar"
-                        }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = "./proveedores.php";
-                        }
-                        })
-                    </script>';
-                }
-            }
-        }
-    }
+            })
+        });
+    </script>
+<?php
 }
 ?>

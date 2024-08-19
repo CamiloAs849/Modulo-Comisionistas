@@ -14,7 +14,8 @@
         <link rel="stylesheet" href="../Components/icon.css">
         <link rel="stylesheet" href="../CSS/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
+        <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
+
 
 </head>
 
@@ -204,13 +205,12 @@
 
                 </center>
                 <?php
-                include("../footer.php");
                 include("./cart.php")
                 ?>
             </div>
         </div>
+        <?php include("../footer.php"); ?>
     </div>
-
 
     <script src="../JS/busqueda.js"></script>
 </body>

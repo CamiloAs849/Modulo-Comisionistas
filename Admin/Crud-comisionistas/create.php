@@ -85,68 +85,16 @@ if (empty($_SESSION['AdminID'])) {
                                 <input type="password" class="form-control" id="password" name="Password">
                             </div>
                         </div>
+                        <div class="mb-3 row justify-content-md-center">
+                            <div class="col">
+                                <label for="porcentaje" class="form-label">Porcentaje de Comisión</label>
+                                <input type="text" class="form-control" id="porcentaje" name="PorcentajeComision">
+                            </div>
+                        </div>
                         <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
                             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
                         </div>
                     </form>
-                    <?php
-
-                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                        if ($_POST['identificador'] == "crear") {
-                            include("../DataBase/conexion.php");
-
-                            function validar($data)
-                            {
-                                $data = trim($data);
-                                $data = stripslashes($data);
-                                $data = htmlspecialchars($data);
-                                return $data;
-                            }
-                            $Documento = validar($_POST['UsuarioID']);
-                            $Nombre = validar($_POST['Nombre']);
-                            $Apellido = validar($_POST['Apellido']);
-                            $Edad = validar($_POST['Edad']);
-                            $Telefono = validar($_POST['Telefono']);
-                            $Correo = validar($_POST['Correo']);
-                            $Direccion = validar($_POST['Direccion']);
-                            $Ciudad = validar($_POST['Ciudad']);
-                            $Password = validar($_POST['Password']);
-
-                            $sql = "INSERT INTO gestion_productos.comisionista (UsuarioID, NombreUsuario, ApellidosUsuario, Edad, TelefonoUsuario, Correo, Direccion, Ciudad, Password) 
-                            VALUES ('$Documento', '$Nombre', '$Apellido', '$Edad', '$Telefono', '$Correo', '$Direccion', '$Ciudad', '$Password')";
-                            $result = mysqli_query($Link, $sql);
-                            if ($result === true) {
-                                echo  '<script>
-                                 Swal.fire({
-                                     title: "Comisionista añadido exitosamente!",
-                                     icon: "success",
-                                     confirmButtonText: "Aceptar"
-                                 }).then((result) => {
-                                     if (result.isConfirmed) {
-                                         window.location.href = "./comisionistas.php";
-                                     }
-                                 });
-                             </script>';
-                            } else {
-                                '<script>
-                                 Swal.fire({
-                                     title: "Error al añadir el comisionista!",
-                                     text: "Por favor, intenta de nuevo.",
-                                     icon: "error",
-                                     confirmButtonText: "Aceptar"
-                                 }).then((result) => {
-                                     if (result.isConfirmed) {
-                                         window.location.href = "./comisionistas.php";
-                                     }
-                                 });
-                             </script>';
-                            }
-                        }
-                    }
-                    ?>
-
-
-
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@
     <title>Administrador</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Comisionistas</title>
     <link rel="stylesheet" href="../Components/bootstrap.min.css">
     <script src="../Components/bootstrap.bundle.min.js"></script>
     <scrip src="../Components/alertify.min.js">
@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="../Components/datatables.min.css">
         <script src="https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"></script>
         <script src="../Components/jquery-3.7.1.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
 </head>
 
 <body>
@@ -59,8 +60,8 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <div class="sidebar col-md-3 col-lg-2 p-0 ">
-                <div class="offcanvas-md bg-dark offcanvas-start " tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+            <div class="sidebar  col-md-3 col-lg-2 p-0 ">
+                <div class="offcanvas-md min-vh-100 bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -68,7 +69,7 @@
                     <div class="offcanvas-body min-vh-100  d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link text-white-50 text-center d-flex align-items-center gap-2" aria-current="page" href="./Inicio-Admin.php">
+                                <a class="nav-link text-center text-white-50 d-flex align-items-center gap-2" aria-current="page" href="./Inicio-Admin.php">
                                     <i class="fa-solid fa-house"></i> Inicio
                                 </a>
                             </li>
@@ -76,13 +77,18 @@
                         <hr class="text-white">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active d-flex align-items-center gap-2" href="./comisionistas.php">
+                                <a class="nav-link active  d-flex align-items-center gap-2" href="./comisionistas.php">
                                     <i class="fa-solid fa-user"></i> Gestión de comisionistas
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./proveedores.php">
                                     <i class="fa-solid fa-building"></i> Gestión de proveedores
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link  text-white-50 d-flex align-items-center gap-2" href="./comision.php">
+                                    <i class="fa-solid fa-percent"></i> Gestión de comisión
                                 </a>
                             </li>
                         </ul>
@@ -119,10 +125,7 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <div class="col-md-9 col-lg-10">
+            <div class="col-md-8 col-xl-10 col-lg-9">
                 <center>
                     <p class="mt-4 mb-4 title">Información de los comisionistas</p>
                 </center>
@@ -188,6 +191,9 @@
                     ?>
                 </div>
             </div>
+            <?php
+            include("../footer.php");
+            ?>
         </div>
     </div>
 

@@ -24,34 +24,34 @@ while ($row = mysqli_fetch_array($result)) { ?>
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-6">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                             <b>Nombre: </b><?php echo $row['NombreUsuario'] ?>
                         </div>
-                        <div class="col-6">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                             <b>Apellido: </b><?php echo $row['ApellidosUsuario'] ?>
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-6">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                             <b>Edad: </b><?php echo $row['Edad'] ?>
                         </div>
-                        <div class="col-6">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                             <b>Teléfono: </b><?php echo $row['TelefonoUsuario'] ?>
                         </div>
                     </div>
-                    <div class="row mb-4">
-                        <div class="col-6">
+                    <div class="row mb-4 justify-content-md-center">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center mb-4">
                             <b>Correo Electrónico: </b><?php echo $row['Correo'] ?>
                         </div>
-                        <div class="col-6">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 text-center">
                             <b>Dirección: </b><?php echo $row['Direccion'] ?>
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-6">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                             <b>Ciudad: </b><?php echo $row['Ciudad'] ?>
                         </div>
-                        <div class="col-6">
+                        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                             <b>Contraseña: </b><?php echo $row['Password'] ?>
                         </div>
                     </div>

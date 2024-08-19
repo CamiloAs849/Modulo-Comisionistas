@@ -34,6 +34,7 @@
                             <p class="text-center"><i class="fa-solid fa-envelope"></i> <?php echo $correoUsuario ?></p>
                             <p class="text-center"><i class="fa-solid fa-location-dot"></i> <?php echo $direccionUsuario ?></p>
                             <p class="text-center"><i class="fa-solid fa-city"></i> <?php echo $Ciudad ?></p>
+                            <p class="text-center"><i class="fa-solid fa-percent"></i> <?php echo $_SESSION['comision'] ?></p>
                         </div>
                     </div>
                 </div>
