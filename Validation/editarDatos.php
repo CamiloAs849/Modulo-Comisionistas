@@ -29,7 +29,9 @@ if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty(
                         Swal.fire({
                             title: "No se ha modificado ningún dato!",
                             icon: "warning",
-                            confirmButtonText: "Aceptar"
+                            timer: 1500,
+                            showConfirmButton: false,
+                            timerProgressBar: true
                         });
                     </script>';
     } else if (!filter_var($Correo, FILTER_VALIDATE_EMAIL)) {
@@ -39,13 +41,14 @@ if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty(
     } else if (strlen($TelefonoUsuario) != 10) {
         echo '<div class="alert alert-danger text-center">El número de teléfono es invalido.</div>';
     } else {
-        $sql = "UPDATE gestion_productos.comisionista 
-                    SET TelefonoUsuario = '$TelefonoUsuario', Correo = '$Correo', Ciudad = '$Ciudad', Direccion = '$Dirrecion'
-                    WHERE UsuarioID = '$usuarioID'";
+        $sql = "UPDATE gestion_productos.comisionista SET TelefonoUsuario = ?, Correo = ?, Ciudad = ?, Direccion = ? WHERE UsuarioID = ?";
 
-        $result = mysqli_query($Link, $sql);
+        $stmt = $Link->prepare($sql);
+        $stmt->bind_param("ssssi", $TelefonoUsuario, $Correo, $Ciudad, $Dirrecion, $usuarioID);
+        $result = $stmt->execute();
 
-        if ($result === true) {
+
+        if ($result) {
             echo '<script>
                         Swal.fire({
                             title: "Datos actualizados exitosamente!",
@@ -73,5 +76,5 @@ if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty(
         }
     }
 } else {
-    echo "<div class='alert alert-danger text-center' role='alert'>Llene todos los campos.</div>";
+    echo "<div class='alert alert-danger text-center w-100' role='alert'>Llene todos los campos.</div>";
 }

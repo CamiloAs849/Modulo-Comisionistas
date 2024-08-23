@@ -62,7 +62,7 @@ if (empty($_SESSION['AdminID'])) {
                             </div>
                             <div class="col">
                                 <label for="telefono" class="col-form-label">Teléfono:</label>
-                                <input type="tel" class="form-control" id="telefono" name="Telefono">
+                                <input type="number" class="form-control" id="telefono" name="Telefono">
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">

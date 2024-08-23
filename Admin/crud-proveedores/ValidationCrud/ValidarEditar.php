@@ -14,16 +14,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             if (empty($nombre) || empty($telefono) || empty($direccion)) {
                 echo '<div class="alert alert-danger">Llene todos los campos.</div>';
-            } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $nombre)) {
+            } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ.\s]+$/', $nombre)) {
                 echo '<div class="alert alert-danger">El Nombre solo puede contener letras.</div>';
-            } else if (strlen($nit) < 7 || strlen($nit) > 10) {
+            } else if (strlen($id) < 7 || strlen($id) > 10) {
                 echo '<div class="alert alert-danger">El NIT es invalido.</div>';
             } else if (strlen($telefono) != 10) {
                 echo '<div class="alert alert-danger">El número de teléfono es invalido.</div>';
             } else {
-                $sql = "UPDATE gestion_productos.proveedor SET NombreProveedor = '$nombre', Telefono = '$telefono', Direccion = '$direccion'  WHERE ProveedorID = '$id' ";
-
-                $result = mysqli_query($Link, $sql);
+                $sql = "UPDATE gestion_productos.proveedor SET NombreProveedor = ?, Telefono = ?, Direccion = ?  WHERE ProveedorID = ? ";
+                $stmt = $Link->prepare($sql);
+                $stmt->bind_param("sssi", $nombre, $telefono, $direccion, $id);
+                $result = $stmt->execute();
                 if ($result) {
                     echo '<script>
                         Swal.fire({

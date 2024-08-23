@@ -18,8 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else if ($comision < 1) {
             echo '<div class="alert alert-danger">El porcentaje de comisión no puede ser menor a 0%.</div>';
         } else {
-            $query = "UPDATE gestion_productos.comision SET PorcentajeComision = '$comision' WHERE UsuarioID = $id";
-            $result = mysqli_query($Link, $query);
+            $query = "UPDATE gestion_productos.comision SET PorcentajeComision = ? WHERE UsuarioID = ?";
+            $stmt = $Link->prepare($query);
+            $stmt->bind_param('di', $comision, $id);
+            $result = $stmt->execute();
             if ($result) {
                 echo '<script>
                 Swal.fire({

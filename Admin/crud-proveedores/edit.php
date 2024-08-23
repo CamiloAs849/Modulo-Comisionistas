@@ -43,7 +43,7 @@ while ($row = mysqli_fetch_array($result)) { ?>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="direccion" class="col-form-label">Dirección:</label>
-                                <input type="text" class="form-control" value="<?php echo $row['Direccion'] ?>" id="edad" name="direccion">
+                                <input type="text" class="form-control" value="<?php echo $row['Direccion'] ?>" id="direccion" name="direccion">
                             </div>
                         </div>
                         <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
@@ -72,6 +72,7 @@ while ($row = mysqli_fetch_array($result)) { ?>
             })
         });
     </script>
+
 <?php
 }
 ?>

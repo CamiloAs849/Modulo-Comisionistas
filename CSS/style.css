@@ -1,7 +1,8 @@
 /* Index */
 .scroll {
-  overflow-x: hidden;
+  overflow: hidden;
 }
+
 
 .titulo {
   font-family: "Righteous";
@@ -18,6 +19,16 @@
   background-color: #ffffff;
 }
 
+@media (max-width: 1200px) {
+  .scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .form_container {
+    min-height: 50vh;
+  }
+}
 
 .logo_container {
   box-sizing: border-box;

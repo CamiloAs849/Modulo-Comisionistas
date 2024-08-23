@@ -38,7 +38,7 @@ if (empty($_SESSION['AdminID'])) {
                     <div class="mb-3 row justify-content-md-center">
                         <div class="col">
                             <label for="direccion" class="col-form-label">Dirección:</label>
-                            <input type="text" class="form-control" id="edad" name="direccion">
+                            <input type="text" class="form-control" id="direccion" name="direccion">
                         </div>
                     </div>
                     <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>

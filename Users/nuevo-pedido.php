@@ -57,7 +57,7 @@
     <div class="container-fluid">
         <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
-            <div class="sidebar col-md-3 col-lg-2 p-0 ">
+            <div class="sidebar col-xl-2  col-md-3 col-lg-3 p-0 ">
                 <div class="offcanvas-md bg-dark offcanvas-start min-vh-100 " tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
@@ -134,7 +134,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xxl-10 col-lg-10 col-md-9">
+            <div class="col-md-9 col-xl-10 col-lg-9">
                 <center>
                     <p class="title mt-4">Nuevo pedido</p>
                     <div class="mx-4">
@@ -185,7 +185,7 @@
                                                 }
                                                 ?>
                                                 <?php if ($status) { ?>
-                                                    <input class="form-control mb-3 " disabled min="1 placeholder=" type="number" name="cantidad" value="1" required>
+                                                    <input class="form-control mb-3 " disabled min="1" placeholder="" type="number" name="cantidad" value="1" required>
                                                     <button type="button" class="w-100 btn btn-info" data-bs-toggle="modal" data-bs-target="#carrito"><i class="fa-solid fa-check"></i> Agregado</button>
                                                 <?php
                                                 } else { ?>
@@ -213,6 +213,7 @@
     </div>
 
     <script src="../JS/busqueda.js"></script>
+
 </body>
 
 </html>

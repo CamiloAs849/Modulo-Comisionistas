@@ -22,6 +22,7 @@
         <script src="https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"></script>
         <script src="../Components/jquery-3.7.1.min.js"></script>
         <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
+
 </head>
 
 <body>
@@ -60,13 +61,13 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <div class="sidebar col-xl-2  col-md-4 col-lg-3 p-0 ">
+            <div class="sidebar col-xl-2  col-md-4 col-lg-3 p-0  ">
                 <div class="offcanvas-md min-vh-100 bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
                     </div>
-                    <div class="offcanvas-body min-vh-100  d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+                    <div class="offcanvas-body min-vh-100 d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link text-center text-white-50 d-flex align-items-center gap-2" aria-current="page" href="./Inicio-Admin.php">
@@ -125,12 +126,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 col-xl-10 col-lg-9">
+            <div class="col-md-8 col-xl-10 col-lg-9 ">
                 <center>
                     <p class="mt-4 mb-4 title">Información de los comisionistas</p>
                 </center>
                 <div class="row">
-                    <div class="col-xxl-9 col-xl-9 col-lg-8">
+                    <div class="col-xxl-9 col-xl-9 col-lg-8 ">
                         <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-plus"></i> Agregar comisionista</button>
                     </div>
                 </div>

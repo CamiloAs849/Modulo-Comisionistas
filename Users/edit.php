@@ -58,7 +58,7 @@
     <div class="container-fluid">
         <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
-            <div class="sidebar col-md-3 col-lg-2 p-0 ">
+            <div class="sidebar col-xl-2  col-md-3 col-lg-3 p-0 ">
                 <div class="offcanvas-md bg-dark offcanvas-start min-vh-100" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
@@ -136,17 +136,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col mt-4">
+            <div class="col-md-9 col-xl-10 col-lg-9">
                 <p class="text-center mb-3 mt-5 title">Editar información personal</p>
                 <p class="note text-center fs-6">Comunicate al <a href="https://wa.me/3127087946/?text=HOLA%20MUNDO"><i class="fa-brands fa-whatsapp"></i></a> para cambiar los datos en grises</p>
                 <div class="mx-4">
                     <center>
-                        <div class="text-center w-25" id="message">
+                        <div class="text-center " id="message">
                         </div>
                     </center>
                     <form method="post" id="FormEdit">
                         <div class="mb-3 row justify-content-md-center">
-                            <div class="col">
+                            <div class="col-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="Documento" name="Documento" aria-describedby="emailHelp" placeholder="" disabled value="<?php echo $usuario ?>">
                                     <label for="Documento">Numero de documento</label>
@@ -154,14 +154,14 @@
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
-                            <div class="col">
+                            <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="NombreUsuario" name="NombreUsuario" placeholder="" disabled value="<?php echo $nombreUsuario ?>">
                                     <label for="Nombre" class="form-label">Nombre</label>
                                 </div>
                             </div>
 
-                            <div class="mb-3 col">
+                            <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="ApellidosUsuario" name="ApellidosUsuario" placeholder="" disabled value="<?php echo $apellidoUsuario ?>">
                                     <label for="Apellidos" class="form-label">Apellidos</label>
@@ -169,14 +169,14 @@
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
-                            <div class="col">
+                            <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
                                     <input type="number" class="form-control" id="Edad" name="Edad" placeholder="" disabled value="<?php echo $Edad ?>">
                                     <label for="Edad" class="form-label">Edad</label>
                                 </div>
                             </div>
 
-                            <div class="mb-3 col">
+                            <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="Telefono" name="TelefonoUsuario" placeholder="" value="<?php echo $telefonoUsuario ?>">
                                     <label for="Telefono" class="form-label">Teléfono</label>
@@ -184,7 +184,7 @@
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
-                            <div class="col">
+                            <div class=" mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="Correo" name="Correo" placeholder="" value="<?php echo $correoUsuario ?>">
                                     <label for="Correo" class="form-label">Correo Electrónico</label>
@@ -194,7 +194,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3 col">
+                            <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
                                     <textarea type="number" class="form-control" id="Direccion" name="Dirrecion" placeholder="" rows="1"><?php echo $direccionUsuario ?></textarea>
                                     <label for="Dirrecion" class="form-label">Dirreción</label>
@@ -202,13 +202,13 @@
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
-                            <div class="col">
+                            <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="Ciudad" name="Ciudad" placeholder="" value="<?php echo $Ciudad ?>">
                                     <label for="Ciudad" class="form-label">Ciudad</label>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
                                     <input type="password" class="form-control" id="password" name="Password" disabled placeholder="" value="<?php echo $contraseña ?>">
                                     <label for="password" class="form-label">Contraseña</label>

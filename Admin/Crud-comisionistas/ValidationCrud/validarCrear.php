@@ -38,13 +38,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<div class='alert alert-danger'>El porcentaje de comision es invalido.</div>";
             } else if ($porcentaje > 100) {
                 echo "<div class='alert alert-danger'>El porcentaje de comision no puede ser mayor a 100%.</div>";
+            } else if ($porcentaje < 1) {
+                echo "<div class='alert alert-danger'>El porcentaje de comision no puede ser menor a 0%.</div>";
             } else if (strlen($Telefono) != 10) {
                 echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";
             } else {
                 $sql = "INSERT INTO gestion_productos.comisionista (UsuarioID, NombreUsuario, ApellidosUsuario, Edad, TelefonoUsuario, Correo, Direccion, Ciudad, Password) 
-                            VALUES ('$Documento', '$Nombre', '$Apellido', '$Edad', '$Telefono', '$Correo', '$Direccion', '$Ciudad', '$Password')";
-                $result = mysqli_query($Link, $sql);
-                if ($result === true) {
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $Link->prepare($sql);
+                $stmt->bind_param("ississsss", $Documento, $Nombre, $Apellido, $Edad, $Telefono, $Correo, $Direccion, $Ciudad, $Password);
+                $result = $stmt->execute();
+                if ($result) {
                     echo  '<script>
                                  Swal.fire({
                                      title: "Comisionista añadido exitosamente!",
@@ -56,9 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                      }
                                  });
                              </script>';
-                    $sql = "INSERT INTO gestion_productos.comision (ComisionID, UsuarioID, PorcentajeComision) VALUES (NULL, '$Documento', '$porcentaje')";
-                    $result = mysqli_query($Link, $sql);
-                    if ($result === true) {
+                    $sql = "INSERT INTO gestion_productos.comision (ComisionID, UsuarioID, PorcentajeComision) VALUES (NULL, ?, ?)";
+                    $stmt = $Link->prepare($sql);
+                    $stmt->bind_param("si", $Documento, $porcentaje);
+                    $result = $stmt->execute();
+                    if ($result) {
                     }
                 } else {
                     '<script>

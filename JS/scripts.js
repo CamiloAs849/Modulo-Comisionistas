@@ -15,7 +15,7 @@ $(document).ready(function () {
       lengthMenu: "Agrupar de _MENU_ comisionistas",
       info: "Mostrando del comisionista _START_ al _END_ de un total de _TOTAL_ comisionistas",
       infoEmpty: "No existen datos.",
-      infoFiltered: "(filtrado de _MAX_ elementos en total)",
+      infoFiltered: "(filtrado de _MAX_ comisionistas en total)",
       infoPostFix: "",
       loadingRecords: "Cargando...",
       zeroRecords: "No se encontraron comisionistas con tu busqueda",
@@ -54,7 +54,7 @@ $(document).ready(function () {
       lengthMenu: "Agrupar de _MENU_ comisionistas",
       info: "Mostrando del comisionista _START_ al _END_ de un total de _TOTAL_ comisionistas",
       infoEmpty: "No existen datos.",
-      infoFiltered: "(filtrado de _MAX_ elementos en total)",
+      infoFiltered: "(filtrado de _MAX_ comisionistas en total)",
       infoPostFix: "",
       loadingRecords: "Cargando...",
       zeroRecords: "No se encontraron comisionistas con tu busqueda",
@@ -93,7 +93,7 @@ $(document).ready(function () {
       lengthMenu: "Agrupar de _MENU_ proveedores",
       info: "Mostrando del proveedor _START_ al _END_ de un total de _TOTAL_ proveedores",
       infoEmpty: "No existen datos.",
-      infoFiltered: "(filtrado de _MAX_ elementos en total)",
+      infoFiltered: "(filtrado de _MAX_ proveedores en total)",
       infoPostFix: "",
       loadingRecords: "Cargando...",
       zeroRecords: "No se encontraron proveedores con tu busqueda",
@@ -113,20 +113,20 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#historial").DataTable({
     scrollX: true,
-    language: {
-      layout: {
-        bottomEnd: {
-          paging: {
-            firstLast: false,
-          },
+    layout: {
+      bottomEnd: {
+        paging: {
+          firstLast: false,
         },
       },
+    },
+    language: {
       processing: "Tratamiento en curso...",
       search: "Buscar&nbsp;:",
       lengthMenu: "Agrupar de _MENU_ movimientos",
       info: "Mostrando del movimiento _START_ al _END_ de un total de _TOTAL_ movimientos",
       infoEmpty: "No existen datos.",
-      infoFiltered: "(filtrado de _MAX_ elementos en total)",
+      infoFiltered: "(filtrado de _MAX_ movimientos en total)",
       infoPostFix: "",
       loadingRecords: "Cargando...",
       zeroRecords: "No se encontraron movimientos con tu busqueda",

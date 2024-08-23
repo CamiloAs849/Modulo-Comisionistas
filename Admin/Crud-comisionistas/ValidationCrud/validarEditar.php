@@ -35,10 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 } else if (strlen($telefono) < 7 || strlen($telefono) > 11) {
                     echo "<div class='alert alert-danger'>El número de télefono es invalido.</div>";
                 } else {
-                    $sql = "UPDATE gestion_productos.comisionista SET NombreUsuario = '$nombre', ApellidosUsuario = '$apellido', Edad = '$edad', TelefonoUsuario = '$telefono', Correo = '$correo', Direccion = '$direccion', Ciudad = '$ciudad', Password = '$password' WHERE UsuarioID = '$id'";
-
-                    $result = mysqli_query($Link, $sql);
-                    if ($result === true) {
+                    $sql = "UPDATE gestion_productos.comisionista SET NombreUsuario = ?, ApellidosUsuario = ?, Edad = ?, TelefonoUsuario = ?, Correo = ?, Direccion = ?, Ciudad = ?, Password = ? WHERE UsuarioID = ?";
+                    $stmt = $Link->prepare($sql);
+                    $stmt->bind_param("ssisssssi", $nombre, $apellido, $edad, $telefono, $correo, $direccion, $ciudad, $password, $id);
+                    $result = $stmt->execute();
+                    if ($result) {
                         echo '<script>
                     Swal.fire({
                     title: "Comisionista actualizado correctamente!",

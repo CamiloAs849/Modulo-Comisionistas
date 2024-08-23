@@ -19,10 +19,10 @@
 
 <body class="scroll">
     <div class="row">
-        <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-12 col-sm-12 m-0">
+        <div class="col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12 m-0">
             <form class="form_container" id="FormLogin" method="post">
                 <h1 class="text-center titulo">Visión Limpieza</h1>
-                <img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" class=".logo_container" width="90px" alt="">
+                <img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" class="" width="90px" alt="">
                 <div class="title_container">
                     <p class="title text-center">Ingresar al portal</p>
                     <span class="subtitle text-center">Ingresa mediante la clave que te han dado.</span>
@@ -45,7 +45,7 @@
                 <a href="https://wa.me/3053396000/?text=" class="note text-center">He olvidado mi contraseña</a>
             </form>
         </div>
-        <div class="col-xxl-8 col-xl-8 col-lg-6 col-md-12 col-sm-12 m-0 p-0">
+        <div class="col-xxl-8 col-xl-8 col-lg-612col-md-12 col-sm-12 m-0 p-0">
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">

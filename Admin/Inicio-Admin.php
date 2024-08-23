@@ -124,7 +124,7 @@
                 </div>
             </div>
             <div class="col">
-                <H1>WELCOME TO</H1>
+                <h1>Bienvenido administrador <?php echo $usuario ?></h1>
             </div>
 
 </body>

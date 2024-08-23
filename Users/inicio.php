@@ -94,7 +94,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="#">
-                                    <i class="fa-solid fa-circle-info"></i> Acumulado de comisión
+                                    <i class="fa-solid fa-circle-info"></i> Guía
                                 </a>
                             </li>
                         </ul>
@@ -193,8 +193,8 @@
                     include("./show.php");
                     ?>
                 </div>
-                <?php include("../footer.php"); ?>
             </div>
+            <?php include("../footer.php"); ?>
         </div>
         <script src="../Components/jquery-3.7.1.min.js"></script>
         <script src="../Components/bootstrap.bundle.min.js"></script>
