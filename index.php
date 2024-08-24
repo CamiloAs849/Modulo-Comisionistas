@@ -37,7 +37,7 @@
                 </div>
                 <div class="input_container">
                     <i class="fa-solid fa-lock icon text-center"></i>
-                    <input placeholder="Contraseña" name="password" type="password" class="input_field" id="password_field">
+                    <input placeholder="Contraseña" name="password" type="password" class="input_field " id="password_field">
                 </div>
                 <button type="submit" class="sign-in_btn">
                     <span>Ingresar</span>

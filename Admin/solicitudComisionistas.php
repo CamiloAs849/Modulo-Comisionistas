@@ -166,6 +166,8 @@
                                 } else {
                                     $estado = '<span class="badge bg-danger text-dark fs-6">Rechazada</span>';
                                 }
+
+                                $informacion = "<b> Nombre: </b>" . $row['Nombre'] . " " . "<b> Apellidos: </b> " . $row['Apellidos'] . " " . "<b>Correo: </b> " . $row['Correo'] . " " . "<b> Edad: </b>" . $row['Edad'] . " " . "<b> Telefono: </b>" . $row['Telefono'] . " " . "<b> Direccion: </b> " . $row['Direccion'] . " " . "<b> Ciudad: </b> " . $row['Ciudad'];
                             ?>
 
                                 <tr>
@@ -179,11 +181,11 @@
                                         </p>
                                         <div class="collapse" id="verinfo<?php echo $row['SolicitudID'] ?>">
                                             <div class="">
-                                                <?php echo $row['Curriculum'] ?>
+                                                <?php echo $informacion; ?>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class=" text-center"><?php echo $estado ?>
+                                    <td class="text-center"><?php echo $estado ?>
                                     </td>
                                     <td><?php echo $row['FechaSolicitud'] ?></td>
                                     <td>
@@ -191,19 +193,20 @@
                                             <?php
                                             if ($row['EstadoSolicitud'] == 'Pendiente') { ?>
                                                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                    <button type="button" onclick="" class="btn btn-success"><i class="fa-solid fa-check"></i> Aceptar</button>
-                                                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-x"></i> Rechazar</button>
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#aceptarPeticion<?php echo $row['UsuarioID'] ?>" class="btn btn-success"><i class="fa-solid fa-check"></i> Aceptar</button>
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#rechazarPeticion<?php echo $row['UsuarioID'] ?>" class="btn btn-danger"><i class="fa-solid fa-x"></i> Rechazar</button>
                                                 </div> <?php
                                                     } else if ($row['EstadoSolicitud'] == 'Aceptada') { ?>
-                                                <span class="badge bg-success text-dark fs-5">¡Aceptado!</span>
+                                                <span class="badge bg-success text-dark fs-5">¡Aceptada!</span>
                                             <?php
                                                     } else { ?>
-                                                <span class="badge bg-danger text-dark fs-5">¡Rechazado!</span>
+                                                <span class="badge bg-danger text-dark fs-5">¡Rechazada!</span>
                                             <?php
                                                     }
                                             ?>
                                         </div>
                                     </td>
+
                                 <?php
                             }
                                 ?>
@@ -218,12 +221,17 @@
                     include("./crud-proveedores/create.php");
                     include("./crud-proveedores/edit.php");
                     include("./crud-proveedores/show.php");
+                    include("./solicitudes/formularioAceptar.php");
+                    include("./solicitudes/modalRechazar.php");
                     ?>
                 </div>
             </div>
             <?php include("../footer.php"); ?>
         </div>
     </div>
+    <script>
+
+    </script>
 </body>
 
 </html>

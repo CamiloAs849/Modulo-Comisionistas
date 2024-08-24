@@ -188,7 +188,7 @@
                         <p class="fs-5 mt-5">Al abrir el carrito podrás ver el nombre del producto, cantidad, precio, comisión y el total, podrás eliminar el producto, editar la cantidad o vaciar el carrito, tambíen se puede ver el total a pagar del pedido y la comisión del mismo.</p>
                         <img src="https://i.ibb.co/pW0FyLr/Captura-de-pantalla-2024-08-23-165248.png" alt="Captura-de-pantalla-2024-08-23-165248" class="border border-dark w-100">
 
-                        <p class="fs-5 mt-5">Al hacer el pedido tendrás que poner todos los datos que se te piden, automaticamente tu pedido será hecho y en en estado de espera.</p>
+                        <p class="fs-5 mt-5">Al hacer el pedido tendrás que poner todos los datos que se te piden, automaticamente tu pedido será hecho y en estado de espera.</p>
                         <img src="https://i.ibb.co/swjBNBd/Hacer-Pedido.png" class="border border-dark w-100" alt="Hacer-Pedido">
                     </div>
                     <div id="editar">

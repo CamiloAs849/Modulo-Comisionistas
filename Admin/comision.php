@@ -129,14 +129,15 @@ if (empty($_SESSION['AdminID'])) {
                                 <th>Documento</th>
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
-                                <th>Porcentaje de comisión</th>
+                                <th>Valor de comisión</th>
+                                <th>Acumulado de comisión</th>
                                 <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $sql = "SELECT c.UsuarioID, c.NombreUsuario, c.ApellidosUsuario,
-                                    cm.PorcentajeComision FROM comisionista c JOIN comision cm ON c.UsuarioID = cm.UsuarioID;";
+                                    cm.ValorComision, cm.AcumuladoComision FROM comisionista c JOIN comision cm ON c.UsuarioID = cm.UsuarioID;";
 
                             $result = mysqli_query($Link, $sql);
                             while ($row = mysqli_fetch_assoc($result)) { ?>
@@ -144,7 +145,8 @@ if (empty($_SESSION['AdminID'])) {
                                     <td><?php echo $row['UsuarioID'] ?></td>
                                     <td><?php echo $row['NombreUsuario'] ?></td>
                                     <td><?php echo $row['ApellidosUsuario'] ?></td>
-                                    <td><?php echo $row['PorcentajeComision'] ?>%</td>
+                                    <td><?php echo $row['ValorComision'] ?>%</td>
+                                    <td><?php echo $row['AcumuladoComision'] ?></td>
                                     <td class="text-center"><button type="button" data-bs-toggle="modal" data-bs-target="#editarComision<?php echo $row['UsuarioID'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
                                 </tr>
                             <?php

@@ -4,7 +4,7 @@ if (empty($_SESSION['AdminID'])) {
     exit();
 }
 $sql = "SELECT c.UsuarioID, c.NombreUsuario, c.ApellidosUsuario,
-cm.PorcentajeComision FROM comisionista c JOIN comision cm ON c.UsuarioID = cm.UsuarioID;";
+cm.ValorComision FROM comisionista c JOIN comision cm ON c.UsuarioID = cm.UsuarioID;";
 
 $result = mysqli_query($Link, $sql);
 
@@ -23,7 +23,7 @@ while ($row = mysqli_fetch_array($result)) { ?>
                         </div>
                         <label for="comision" class="form-label ">Porcentaje de comisión</label>
                         <input type="hidden" value="<?php echo $row['UsuarioID'] ?>" name="id">
-                        <input type="text" class="form-control mb-5" id="comision" name="comision" value="<?php echo $row['PorcentajeComision'] ?>">
+                        <input type="text" class="form-control mb-5" id="comision" name="comision" value="<?php echo $row['ValorComision'] ?>">
                         <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>
                             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
                         </div>

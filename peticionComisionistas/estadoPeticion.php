@@ -10,7 +10,7 @@
                     <div id="messageEstadoPeticion" class="text-center"></div>
                     <div class="row">
                         <div class="col">
-                            <p class="fw-bold">Digita el número de documento con el cual hiciste la petición para conocer tu estado.</p>
+                            <p class="fw-bold">Digita el número de documento con el cual hiciste la solicitud para conocer tu estado.</p>
                             <div class="form-floating mb-3">
                                 <input type="number" class="form-control" name="documento" placeholder="">
                                 <label for="documento">Número de documento</label>
