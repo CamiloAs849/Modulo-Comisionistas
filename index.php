@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <script src="./Components/jquery-3.7.1.min.js"></script>
+    <script src="./Components/sweetalert2@11.js"></script>
 </head>
 
 <body class="scroll">
@@ -25,9 +26,9 @@
                 <img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" class="" width="90px" alt="">
                 <div class="title_container">
                     <p class="title text-center">Ingresar al portal</p>
+                    <button type="button" class="bg-transparent border border-0" data-bs-toggle="modal" data-bs-target="#formularioPeticion">¿No eres comisionista? Haz tu petición</button>
                     <span class="subtitle text-center">Ingresa mediante la clave que te han dado.</span>
                 </div>
-                <br>
                 <div id="message">
                 </div>
                 <div class="input_container">
@@ -42,6 +43,7 @@
                     <span>Ingresar</span>
                 </button>
                 <p class="note text-center">No des tu clave de acceso a terceros.</p>
+                <button type="button" class="bg-transparent border border-0 note text-decoration-underline" data-bs-toggle="modal" data-bs-target="#FormEstado">Verificar mi estado de petición</button>
                 <a href="https://wa.me/3053396000/?text=" class="note text-center">He olvidado mi contraseña</a>
             </form>
         </div>
@@ -86,8 +88,46 @@
                 })
             })
         });
-    </script>
 
+        $(document).ready(function() {
+            $("#FormPeticion").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: './peticionComisionistas/validarPeticion.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#messagePeticion').html(response)
+                    }
+                })
+            })
+        });
+        $(document).ready(function() {
+            $("#FormEstadoPeticion").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: './peticionComisionistas/validarEstadoPeticion.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#messageEstadoPeticion').html(response)
+                    }
+                })
+            })
+        });
+    </script>
+    <script src="../Components/jquery-3.7.1.min.js"></script>
+
+    <?php
+    include("./peticionComisionistas/formularioPeticion.php");
+    include("./peticionComisionistas/estadoPeticion.php")
+    ?>
 </body>
 
 </html>

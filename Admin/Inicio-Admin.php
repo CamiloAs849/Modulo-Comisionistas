@@ -91,6 +91,12 @@
                             </li>
                         </ul>
                         <hr class="text-white">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./solicitudComisionistas.php"><i class="fa-solid fa-hand"></i> Solicitudes comisionistas</a>
+                            </li>
+                        </ul>
+                        <hr class="text-white">
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
                                 <a href="" class="nav-link text-white-50 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal">

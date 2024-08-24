@@ -94,6 +94,12 @@
                             </li>
                         </ul>
                         <hr class="text-white">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./solicitudComisionistas.php"><i class="fa-solid fa-hand"></i> Solicitudes comisionistas</a>
+                            </li>
+                        </ul>
+                        <hr class="text-white">
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
                                 <a href="" class="nav-link text-white-50 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -168,7 +174,6 @@
                                     <td><?php echo $row['Direccion'] ?></td>
                                     <td><?php echo $row['Ciudad'] ?></td>
                                     <td><?php echo $row['Password'] ?></td>
-
                                     <td>
                                         <div class="d-flex justify-content-around mb-3">
                                             <button class="btn btn-warning me-2" href="" data-bs-toggle="modal" data-bs-target=" #editar<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
@@ -176,9 +181,10 @@
                                             <button class="btn btn-danger" onclick="ConfirmDeleteCom(<?php echo $row['UsuarioID']; ?>, '<?php echo $row['NombreUsuario'] . ' ' . $row['ApellidosUsuario'] ?>')"><i class="fa-solid fa-delete-left"></i> Eliminar</button>
                                         </div>
                                     </td>
-                                <?php
+                                </tr>
+                            <?php
                             }
-                                ?>
+                            ?>
                         </tbody>
                     </table>
                     <script src="../Components/jquery-3.7.1.min.js"></script>

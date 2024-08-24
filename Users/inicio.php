@@ -93,7 +93,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./guia.php">
                                     <i class="fa-solid fa-circle-info"></i> Guía
                                 </a>
                             </li>

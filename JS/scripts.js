@@ -38,6 +38,44 @@ $(document).ready(function () {
   });
 });
 $(document).ready(function () {
+  $("#SolicitudComisionista").DataTable({
+    scrollX: false,
+    layout: {
+      bottomEnd: {
+        paging: {
+          firstLast: false,
+        },
+      },
+    },
+    language: {
+      processing: "Tratamiento en curso...",
+      search: "Buscar&nbsp;:",
+      lengthMenu: "Agrupar de _MENU_ solicitudes",
+      info: "Mostrando la solicitud _START_ al _END_ de un total de _TOTAL_ solicitudes",
+      infoEmpty: "No existen datos.",
+      infoFiltered: "(filtrado de _MAX_ solicitudes en total)",
+      infoPostFix: "",
+      loadingRecords: "Cargando...",
+      zeroRecords: "No se encontraron solicitudes con tu busqueda",
+      emptyTable: "No hay datos disponibles en la tabla.",
+      paginate: {
+        first: "Primero",
+        previous: "Anterior",
+        next: "Siguiente",
+        last: "Ultimo",
+      },
+      aria: {
+        sortAscending: ": active para ordenar la columna en orden ascendente",
+        sortDescending: ": active para ordenar la columna en orden descendente",
+      },
+    },
+    lengthMenu: [
+      [5, 10, 25, -1],
+      [5, 10, 25, "Todos"],
+    ],
+  });
+});
+$(document).ready(function () {
   $("#comisionTable ").DataTable({
     scrollX: true,
     layout: {

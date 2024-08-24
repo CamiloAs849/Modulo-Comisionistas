@@ -41,7 +41,7 @@ if (empty($usuario) && empty($password)) {
             $row = mysqli_fetch_assoc($result);
             $_SESSION['comision'] = $row['PorcentajeComision'];
             $_SESSION['UsuarioID'] = $row['UsuarioID'];
-            echo "<script>window.location.href = '../../Modulo-Comisionistas/Users/inicio.php';</script>";
+            echo "<script>window.location.href = './Users/inicio.php';</script>";
         } else {
             echo '<div class="alert alert-danger">El usuario o contraseña son incorrectos.</div>';
         }
@@ -57,7 +57,7 @@ if (empty($usuario) && empty($password)) {
             $row = mysqli_fetch_assoc($result);
             if ($row['AdminID'] == $usuario && $row['Password'] == $password) {
                 $_SESSION['AdminID'] = $row['AdminID'];
-                echo "<script>window.location.href = '../../Modulo-Comisionistas/Admin/Inicio-Admin.php';</script>";
+                echo "<script>window.location.href = './Admin/Inicio-Admin.php';</script>";
             } else {
                 echo '<div class="alert alert-danger">El usuario o contraseña son incorrectos.</div>';
             }
