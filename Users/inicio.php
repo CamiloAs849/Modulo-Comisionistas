@@ -168,7 +168,6 @@
                         <h2 class="text-center fw-bold">Acumulado de comisión</h2>
                         <p class="text-center">Este valor será un acumulado mensual, el primer día de cada mes se actualizará a 0.</p>
                         <p class="fs-3 fw-bold text-center">$<?php echo number_format($row2['AcumuladoComision'], 0, '', '.') ?></p>
-                        <?php echo date('d') ?>
                     </div>
                     <p class="text-center title">Historial de pedidos</p>
                     <div class="table-responsive">

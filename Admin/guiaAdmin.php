@@ -52,6 +52,7 @@
         </ul>
     </header>
     <div class="container-fluid">
+        <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
             <div class="sidebar  col-md-3 col-lg-2 p-0 ">
                 <div class="offcanvas-md min-vh-100 bg-dark offcanvas-end" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
@@ -150,37 +151,45 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="" class="dropdown-item d-flex gap-2 align-items-center">Tablas de comisionistas y proveedores</a>
+                                            <a href="#comisionistasYProveedores" class="dropdown-item d-flex gap-2 align-items-center"> <i class="fa-solid fa-users"></i> Tablas de comisionistas y proveedores</a>
                                         </li>
                                         <li>
-                                            <a href="" class="dropdown-item d-flex gap-2 align-items-center">Tabla de comisión</a>
+                                            <a href="#tablaComision" class="dropdown-item d-flex gap-2 align-items-center"><i class="fa-solid fa-percent"></i> Tabla de comisión</a>
                                         </li>
                                         <li>
-                                            <a href="" class="dropdown-item d-flex gap-2 align-items-center">Tabla de solicitudes</a>
+                                            <a href="#tablaSolicitudes" class="dropdown-item d-flex gap-2 align-items-center"><i class="fa-solid fa-hand"></i> Tabla de solicitudes</a>
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
-                            <li>
-                                <a class="dropdown-item d-flex gap-2 align-items-center" href="#pedido">
-                                    <i class="fa-solid fa-cart-shopping"></i> Nuevo Pedido
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item d-flex gap-2 align-items-center" href="#editar">
-                                    <i class="fa-solid fa-pen-to-square"></i> Editar
-                                </a>
                             </li>
                         </ul>
                     </div>
                     <div id="menu">
                         <h2 class="fw-bold">Menú</h2>
                         <p class="fs-5">Este es el menú principal de la página web, donde vas acceder a los diferentes apartados del administrador y cerrar la sesión de manera segura.</p>
-                        <img src="https://i.ibb.co/h1P4yXh/menu-Admin.png" alt="menu-Admin" height="500">
+                        <img src="https://i.ibb.co/h1P4yXh/menu-Admin.png" alt="menu-Admin" class="border border-dark" height="500">
                     </div>
                     <div id="tablas">
                         <h2 class="fw-bold mt-5">Tablas</h2>
-                        <p class="fs-5">En toda la web vas a encontrar todas las tablas de la base de datos. Estas tablas son las que se utilizan para almacenar y mostrar los datos de la empresa. Cada tabla tiene sus diferentes opciones</p>
+                        <p class="fs-5">En toda la web vas a encontrar tablas con un aspecto similar que almacenan todos los datos. Estas tablas son las que se utilizan para almacenar y mostrar los datos de la empresa. Cada tabla tiene sus diferentes opciones.</p>
+                        <img src="https://i.ibb.co/S3C8VXv/tablaC.png" alt="tablaC" class="border border-dark w-100">
+
+                        <div id="comisionistasYProveedores">
+                            <h3 class="fw-bold mt-5">Tabla de Comisionistas y Proveedores</h3>
+                            <p class="fs-5">Ambas tablas almacenan los datos de todos los comisionistas y proveedores de la empresa. Puedes agregar, editar, borrar y ver los datos de estos comisionistas y proveedores, también se puede buscar un comisionista o proveedor en específico. </p>
+                            <img src="https://i.ibb.co/LvBK7HW/tablaP.png" alt="tablaP" class="border border-dark w-100">
+                        </div>
+                        <div id="tablaComision">
+                            <h3 class="fw-bold mt-5">Tabla de Comisión</h3>
+                            <p class="fs-5">Esta tabla almacena los datos de la comisión de cada comisionistas. Puedes editar la comisión y también puedes buscar un comisionista en específico. podrás generar un reporte en PDF de esta tabla para descargar y ver los datos del acumulado de comisión.</p>
+                            <img src="https://i.ibb.co/z2pvD4m/tabla-Comision.png" alt="tabla-Comision" class="border border-dark w-100">
+                        </div>
+                        <div id="tablaSolicitudes">
+                            <h3 class="fw-bold mt-5">Tabla de Solicitudes</h3>
+                            <p class="fs-5">Esta tabla almacena los datos de las solicitudes de comisionistas. Aqui puedes aceptar y rechazar la solicitud, buscar una solicitud en específico y poder editar el estado de la solicitud en tal caso de estar aceptado o rechazado. También puedes ver la información de la persona que hizo la solicitud.</p>
+                            <img src="https://i.ibb.co/8xdKKYq/tabla-Solicitudes.png" alt="tabla-Solicitudes" class="border border-dark w-100">
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -193,10 +193,10 @@
                                                     <button type="button" data-bs-toggle="modal" data-bs-target="#rechazarPeticion<?php echo $row['UsuarioID'] ?>" class="btn btn-danger"><i class="fa-solid fa-x"></i> Rechazar</button>
                                                 </div> <?php
                                                     } else if ($row['EstadoSolicitud'] == 'Aceptada') { ?>
-                                                <span class="badge bg-success text-dark fs-5">¡Aceptada!</span>
+                                                <button class="btn btn-warning" data-bs-toggle="modal"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
                                             <?php
                                                     } else { ?>
-                                                <span class="badge bg-danger text-dark fs-5">¡Rechazada!</span>
+                                                <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
                                             <?php
                                                     }
                                             ?>

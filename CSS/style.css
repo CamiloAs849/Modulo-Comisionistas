@@ -78,6 +78,10 @@
   transition: 0.5s ease;
 }
 
+.carrusel {
+  min-height: 100vh;
+}
+
 @media (max-width: 1200px) {
   .scroll {
     overflow-x: hidden;
@@ -85,6 +89,10 @@
   }
 
   .form_container {
+    min-height: 50vh;
+  }
+
+  .carrusel {
     min-height: 50vh;
   }
 

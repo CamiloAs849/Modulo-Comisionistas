@@ -51,14 +51,15 @@
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://i.ibb.co/8mw9F2t/1256x990.png" class="d-block w-100" alt="...">
+                        <img src="https://i.ibb.co/QJzn33q/R.jpg" class="d-block w-100 carrusel" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://i.ibb.co/PDhN4Fb/png-1.png" class="d-block w-100" alt="...">
+                        <img src="https://i.ibb.co/BCC0kty/kitchen-basket-of-cleaning-supplies-spray-bottles-chemicals-16x9.webp" class="d-block w-100 carrusel" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://i.ibb.co/pnj0Vbr/png.png" class="d-block w-100" alt="...">
+                        <img src="https://i.ibb.co/VmLLXfm/Imagen-de-Whats-App-2024-08-28-a-las-20-45-49-bbe01990.jpg" class="d-block w-100 carrusel" alt="...">
                     </div>
+
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
