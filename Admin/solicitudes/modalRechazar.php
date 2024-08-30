@@ -25,7 +25,7 @@ while ($row = mysqli_fetch_array($result)) {
                     <div class="modal-body py-0">
                         <div id="messageRechazarPeticion<?php echo $row['UsuarioID'] ?>"></div>
                         <p class="fw-bold fs-5">¿Quieres rechazar la solicitud?</p>
-                        <p>Esta acción no se puede revertir.</p>
+                        <p>Esta acción se podrá editar.</p>
                         <input type="hidden" name="documento" value="<?php echo $row['UsuarioID'] ?>">
                     </div>
                     <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">

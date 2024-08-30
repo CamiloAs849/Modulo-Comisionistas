@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
     $result = $stmt->get_result();
     if (mysqli_num_rows($result) > 0) {
-        echo "<div class='alert alert-warning'>Este número de documento ya ha hecho una petición.</div>";
+        echo "<div class='alert alert-warning alert-dismissible fade show'>Este número de documento ya ha hecho una petición.</div>";
     } else {
         $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = ?";
         $stmt = $Link->prepare($sql);
@@ -27,30 +27,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute();
         $result = $stmt->get_result();
         if (mysqli_num_rows($result) > 0) {
-            echo "<div class='alert alert-warning'>Este número de documento ya está registrado.</div>";
+            echo "<div class='alert alert-warning alert-dismissible fade show'>Este número de documento ya está registrado.
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
         } else {
             if (empty($documento) || empty($nombre) || empty($apellido) || empty($correo) || empty($edad) || empty($telefono) || empty($direccion) || empty($ciudad) || empty($tipoDocumento)) {
-                echo "<div class='alert alert-danger'>Llene todos los campos.</div>";
+                echo "<div class='alert alert-danger alert-dismissible fade show'>Llene todos los campos.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
             } else if (!is_numeric($documento)) {
-                echo "<div class='alert alert-danger'>El documento es invalido.</div>";
+                echo "<div class='alert alert-danger alert-dismissible fade show'>El documento es invalido.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
             } else if (strlen($documento) < 7 || strlen($documento) > 11) {
-                echo "<div class='alert alert-danger'>El documento es invalido.</div>";
+                echo "<div class='alert alert-danger alert-dismissible fade show'>El documento es invalido.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
             } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $nombre) || !preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $apellido)) {
-                echo "<div class='alert alert-danger'>El nombre y apellido solo pueden contener letras.</div>";
+                echo "<div class='alert alert-danger alert-dismissible fade show'>El nombre y apellido solo pueden contener letras.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
             } else if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-                echo "<div class='alert alert-danger'>El correo es invalido.</div>";
+                echo "<div class='alert alert-danger alert-dismissible fade show'>El correo es invalido.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
             } else if (strlen($edad) > 2 || strlen($edad) < 0) {
-                echo "<div class='alert alert-danger'>La edad es invalida.</div>";
+                echo "<div class='alert alert-danger alert-dismissible fade show'>La edad es invalida.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
             } else if (strlen($telefono) > 10) {
-                echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";
+                echo "<div class='alert alert-danger alert-dismissible fade show'>El número de teléfono es invalido.</div>";
             } else if (strlen($direccion) < 10) {
-                echo "<div class='alert alert-danger'>La dirección es invalida.</div>";
+                echo "<div class='alert alert-danger alert-dismissible fade show'>La dirección es invalida.</div>";
             } else if ($edad <= 17) {
-                echo "<div class='alert alert-danger'>Los menores de edad no pueden hacer solicitudes.</div";
+                echo "<div class='alert alert-danger alert-dismissible fade show'>Los menores de edad no pueden hacer solicitudes.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div";
             } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $ciudad)) {
-                echo "<div class='alert alert-danger'>La ciudad solo puede contener letras.</div>";
+                echo "<div class='alert alert-danger alert-dismissible fade show'>La ciudad solo puede contener letras.
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
             } else {
-                $sql = "INSERT INTO gestion_productos.solicitudcomisionista (UsuarioID,EstadoSolicitud,FechaSolicitud,Nombre,Apellidos,Correo,Edad,Telefono,TipoDocumento,Direccion,Ciudad) VALUES(?,?,?,?,?,?,?,?,?,?)";
+                $sql = "INSERT INTO gestion_productos.solicitudcomisionista (UsuarioID,EstadoSolicitud,FechaSolicitud,Nombre,Apellidos,Correo,Edad,Telefono,TipoDocumento,Direccion,Ciudad) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
                 $stmt = $Link->prepare($sql);
                 $stmt->bind_param("isssssissss", $documento, $estado, $fecha, $nombre, $apellido, $correo, $edad, $telefono, $tipoDocumento, $direccion, $ciudad);
                 $result = $stmt->execute();
@@ -67,7 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         });
                     </script>';
                 } else {
-                    echo "<div class='alert alert-danger'>Ocurrió un error al enviar la solicitud.</div>";
+                    echo "<div class='alert alert-danger alert-dismissible fade show'>Ocurrió un error al enviar la solicitud.
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
                 }
             }
         }

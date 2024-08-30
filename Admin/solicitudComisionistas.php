@@ -170,7 +170,7 @@
                                 } else {
                                     $estado = '<span class="badge bg-danger text-dark fs-6">Rechazada</span>';
                                 }
-
+                                $fecha = date_create($row['FechaSolicitud']);
                             ?>
 
                                 <tr>
@@ -183,7 +183,7 @@
                                     </td>
                                     <td class="text-center"><?php echo $estado ?>
                                     </td>
-                                    <td><?php echo $row['FechaSolicitud'] ?></td>
+                                    <td><?php echo date_format($fecha, "d-m-Y") ?></td>
                                     <td>
                                         <div class="d-flex justify-content-around ">
                                             <?php
@@ -193,10 +193,10 @@
                                                     <button type="button" data-bs-toggle="modal" data-bs-target="#rechazarPeticion<?php echo $row['UsuarioID'] ?>" class="btn btn-danger"><i class="fa-solid fa-x"></i> Rechazar</button>
                                                 </div> <?php
                                                     } else if ($row['EstadoSolicitud'] == 'Aceptada') { ?>
-                                                <button class="btn btn-warning" data-bs-toggle="modal"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                                                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#EditarPeticion<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
                                             <?php
                                                     } else { ?>
-                                                <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                                                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#EditarPeticion<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
                                             <?php
                                                     }
                                             ?>
@@ -220,6 +220,7 @@
                     include("./solicitudes/modalAceptar.php");
                     include("./solicitudes/modalRechazar.php");
                     include("./solicitudes/modalInfo.php");
+                    include("./solicitudes/modalEditar.php")
                     ?>
                 </div>
             </div>

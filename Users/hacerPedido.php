@@ -151,7 +151,7 @@ $row = mysqli_fetch_array($result);
                             </tr>
                             <tr>
                                 <th colspan="4" class="text-end">
-                                    <h5>Posible comisión:</h5>
+                                    <h5>Valor estimado de comisión:</h5>
                                 </th>
                                 <td>
                                     <h5>$<?php echo number_format($comision, 0, '', '.') ?></h5>
@@ -170,7 +170,7 @@ $row = mysqli_fetch_array($result);
                 </div>
             </div>
             <input type="hidden" name="TotalPagar" value="<?php echo $totalFactura ?>">
-            <input type="hidden" name="fechaPedido" value="<?php echo date('d-m-Y'); ?>">
+            <input type="hidden" name="fechaPedido" value="<?php echo date('Y-m-d'); ?>">
             <div class="text-center">
                 <button type="submit" class="btn btn-primary my-4">Confirmar entrega</button>
             </div>

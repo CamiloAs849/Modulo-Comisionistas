@@ -15,11 +15,14 @@ $password = validar($_POST['password']);
 
 
 if (empty($usuario) && empty($password)) {
-    echo '<div class="alert alert-danger"> El usuario y contraseña son requeridos.</div>';
+    echo '<div class="alert alert-danger alert-dismissible fade show"> El usuario y contraseña son requeridos.
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 } else if (empty($usuario)) {
-    echo '<div class="alert alert-danger"> El usuario es requerido.</div>';
+    echo '<div class="alert alert-danger alert-dismissible fade show"> El usuario es requerido.
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 } else if (empty($password)) {
-    echo '<div class="alert alert-danger"> La contraseña es requerida.</div>';
+    echo '<div class="alert alert-danger alert-dismissible fade show"> La contraseña es requerida. 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 } else {
     // $contraseña = md5($contraseña);
     $sql = "SELECT * FROM gestion_productos.comisionista  WHERE UsuarioID = ? AND Password = ?";
@@ -43,7 +46,8 @@ if (empty($usuario) && empty($password)) {
             $_SESSION['UsuarioID'] = $row['UsuarioID'];
             echo "<script>window.location.href = './Users/inicio.php';</script>";
         } else {
-            echo '<div class="alert alert-danger">El usuario o contraseña son incorrectos.</div>';
+            echo '<div class="alert alert-danger alert-dismissible fade show">El usuario o contraseña son incorrectos.
+             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
         }
     } else {
         $sql = "SELECT * FROM gestion_productos.administrador WHERE AdminID = ? AND Password = ?";
@@ -59,10 +63,12 @@ if (empty($usuario) && empty($password)) {
                 $_SESSION['AdminID'] = $row['AdminID'];
                 echo "<script>window.location.href = './Admin/Inicio-Admin.php';</script>";
             } else {
-                echo '<div class="alert alert-danger">El usuario o contraseña son incorrectos.</div>';
+                echo '<div class="alert alert-danger alert-dismissible fade show">El usuario o contraseña son incorrectos.
+                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
             }
         } else {
-            echo '<div class="alert alert-danger">El usuario o contraseña son incorrectos.</div>';
+            echo '<div class="alert alert-danger alert-dismissible fade show">El usuario o contraseña son incorrectos. 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
         }
     }
 }

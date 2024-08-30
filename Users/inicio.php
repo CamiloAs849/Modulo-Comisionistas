@@ -145,29 +145,108 @@
             <div class="col-md-9 col-xl-10 col-lg-9 mt-4">
                 <div class="row">
                     <div class="col-xxl-3 col-xl-4 col-lg-12 col-md-12">
-                        <p class="title text-center">Perfil</p>
                         <center>
-                            <div class="tarjeta mb-4 ">
-                                <div class="img">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <p class="title text-center ">Perfil</p>
+                            <div class="tarjeta mb-4">
+                                <div class="image mb-3"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                         <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
                                     </svg>
                                 </div>
-                                <span><?php echo $nombreUsuario ?></span>
-                                <p class="apellido text-center"><?php echo $apellidoUsuario ?></p>
-                                <p class="text-center">Comisionista</p>
-                                <div class="text-center mb-4">
-                                    <button data-bs-toggle="modal" data-bs-target="#info" class="perfil"><i class="fa-solid fa-user fa-sm" style="color: #3b685b;"></i></button>
-                                    <br>
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#info" class="link-perfil"><strong>Mi perfil</strong></a>
+                                <div class="tarjeta-info">
+                                    <span><?php echo $nombreUsuario ?></span>
+                                    <span><?php echo $apellidoUsuario ?></span>
+                                    <p>Comisionista</p>
                                 </div>
+                                <button type="button" class="button" data-bs-target="#info" data-bs-toggle="modal"><i class="fa-solid fa-user fa-sm" style="color: #3b685b;"></i> Mi perfil</button>
                             </div>
                         </center>
                     </div>
                     <div class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 ">
                         <h2 class="text-center fw-bold">Acumulado de comisión</h2>
-                        <p class="text-center">Este valor será un acumulado mensual, el primer día de cada mes se actualizará a 0.</p>
-                        <p class="fs-3 fw-bold text-center">$<?php echo number_format($row2['AcumuladoComision'], 0, '', '.') ?></p>
+                        <p class="text-center mb-5">Este valor será un acumulado mensual, el primer día de cada mes se actualizará a 0.</p>
+                        <div class="d-flex justify-content-center">
+                            <div class="cards">
+                                <div class="outlinePage">
+                                    <p class="ranking_number"><?php echo date('d') ?><span class="ranking_word"> del mes</span></p>
+                                    <div class="splitLine"></div>
+                                    <p class="userName">Acumulado del mes</p>
+                                </div>
+                                <div class="detailPage">
+                                    <svg
+                                        class=" medals slide-in-top"
+                                        viewBox="0 0 1024 1024"
+                                        version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="80"
+                                        height="80">
+                                        <path
+                                            d="M896 42.666667h-128l-170.666667 213.333333h128z"
+                                            fill="#FF4C4C"></path>
+                                        <path
+                                            d="M768 42.666667h-128l-170.666667 213.333333h128z"
+                                            fill="#3B8CFF"></path>
+                                        <path d="M640 42.666667h-128L341.333333 256h128z" fill="#F1F1F1"></path>
+                                        <path
+                                            d="M128 42.666667h128l170.666667 213.333333H298.666667z"
+                                            fill="#FF4C4C"></path>
+                                        <path
+                                            d="M256 42.666667h128l170.666667 213.333333h-128z"
+                                            fill="#3B8CFF"></path>
+                                        <path
+                                            d="M384 42.666667h128l170.666667 213.333333h-128z"
+                                            fill="#FBFBFB"></path>
+                                        <path
+                                            d="M298.666667 256h426.666666v213.333333H298.666667z"
+                                            fill="#E3A815"></path>
+                                        <path
+                                            d="M512 661.333333m-320 0a320 320 0 1 0 640 0 320 320 0 1 0-640 0Z"
+                                            fill="#FDDC3A"></path>
+                                        <path
+                                            d="M512 661.333333m-256 0a256 256 0 1 0 512 0 256 256 0 1 0-512 0Z"
+                                            fill="#E3A815"></path>
+                                        <path
+                                            d="M512 661.333333m-213.333333 0a213.333333 213.333333 0 1 0 426.666666 0 213.333333 213.333333 0 1 0-426.666666 0Z"
+                                            fill="#F5CF41"></path>
+                                        <path
+                                            d="M277.333333 256h469.333334a21.333333 21.333333 0 0 1 0 42.666667h-469.333334a21.333333 21.333333 0 0 1 0-42.666667z"
+                                            fill="#D19A0E"></path>
+                                        <path
+                                            d="M277.333333 264.533333a12.8 12.8 0 1 0 0 25.6h469.333334a12.8 12.8 0 1 0 0-25.6h-469.333334z m0-17.066666h469.333334a29.866667 29.866667 0 1 1 0 59.733333h-469.333334a29.866667 29.866667 0 1 1 0-59.733333z"
+                                            fill="#F9D525"></path>
+                                        <path
+                                            d="M512 746.666667l-100.309333 52.736 19.157333-111.701334-81.152-79.104 112.128-16.298666L512 490.666667l50.176 101.632 112.128 16.298666-81.152 79.104 19.157333 111.701334z"
+                                            fill="#FFF2A0"></path>
+                                    </svg>
+                                    <div class="gradesBox">
+                                        <svg
+                                            class=" gradesIcon"
+                                            viewBox="0 0 1024 1024"
+                                            version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="60"
+                                            height="60">
+                                            <path
+                                                d="M382.6 805H242.2c-6.7 0-12.2-5.5-12.2-12.2V434.3c0-6.7 5.5-12.2 12.2-12.2h140.4c6.7 0 12.2 5.5 12.2 12.2v358.6c0 6.6-5.4 12.1-12.2 12.1z"
+                                                fill="#558c93"
+                                                data-spm-anchor-id="a313x.search_index.0.i36.40193a81WcxQiT"
+                                                class=""></path>
+                                            <path
+                                                d="M591.1 805H450.7c-6.7 0-12.2-5.5-12.2-12.2V254.9c0-6.7 5.5-12.2 12.2-12.2h140.4c6.7 0 12.2 5.5 12.2 12.2v537.9c0 6.7-5.5 12.2-12.2 12.2z"
+                                                fill="#284346"
+                                                data-spm-anchor-id="a313x.search_index.0.i35.40193a81WcxQiT"
+                                                class=""></path>
+                                            <path
+                                                d="M804.4 805H663.9c-6.7 0-12.2-5.5-12.2-12.2v-281c0-6.7 5.5-12.2 12.2-12.2h140.4c6.7 0 12.2 5.5 12.2 12.2v281c0.1 6.7-5.4 12.2-12.1 12.2z"
+                                                fill="#558c93"
+                                                data-spm-anchor-id="a313x.search_index.0.i37.40193a81WcxQiT"
+                                                class=""></path>
+                                        </svg>
+                                        <p class="gradesBoxLabel">Comisión</p>
+                                        <p class="gradesBoxNum">$ <?php echo number_format($row2['AcumuladoComision'], 0, '', '.') ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <p class="text-center title">Historial de pedidos</p>
                     <div class="table-responsive">

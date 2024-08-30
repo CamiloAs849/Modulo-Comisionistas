@@ -1,5 +1,5 @@
 <div class="modal fade" id="formularioPeticion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-text.="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content ">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Solicitud de comisionista</h1>
