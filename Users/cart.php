@@ -35,7 +35,7 @@ if (empty($_SESSION['UsuarioID'])) {
                                 </tr>
                             </thead>
                             <?php
-                            $porcentajeComision = $_SESSION['comision'] / 100;
+                            $porcentajeComision = 19 / 100;
                             foreach ($_SESSION['carrito'] as $c) {
                                 $productos = $Link->query("SELECT * FROM gestion_productos.producto WHERE ProductoID=$c[id]");
                                 $r = $productos->fetch_object();

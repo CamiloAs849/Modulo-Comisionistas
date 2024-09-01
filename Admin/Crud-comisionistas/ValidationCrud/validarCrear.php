@@ -60,9 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                      }
                                  });
                              </script>';
-                    $sql = "INSERT INTO gestion_productos.comision (ComisionID, UsuarioID, PorcentajeComision) VALUES (NULL, ?, ?)";
+                    $sql = "INSERT INTO gestion_productos.comision (ComisionID, UsuarioID, ValorComision, AcumuladoComision) VALUES (NULL, ?, ?, ?)";
                     $stmt = $Link->prepare($sql);
-                    $stmt->bind_param("si", $Documento, $porcentaje);
+                    $stmt->bind_param("iii", $Documento, 0, 0);
                     $result = $stmt->execute();
                     if ($result) {
                     }

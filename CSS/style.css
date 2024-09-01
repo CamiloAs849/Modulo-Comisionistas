@@ -267,6 +267,6 @@ textarea {
 }
 
 /* Sidebar estatica */
-.offcanvas-start {
+.offcanvas-end {
   position: fixed;
 }

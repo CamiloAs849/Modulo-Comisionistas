@@ -39,6 +39,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<hr>" . $producto['cantidad'];
                 echo "<hr>" . $lol->NombreProducto;
             }
+            $dia = date('d');
+            $comision = $totalPagar * 0.19;
+            $sql2 = "SELECT * FROM gestion_productos.comision WHERE UsuarioID = $usuarioID";
+            $result2 = mysqli_query($Link, $sql2);
+            $row2 = mysqli_fetch_array($result2);
+            $valorViejo = $row2['AcumuladoComision'];
+            $nuevoValor = $valorViejo + $comision;
+            $sql = "UPDATE  gestion_productos.comision SET AcumuladoComision = ? WHERE UsuarioID = $usuarioID";
+            $stmt = $Link->prepare($sql);
+            $stmt->bind_param("d", $nuevoValor);
+            $stmt->execute();
         }
     }
 }

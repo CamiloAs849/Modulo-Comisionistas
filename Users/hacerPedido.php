@@ -44,13 +44,6 @@ $row = mysqli_fetch_array($result);
 <body>
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Vision Limpieza</a>
-
-        <ul class="navbar-nav flex-row d-md-none">
-            <li class="nav-item text-nowrap">
-                <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i>
-                </button>
-            </li>
-        </ul>
     </header>
     <div class="container">
         <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
@@ -158,7 +151,7 @@ $row = mysqli_fetch_array($result);
                             </tr>
                             <tr>
                                 <th colspan="4" class="text-end">
-                                    <h5>Comisión:</h5>
+                                    <h5>Posible comisión:</h5>
                                 </th>
                                 <td>
                                     <h5>$<?php echo number_format($comision, 0, '', '.') ?></h5>

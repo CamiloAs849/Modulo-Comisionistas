@@ -43,9 +43,10 @@ if (empty($_SESSION['AdminID'])) {
         </ul>
     </header>
     <div class="container-fluid">
+        <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
             <div class="sidebar col-xl-2  col-md-4 col-lg-3 p-0 ">
-                <div class="offcanvas-md min-vh-100 bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                <div class="offcanvas-md min-vh-100 bg-dark offcanvas-end" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -80,6 +81,9 @@ if (empty($_SESSION['AdminID'])) {
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./solicitudComisionistas.php"><i class="fa-solid fa-hand"></i> Solicitudes comisionistas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./guiaAdmin.php"><i class="fa-solid fa-question"></i> Uso de herramientas</a>
                             </li>
                         </ul>
 
@@ -122,6 +126,11 @@ if (empty($_SESSION['AdminID'])) {
                         Comisión de comisionistas
                     </p>
                 </center>
+                <div class="row">
+                    <div class="col-xxl-9 col-xl-9 col-lg-8 ">
+                        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-file-arrow-down"></i> Descargar</button>
+                    </div>
+                </div>
                 <div class="table-responsive mb-5">
                     <table class="table table-bordered border-dark table-hover" id="comisionTable">
                         <thead class="table-success">
@@ -145,8 +154,8 @@ if (empty($_SESSION['AdminID'])) {
                                     <td><?php echo $row['UsuarioID'] ?></td>
                                     <td><?php echo $row['NombreUsuario'] ?></td>
                                     <td><?php echo $row['ApellidosUsuario'] ?></td>
-                                    <td><?php echo $row['ValorComision'] ?>%</td>
-                                    <td><?php echo $row['AcumuladoComision'] ?></td>
+                                    <td>$<?php echo number_format($row['ValorComision'], 0, '', '.') ?></td>
+                                    <td>$<?php echo number_format($row['AcumuladoComision'], 0, '', '.') ?></td>
                                     <td class="text-center"><button type="button" data-bs-toggle="modal" data-bs-target="#editarComision<?php echo $row['UsuarioID'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
                                 </tr>
                             <?php

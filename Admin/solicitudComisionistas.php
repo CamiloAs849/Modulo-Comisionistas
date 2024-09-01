@@ -55,9 +55,10 @@
         </ul>
     </header>
     <div class="container-fluid">
+        <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
             <div class="sidebar col-xl-2  col-md-4 col-lg-3 p-0 ">
-                <div class="offcanvas-md min-vh-100 bg-dark offcanvas-start" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                <div class="offcanvas-md min-vh-100 bg-dark offcanvas-end" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -94,6 +95,9 @@
                                 <a class="nav-link active d-flex align-items-center gap-2" href="./solicitudComisionistas.php">
                                     <i class="fa-solid fa-hand"></i> Solicitudes comisionistas
                                 </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./guiaAdmin.php"><i class="fa-solid fa-question"></i> Uso de herramientas</a>
                             </li>
                         </ul>
                         <hr class="text-white">
@@ -167,23 +171,15 @@
                                     $estado = '<span class="badge bg-danger text-dark fs-6">Rechazada</span>';
                                 }
 
-                                $informacion = "<b> Nombre: </b>" . $row['Nombre'] . " " . "<b> Apellidos: </b> " . $row['Apellidos'] . " " . "<b>Correo: </b> " . $row['Correo'] . " " . "<b> Edad: </b>" . $row['Edad'] . " " . "<b> Telefono: </b>" . $row['Telefono'] . " " . "<b> Direccion: </b> " . $row['Direccion'] . " " . "<b> Ciudad: </b> " . $row['Ciudad'];
                             ?>
 
                                 <tr>
                                     <td><?php echo $row['SolicitudID'] ?></td>
                                     <td><?php echo $row['UsuarioID'] ?></td>
                                     <td class="text-center">
-                                        <p class="d-inline-flex gap-1">
-                                            <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#verinfo<?php echo $row['SolicitudID'] ?>" aria-expanded="false" aria-controls="collapseExample">
-                                                Ver la información
-                                            </button>
-                                        </p>
-                                        <div class="collapse" id="verinfo<?php echo $row['SolicitudID'] ?>">
-                                            <div class="">
-                                                <?php echo $informacion; ?>
-                                            </div>
-                                        </div>
+                                        <button class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-target="#verinfo<?php echo $row['SolicitudID'] ?>">
+                                            Ver la información
+                                        </button>
                                     </td>
                                     <td class="text-center"><?php echo $estado ?>
                                     </td>
@@ -221,8 +217,9 @@
                     include("./crud-proveedores/create.php");
                     include("./crud-proveedores/edit.php");
                     include("./crud-proveedores/show.php");
-                    include("./solicitudes/formularioAceptar.php");
+                    include("./solicitudes/modalAceptar.php");
                     include("./solicitudes/modalRechazar.php");
+                    include("./solicitudes/modalInfo.php");
                     ?>
                 </div>
             </div>

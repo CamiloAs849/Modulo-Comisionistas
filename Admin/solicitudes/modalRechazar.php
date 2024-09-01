@@ -21,17 +21,17 @@ while ($row = mysqli_fetch_array($result)) {
                     <h1 class="modal-title fs-5">Rechazar solicitud</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body py-0">
-                    <div id="messageRechazarPeticion<?php echo $row['UsuarioID'] ?>"></div>
-                    <p class="fw-bold fs-5">¿Quieres rechazar la solicitud?</p>
-                    <form action="" id="FormRechazarPeticion<?php echo $row['UsuarioID'] ?>" method="post">
+                <form action="" id="FormRechazarPeticion<?php echo $row['UsuarioID'] ?>" method="post">
+                    <div class="modal-body py-0">
+                        <div id="messageRechazarPeticion<?php echo $row['UsuarioID'] ?>"></div>
+                        <p class="fw-bold fs-5">¿Quieres rechazar la solicitud?</p>
+                        <p>Esta acción no se puede revertir.</p>
                         <input type="hidden" name="documento" value="<?php echo $row['UsuarioID'] ?>">
-                        <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
-                            <button type="submit" class="btn btn-lg btn-danger"><i class="fa-solid fa-xmark fa-beat"></i> Rechazar</button>
-                            <button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+                        <button type="submit" class="btn btn-lg btn-danger"><i class="fa-solid fa-xmark fa-beat"></i> Rechazar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

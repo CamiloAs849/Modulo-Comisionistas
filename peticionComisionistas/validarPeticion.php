@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $direccion = $_POST['direccion'];
     $ciudad = $_POST['ciudad'];
     $fecha = $_POST['fecha'];
+    $tipoDocumento = $_POST['tipoDocumento'];
     $estado = "Pendiente";
 
     $sql = "SELECT * FROM gestion_productos.solicitudcomisionista WHERE UsuarioID = ?";
@@ -28,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_num_rows($result) > 0) {
             echo "<div class='alert alert-warning'>Este número de documento ya está registrado.</div>";
         } else {
-            if (empty($documento) || empty($nombre) || empty($apellido) || empty($correo) || empty($edad) || empty($telefono) || empty($direccion) || empty($ciudad)) {
+            if (empty($documento) || empty($nombre) || empty($apellido) || empty($correo) || empty($edad) || empty($telefono) || empty($direccion) || empty($ciudad) || empty($tipoDocumento)) {
                 echo "<div class='alert alert-danger'>Llene todos los campos.</div>";
             } else if (!is_numeric($documento)) {
                 echo "<div class='alert alert-danger'>El documento es invalido.</div>";
@@ -44,12 +45,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";
             } else if (strlen($direccion) < 10) {
                 echo "<div class='alert alert-danger'>La dirección es invalida.</div>";
+            } else if ($edad <= 17) {
+                echo "<div class='alert alert-danger'>Los menores de edad no pueden hacer solicitudes.</div";
             } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $ciudad)) {
                 echo "<div class='alert alert-danger'>La ciudad solo puede contener letras.</div>";
             } else {
-                $sql = "INSERT INTO gestion_productos.solicitudcomisionista (UsuarioID,EstadoSolicitud,FechaSolicitud,Nombre,Apellidos,Correo,Edad,Telefono,Direccion,Ciudad) VALUES(?,?,?,?,?,?,?,?,?,?)";
+                $sql = "INSERT INTO gestion_productos.solicitudcomisionista (UsuarioID,EstadoSolicitud,FechaSolicitud,Nombre,Apellidos,Correo,Edad,Telefono,TipoDocumento,Direccion,Ciudad) VALUES(?,?,?,?,?,?,?,?,?,?)";
                 $stmt = $Link->prepare($sql);
-                $stmt->bind_param("isssssisss", $documento, $estado, $fecha, $nombre, $apellido, $correo, $edad, $telefono, $direccion, $ciudad);
+                $stmt->bind_param("isssssissss", $documento, $estado, $fecha, $nombre, $apellido, $correo, $edad, $telefono, $tipoDocumento, $direccion, $ciudad);
                 $result = $stmt->execute();
                 if ($result) {
                     echo '<script>
@@ -59,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         confirmButtonText: "Aceptar"
                         }).then((result) => {
                         if (result.isConfirmed) {
-                        window.location.href = " ./index.php";
+                        window.location.href = "./index.php";
                         }
                         });
                     </script>';

@@ -28,6 +28,9 @@
         exit();
     }
     $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = '$usuario'";
+    $sql2 = "SELECT * FROM gestion_productos.comision WHERE UsuarioID = $usuario";
+    $result2 = mysqli_query($Link, $sql2);
+    $row2 = mysqli_fetch_array($result2);
 
     $resultado = mysqli_query($Link, $sql);
 
@@ -41,6 +44,12 @@
     $Ciudad = $row['Ciudad'];
     $usuarioID = $row['UsuarioID'];
     $contraseña = $row['Password'];
+    $dia = date('d');
+    if ($dia == '01') {
+        $sql = "UPDATE  gestion_productos.comision SET AcumuladoComision = 0 WHERE UsuarioID = $usuario";
+        $stmt = $Link->prepare($sql);
+        $stmt->execute();
+    }
     ?>
 
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
@@ -57,7 +66,7 @@
         <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
             <div class="sidebar col-xl-2  col-md-3 col-lg-3 p-0 ">
-                <div class=" offcanvas-md bg-dark offcanvas-start min-vh-100 " tabindex=" -1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                <div class=" offcanvas-md bg-dark offcanvas-end min-vh-100 " tabindex=" -1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark ">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -156,8 +165,10 @@
                         </center>
                     </div>
                     <div class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 ">
-                        <h2 class="text-center fw-bold">Lorem, ipsum dolor</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati, iure neque, suscipit id aliquid non ipsum ducimus ullam perferendis blanditiis, hic delectus dolor error tenetur? Accusamus laudantium ipsum dolor et?</p>
+                        <h2 class="text-center fw-bold">Acumulado de comisión</h2>
+                        <p class="text-center">Este valor será un acumulado mensual, el primer día de cada mes se actualizará a 0.</p>
+                        <p class="fs-3 fw-bold text-center">$<?php echo number_format($row2['AcumuladoComision'], 0, '', '.') ?></p>
+                        <?php echo date('d') ?>
                     </div>
                     <p class="text-center title">Historial de pedidos</p>
                     <div class="table-responsive">

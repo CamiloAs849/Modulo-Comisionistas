@@ -26,7 +26,7 @@
                 <img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" class="" width="90px" alt="">
                 <div class="title_container">
                     <p class="title text-center">Ingresar al portal</p>
-                    <button type="button" class="bg-transparent border border-0" data-bs-toggle="modal" data-bs-target="#formularioPeticion">¿No eres comisionista? Haz tu petición</button>
+                    <button type="button" class="bg-transparent border border-0" data-bs-toggle="modal" data-bs-target="#formularioPeticion">¿No eres comisionista? Haz tu solicitud</button>
                     <span class="subtitle text-center">Ingresa mediante la clave que te han dado.</span>
                 </div>
                 <div id="message">

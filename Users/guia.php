@@ -58,7 +58,7 @@
         <a href="#" class="btn btn-dark buttonFloat"><i class="fa-solid fa-arrow-up"></i></a>
         <div class="row">
             <div class="sidebar col-xl-2  col-md-3 col-lg-3 p-0 ">
-                <div class="offcanvas-md bg-dark offcanvas-start min-vh-100" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                <div class="offcanvas-md bg-dark offcanvas-end min-vh-100" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header bg-dark">
                         <h5 class="offcanvas-title text-white" id="sidebarMenuLabel"><img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" width="20" height="20" alt=""> Visión Limpieza</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
@@ -138,7 +138,7 @@
             <div class="col-md-9 col-xl-10 col-lg-9">
                 <div class="text-center mb-5">
                     <p class="title mt-4 ">Guía de usuario</p>
-                    <p class="note fs-5">A continucación veras la guía de cada una de las herramientas de la página web.</p>
+                    <p class="note fs-5">A continuación veras la guía de cada una de las herramientas de la página web.</p>
 
                     <div class="btn-group">
                         <button type="button" class="btn btn-dark dropdown-toggle my-3" data-bs-toggle="dropdown" aria-expanded="false">
@@ -177,7 +177,7 @@
                         <p class="fs-5">En este apartado podrás ver toda tu informacíon personal.</p>
                         <img src="https://i.ibb.co/4Jyr3Rj/Captura-de-pantalla-2024-08-23-151818.png" class="border border-dark" alt="Inicio perfil.">
 
-                        <p class="fs-5 mt-4">En este apartado podrás ver el historial de tus pedidos, organizar de orden ascendente o descendente, buscar un dato en especifico o agrupar por cantidades. </p>
+                        <p class="fs-5 mt-5">En este apartado podrás ver el historial de tus pedidos, organizar de orden ascendente o descendente, buscar un dato en especifico o agrupar por cantidades. </p>
                         <img src="https://i.ibb.co/n3Z06mR/Captura-de-pantalla-2024-08-23-154912.png" class="border border-dark w-100" alt="Historial de pedidos">
                     </div>
                     <div id="pedido">

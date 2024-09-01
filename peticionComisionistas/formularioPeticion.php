@@ -11,6 +11,17 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-floating mb-3">
+                                <select class="form-select" name="tipoDocumento" id="tipoDocumento">
+                                    <option value="" selected>Tipo de documento</option>
+                                    <option value="Cédula de ciudadanía">Cédula de ciudadanía</option>
+                                    <option value="Cédula de extranjería">Cédula de extranjería</option>
+                                    <option value="Registro civil">Registro civil</option>
+                                </select>
+                                <label for="tipoDocumento">Tipo de documento</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating mb-3">
                                 <input type="number" class="form-control" name="documento" placeholder="">
                                 <label for="documento">Número de documento</label>
                             </div>

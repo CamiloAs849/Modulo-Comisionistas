@@ -39,7 +39,7 @@ if (empty($usuario) && empty($password)) {
             $stmt->execute();
             $result = $stmt->get_result();
             $row = mysqli_fetch_assoc($result);
-            $_SESSION['comision'] = $row['ValorComision'];
+            $_SESSION['AcumuladoComision'] = $row['AcumuladoComision'];
             $_SESSION['UsuarioID'] = $row['UsuarioID'];
             echo "<script>window.location.href = './Users/inicio.php';</script>";
         } else {

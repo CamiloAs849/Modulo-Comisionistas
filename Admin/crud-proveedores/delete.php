@@ -48,4 +48,6 @@ if (isset($_GET['id'])) {
             });
             </script>";
     }
+} else {
+    header("Location: ../inicio-Admin.php");
 }
