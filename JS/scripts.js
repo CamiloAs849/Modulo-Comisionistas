@@ -214,3 +214,20 @@ function ConfirmDeletePro(id, nombre) {
     }
   });
 }
+
+function ConfirmReport() {
+  Swal.fire({
+    title: "¿Estás seguro de generar el reporte?",
+    text: "Este proceso puede tardar unos minutos",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sí, generar!",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "../Reports/ReporteComision.php";
+    }
+  });
+}

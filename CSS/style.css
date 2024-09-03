@@ -48,7 +48,7 @@
   color: #212121;
 }
 
-.title {
+.titleLogin {
   font-size: 28px;
   font-weight: 600;
   letter-spacing: -1px;
@@ -58,19 +58,19 @@
   padding-left: 30px;
 }
 
-.title::before {
+.titleLogin::before {
   width: 18px;
   height: 18px;
 }
 
-.title::after {
+.titleLogin::after {
   width: 18px;
   height: 18px;
   animation: pulse 1s linear infinite;
 }
 
-.title::before,
-.title::after {
+.titleLogin::before,
+.titleLogin::after {
   position: absolute;
   content: "";
   height: 16px;

@@ -25,7 +25,7 @@
                 <h1 class="text-center titulo">Visión Limpieza</h1>
                 <img src="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png" class="" width="90px" alt="">
                 <div class="title_container">
-                    <p class="title text-center">Ingresar al portal</p>
+                    <p class="titleLogin text-center">Ingresar al portal</p>
                     <button type="button" class="bg-transparent border border-0" data-bs-toggle="modal" data-bs-target="#formularioPeticion">¿No eres comisionista? Haz tu solicitud</button>
                     <span class="subtitle text-center">Ingresa mediante la clave que te han dado.</span>
                 </div>
@@ -106,6 +106,7 @@
                 })
             })
         });
+
         $(document).ready(function() {
             $("#FormEstadoPeticion").on('submit', function(event) {
                 event.preventDefault();

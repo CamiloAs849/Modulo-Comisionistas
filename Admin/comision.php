@@ -128,7 +128,7 @@ if (empty($_SESSION['AdminID'])) {
                 </center>
                 <div class="row">
                     <div class="col-xxl-9 col-xl-9 col-lg-8 ">
-                        <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-file-arrow-down"></i> Descargar</button>
+                        <button type="button" class="btn btn-primary mb-4" onclick="ConfirmReport();"><i class="fa-solid fa-file-arrow-down"></i> Descargar</button>
                     </div>
                 </div>
                 <div class="table-responsive mb-5">

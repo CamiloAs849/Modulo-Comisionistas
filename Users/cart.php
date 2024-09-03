@@ -75,7 +75,7 @@ if (empty($_SESSION['UsuarioID'])) {
                 $totalFactura = $total - $comision;
             ?>
                 <h4>Total de factura: $<?php echo number_format($total, 0, '', '.') ?></h4>
-                <h4>Comisión: $<?php echo number_format($comision, 0, '', '.') ?></h4>
+                <h4>Comisión estimada: $<?php echo number_format($comision, 0, '', '.') ?></h4>
                 <h4>Total a pagar: $<?php echo number_format($totalFactura, 0, '', '.')  ?></h4>
 
             </div>

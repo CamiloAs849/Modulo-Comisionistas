@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $totalPagar = $_POST['TotalPagar'];
 
     if (empty($nombre) || empty($apellido) || empty($direccion) || empty($ciudad) || empty($telefono) || empty($correo) || empty($fechaPedido) || empty($totalPagar)) {
-        echo '<div class="alert alert-danger">Llene todos los campos</div>';
+        echo '<div class="alert alert-danger">Llene todos los campos.</div>';
     } else {
         if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $nombre) || !preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $apellido)) {
             echo '<div class="alert alert-danger">El nombre y apellido solo pueden contener letras.</div>';
