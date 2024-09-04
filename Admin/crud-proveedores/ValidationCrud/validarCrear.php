@@ -13,10 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $nombre = validar($_POST['nombre']);
         $telefono = validar($_POST['telefono']);
         $direccion = validar($_POST['direccion']);
+
+        $sql = "SELECT * FROM gestion_productos.proveedor WHERE ProveedorID = ?";
+        $stmt = $Link->prepare($sql);
+        $stmt->bind_param("s", $nit);
+        $stmt->execute();
+        $result = $stmt->get_result();
         if (empty($nit) || empty($telefono) || empty($direccion) || empty($nombre)) {
             echo "<div class='alert alert-danger'> Llene todos los campos.</div>";
         } else {
-            if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ.\s]+$/', $nombre)) {
+            if (mysqli_num_rows($result) > 0) {
+                echo "<div class='alert alert-warning'> El proveedor con el NIT $nit ya está registrado.</div>";
+            } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ.\s]+$/', $nombre)) {
                 echo "<div class='alert alert-danger'> El nombre es invalido.</div>";
             } else if (strlen($nit) < 7 || strlen($nit) > 11) {
                 echo "<div class='alert alert-danger'>El NIT es invalido.</div>";

@@ -139,7 +139,7 @@
                 </center>
                 <div class="row">
                     <div class="col-md-8 col-xl-10 col-lg-9">
-                        <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crear"><i class="fa-solid fa-plus"></i> Agregar Proveedor</button>
+                        <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#crearP"><i class="fa-solid fa-plus"></i> Agregar Proveedor</button>
                     </div>
                 </div>
                 <div class="table-responsive mb-5">
@@ -184,7 +184,24 @@
                     <script src="../Components/bootstrap.bundle.min.js"></script>
                     <script src="../Components/datatables.min.js"></script>
                     <script src="../JS/scripts.js"></script>
-
+                    <script>
+                        $(document).ready(function() {
+                            $("#FormCreateProveedor").on('submit', function(event) {
+                                event.preventDefault();
+                                var formData = new FormData(this);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: './crud-proveedores/ValidationCrud/validarCrear.php',
+                                    data: formData,
+                                    processData: false,
+                                    contentType: false,
+                                    success: function(response) {
+                                        $('#messageProveedor').html(response)
+                                    }
+                                })
+                            })
+                        });
+                    </script>
                     <?php
                     include("./crud-proveedores/create.php");
                     include("./crud-proveedores/edit.php");

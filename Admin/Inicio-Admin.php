@@ -10,15 +10,12 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="../Components/bootstrap.min.css">
     <script src="../Components/bootstrap.bundle.min.js"></script>
-    <scrip src="../Components/alertify.min.js">
-        </script>
+    <link rel="stylesheet" href="../Components/icon.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
+    <script src="../Components/sweetalert2@11.js"></script>
 
-        <link rel="stylesheet" href="../Components/alertify.min.css" />
-        <link rel="stylesheet" href="../Components/default.min.css" />
-        <link rel="stylesheet" href="../Components/icon.css">
-        <link rel="stylesheet" href="../CSS/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
 </head>
 
 <body>
@@ -48,6 +45,12 @@
         $stmt = $Link->prepare($sql);
         $stmt->execute();
     }
+
+    $query = "SELECT * FROM gestion_productos.comisionista";
+    $result2 = mysqli_query($Link, $query);
+
+    $query2 = "SELECT * FROM gestion_productos.proveedor";
+    $result3 = mysqli_query($Link, $query2);
 
 
     ?>
@@ -140,9 +143,81 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <h1>Bienvenido administrador <?php echo $usuario ?></h1>
+            <div class="col-md-8 col-xl-10 col-lg-9">
+                <div class="row justify-content-md-center mb-5">
+                    <h2 class="mt-5 text-center fw-bold">Opciones rápidas</h2>
+                    <div class="card-admin mt-5">
+                        <button type="button" class="item item--1 border border-0" data-bs-target="#crear" data-bs-toggle="modal">
+                            <i class="fa-solid fa-plus fa-2xl mb-4" style="color: rgb(149, 149, 255);"></i>
+                            <span class="quantity text-white">Agregar comisionista </span>
+                            <span class="text text--1"><i class="fa-solid fa-user-plus"></i> </span>
+                        </button>
+                        <button type="button" class="item item--2 border border-0" data-bs-target="#crearP" data-bs-toggle="modal">
+                            <i class="fa-solid fa-plus fa-2xl mb-4" style="color: rgb(149, 149, 255);"></i>
+                            <span class="quantity text-white"> Agregar proveedor</span>
+                            <span class="text text--2"><i class="fa-solid fa-building"></i> </span>
+                        </button>
+                        <div class="item item--3">
+                            <i class="fa-solid fa-users fa-2xl mb-4" style="color: rgb(76, 140, 147);"></i>
+                            <span class="quantity"> <?php echo mysqli_num_rows($result2) ?> comisionistas </span>
+                            <span class="text text--3"> </span>
+                        </div>
+                        <div class="item item--4">
+                            <i class="fa-solid fa-city fa-2xl mb-4" style="color: rgb(76, 140, 147);"></i>
+                            <span class="quantity"> <?php echo mysqli_num_rows($result3); ?> proveedores</span>
+                            <span class="text text--4"> </span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+            <?php include("../footer.php"); ?>
+        </div>
+    </div>
+    <script src="../Components/jquery-3.7.1.min.js"></script>
+    <script src="../Components/bootstrap.bundle.min.js"></script>
+    <script src="../Components/datatables.min.js"></script>
+    <script src="../JS/scripts.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#FormCrateComisionista").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: './Crud-comisionistas/ValidationCrud/validarCrear.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#message').html(response)
+                    }
+                })
+            })
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#FormCreateProveedor").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: './crud-proveedores/ValidationCrud/validarCrear.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#messageProveedor').html(response)
+                    }
+                })
+            })
+        });
+    </script>
+    <?php
+    include("./Crud-comisionistas/create.php");
+    include("./crud-proveedores/create.php");
+    ?>
 
 </body>
 

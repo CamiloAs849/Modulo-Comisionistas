@@ -227,7 +227,7 @@ function ConfirmReport() {
     cancelButtonText: "Cancelar",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = "../Reports/ReporteComision.php";
+      window.open("../Reports/ReporteComision.php", "_blank");
     }
   });
 }

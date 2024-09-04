@@ -20,6 +20,7 @@
 
 <body style="width: 100%; height: 100%;">
     <?php
+
     session_start();
     include("../DataBase/conexion.php");
     $usuario = $_SESSION['UsuarioID'];
@@ -27,6 +28,7 @@
         header("Location:../index.php");
         exit();
     }
+    setlocale(LC_TIME, 'es_CO UTF-8');
     $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = '$usuario'";
     $sql2 = "SELECT * FROM gestion_productos.comision WHERE UsuarioID = $usuario";
     $result2 = mysqli_query($Link, $sql2);
@@ -146,8 +148,7 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-4 col-lg-12 col-md-12">
                         <center>
-                            <p class="title text-center ">Perfil</p>
-                            <div class="tarjeta mb-4">
+                            <div class="tarjeta mb-4 ">
                                 <div class="image mb-3"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                         <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
                                     </svg>
@@ -162,14 +163,12 @@
                         </center>
                     </div>
                     <div class="col-xxl-8 col-xl-8 col-lg-12 col-md-12 ">
-                        <h2 class="text-center fw-bold">Acumulado de comisión</h2>
-                        <p class="text-center mb-5">Este valor será un acumulado mensual, el primer día de cada mes se actualizará a 0.</p>
                         <div class="d-flex justify-content-center">
-                            <div class="cards">
+                            <div class="cards ">
                                 <div class="outlinePage">
-                                    <p class="ranking_number"><?php echo date('d') ?><span class="ranking_word"> del mes</span></p>
+                                    <p class="ranking_number"><?php echo date('d') ?>/<span class="ranking_word"> <?php echo date('m') ?></span></p>
                                     <div class="splitLine"></div>
-                                    <p class="userName">Acumulado del mes</p>
+                                    <p class="userName">Haz click aquí y mira el acumulado</p>
                                 </div>
                                 <div class="detailPage">
                                     <svg
@@ -247,6 +246,7 @@
                                 </div>
                             </div>
                         </div>
+                        <p class="text-center mt-3  ms-lg-0 ms-xl-5 ms-xxl-5">Recuerda que este este valor será un acumulado mensual, el primer día de cada mes empezará desde cero.</p>
                     </div>
                     <p class="text-center title">Historial de pedidos</p>
                     <div class="table-responsive">

@@ -19,13 +19,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $Direccion = validar($_POST['Direccion']);
         $Ciudad = validar($_POST['Ciudad']);
         $Password = validar($_POST['Password']);
-        $porcentaje = validar($_POST['PorcentajeComision']);
+
+        $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = ?";
+        $stmt = $Link->prepare($sql);
+        $stmt->bind_param("i", $Documento);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
 
         if (empty($Documento) || empty($Nombre) || empty($Apellido) || empty($Edad) || empty($Telefono) || empty($Correo) || empty($Direccion) || empty($Ciudad) || empty($Password)) {
             echo "<div class='alert alert-danger'>Llene todos los campos.</div>";
         } else {
-            if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $Nombre) || !preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $Apellido)) {
-                echo "<div class='alert alert-danger'>El nombre y apellidos solo pueden contener letras<./div>";
+            if (mysqli_num_rows($result) > 0) {
+                echo "<div class='alert alert-warning'>El comisionista con el documento $Documento ya está registrado.</div>";
+            } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $Nombre) || !preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $Apellido)) {
+                echo "<div class='alert alert-danger'>El nombre y apellidos solo pueden contener letras.</div>";
             } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $Ciudad)) {
                 echo "<div class='alert alert-danger'>Ciudad solo puede contener letras.</div>";
             } else if (!filter_var($Correo, FILTER_VALIDATE_EMAIL)) {
@@ -34,12 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<div class='alert alert-danger'>La edad es invalida.</div>";
             } else if (strlen($Documento) < 7 || strlen($Documento) > 11) {
                 echo "<div class='alert alert-danger'>El documento es invalido.</div>";
-            } else if (!preg_match('/^-?\d+(\.\d{2}+)?$/', $porcentaje)) {
-                echo "<div class='alert alert-danger'>El porcentaje de comision es invalido.</div>";
-            } else if ($porcentaje > 100) {
-                echo "<div class='alert alert-danger'>El porcentaje de comision no puede ser mayor a 100%.</div>";
-            } else if ($porcentaje < 1) {
-                echo "<div class='alert alert-danger'>El porcentaje de comision no puede ser menor a 0%.</div>";
             } else if (strlen($Telefono) != 10) {
                 echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";
             } else {

@@ -138,9 +138,7 @@ if (empty($_SESSION['AdminID'])) {
                                 <th>Documento</th>
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
-                                <th>Valor de comisión</th>
                                 <th>Acumulado de comisión</th>
-                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -151,12 +149,10 @@ if (empty($_SESSION['AdminID'])) {
                             $result = mysqli_query($Link, $sql);
                             while ($row = mysqli_fetch_assoc($result)) { ?>
                                 <tr>
-                                    <td><?php echo $row['UsuarioID'] ?></td>
-                                    <td><?php echo $row['NombreUsuario'] ?></td>
-                                    <td><?php echo $row['ApellidosUsuario'] ?></td>
-                                    <td>$<?php echo number_format($row['ValorComision'], 0, '', '.') ?></td>
-                                    <td>$<?php echo number_format($row['AcumuladoComision'], 0, '', '.') ?></td>
-                                    <td class="text-center"><button type="button" data-bs-toggle="modal" data-bs-target="#editarComision<?php echo $row['UsuarioID'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
+                                    <td class="text-center"><?php echo $row['UsuarioID'] ?></td>
+                                    <td class="text-center"><?php echo $row['NombreUsuario'] ?></td>
+                                    <td class="text-center"><?php echo $row['ApellidosUsuario'] ?></td>
+                                    <td class="text-center">$<?php echo number_format($row['AcumuladoComision'], 0, '', '.') ?></td>
                                 </tr>
                             <?php
                             }
