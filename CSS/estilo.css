@@ -1,0 +1,530 @@
+#body {
+    background-color: rgb(65, 117, 130);
+
+}
+
+body {
+    scroll-margin-top: 1.25rem;
+}
+
+#vision {
+    color: rgb(65, 117, 130);
+}
+
+
+#navbar-titulo {
+    color: white;
+}
+
+
+.bg-gradient .h4 {
+    color: rgb(26, 78, 82);
+}
+
+
+.bg-gradient {
+    background: rgb(65, 117, 130);
+    box-shadow: 0 4px 10px 0 rgb(255, 255, 255), 0 10px 20px 0 rgb(255, 254, 254);
+}
+
+.nav-link {
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+.nav-link:hover {
+    background-color: rgb(65, 117, 130);
+}
+
+.carousel-caption {
+    /*background-color: rgba(80, 117, 130, 0.514);*/
+    border-radius: 10px;
+    text-shadow: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    left: 200px;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.text-color {
+    color: rgb(255, 255, 255);
+}
+
+#Barra {
+    background: rgb(65, 117, 130);
+    box-shadow: 0 10px 20px 0 rgb(255, 255, 255), 0 10px 20px 0 rgb(255, 255, 255);
+    border: 2px solid rgb(26, 78, 82);
+
+}
+
+.carousel-item img {
+    height: 600px;
+    max-height: 550px;
+    max-width: 300%;
+    object-fit: cover;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+
+#parteequipos {
+    color: rgb(65, 117, 130);
+}
+
+#parteequipos {
+    color: rgb(65, 117, 130);
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+.btn-donate {
+    --clr-font-main: hsla(0 0% 20% / 100);
+    --btn-bg-1: hsla(194 100% 69% / 1);
+    --btn-bg-2: hsla(217 100% 56% / 1);
+    --btn-bg-color: hsla(360 100% 100% / 1);
+    --radii: 0.5em;
+    cursor: pointer;
+    padding: 0.9em 1.4em;
+    min-width: 120px;
+    min-height: 44px;
+    font-size: var(--size, 1rem);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-weight: 500;
+    transition: 0.8s;
+    background-size: 280% auto;
+    background-image: linear-gradient(325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90%);
+    border: none;
+    border-radius: var(--radii);
+    color: var(--btn-bg-color);
+    box-shadow: 0px 0px 20px rgba(71, 184, 255, 0.5), 0px 5px 5px -1px rgba(58, 125, 233, 0.25), inset 4px 4px 8px rgba(175, 230, 255, 0.5), inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+}
+
+.btn-donate:hover {
+    background-position: right top;
+}
+
+.btn-donate:is(:focus, :focus-visible, :active) {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--btn-bg-color), 0 0 0 6px var(--btn-bg-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn-donate {
+        transition: linear;
+    }
+}
+
+
+#quienessomos {
+    margin-top: 170px;
+    margin-bottom: 150px;
+    color: rgb(65, 117, 130);
+
+}
+
+#tituloquienessomos {
+    top: 100px;
+}
+
+#portafolio {
+    background-color: rgb(227, 227, 227);
+    border-radius: 30px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding-bottom: 100px;
+}
+
+#portafolio-title {
+    color: rgb(65, 117, 130);
+    font-family: 'Righteous';
+    font-size: 40px;
+    text-align: center;
+
+}
+
+
+
+card {
+
+    border-radius: 20px;
+
+
+}
+
+.card-title {
+
+    margin-bottom: 100px;
+
+}
+
+.card-text {
+    color: rgb(26, 78, 82);
+}
+
+h5 {
+    color: rgb(255, 255, 255);
+}
+
+
+/* From Uiverse.io by Rodrypaladin */
+
+.card-int__title {
+
+    color: rgb(65, 117, 130);
+
+}
+
+.card h5 {
+    color: rgb(26, 78, 82);
+
+}
+
+.card {
+    position: static;
+    background: rgb(255, 255, 255);
+    /*padding: 20px;*/
+    box-shadow: 0 10px 20px 0 rgb(65, 117, 130), 0 10px 20px 0 rgba(0, 0, 0, 0.342);
+    margin-top: 40px;
+    /*sleft: 20px;*/
+    /*margin-left: 10px;*/
+}
+
+.card::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 10px;
+    bottom: 15px;
+    right: 0;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+    transform: rotate(5deg);
+    transition: all 0.1s ease-in;
+}
+
+.card::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 10px;
+    bottom: 15px;
+    left: 0;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+    transform: rotate(-5deg);
+    transition: all 0.1s ease-in;
+}
+
+.card:hover:before,
+.card:hover:after {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.6);
+}
+
+.card:hover:before {
+    transform: rotate(-8deg);
+}
+
+.card:hover:after {
+    transform: rotate(8deg);
+}
+
+.card__img {
+    position: relative;
+    background: rgb(255, 255, 255);
+    /*background: linear-gradient(315deg, #ffffff, rgb(65, 117, 130));*/
+    width: 100%;
+    height: 175px;
+}
+
+.card__span {
+    cursor: pointer;
+    font-size: 11px;
+    position: absolute;
+    background-color: white;
+    top: 10px;
+    left: 10px;
+    padding: 3px 7px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease-in;
+    user-select: none;
+}
+
+.card__span:hover {
+    transform: translateX(2px);
+}
+
+.card-int {
+    padding: 20px 0 0 0;
+}
+
+.card-int__title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+}
+
+.card-int__button {
+    cursor: pointer;
+    margin: 20px 0 0 0;
+    padding: 7px 20px;
+    /*width: 100%;*/
+    background-color: rgb(65, 117, 130);
+    border: none;
+    color: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
+    transition: box-shadow 0.1s ease-in;
+    user-select: none;
+    font-family: 'Righteous';
+}
+
+.card-int__button:active {
+    box-shadow: 0px 0px 15px rgba(0, 119, 255, 0.5);
+}
+
+.card-int__button:hover::before {
+    animation: effect_two 0.4s 1;
+}
+
+.card-int__button::before {
+    font-family: 'Righteous';
+    content: 'Deseo comprar';
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: rgb(65, 117, 130);
+    background: linear-gradient(315deg, #ffffff, rgb(65, 117, 130));
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(-99%);
+    z-index: 1;
+    animation: effect_one 10s infinite;
+}
+
+.card-int__button:hover::before {
+    transform: translateX(0%);
+}
+
+.excerpt {
+    font-size: 14px;
+}
+
+@keyframes effect_one {
+    0% {
+        transform: translateX(-99%);
+    }
+
+    25% {
+        transform: translateX(-90%);
+    }
+
+    50% {
+        transform: translateX(-80%);
+    }
+
+    75% {
+        transform: translateX(-95%);
+    }
+
+    100% {
+        transform: translateX(-99%);
+    }
+}
+
+@keyframes effect_two {
+    to {
+        transform: translateX(-1%);
+    }
+
+    from {
+        transform: translateX(-99%);
+    }
+}
+
+
+
+#preguntas {
+    background-color: rgb(227, 227, 227);
+    color: rgb(65, 117, 130);
+    margin-bottom: 50px;
+    padding: 20px;
+
+}
+
+/* From Uiverse.io by NelsonDJCR */
+.button2 {
+    display: inline-block;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #090909;
+    padding: 0.7em 3.3em 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    box-shadow: 6px 6px 12px #c5c5c5,
+        -6px -6px 12px rgb(227, 227, 227);
+}
+
+.button2>svg {
+    height: 30px;
+    position: absolute;
+    padding: 0px 5px;
+    margin-top: -4px;
+}
+
+.button2:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
+        inset -4px -4px 12px #ffffff;
+}
+
+.button2:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.25);
+    top: 100%;
+    width: 140%;
+    height: 180%;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button2:after {
+    content: "";
+    position: absolute;
+    left: 55%;
+    transform: translateX(-50%) scaleY(1) scaleX(1.45);
+    top: 180%;
+    width: 160%;
+    height: 190%;
+    background-color: #009087;
+    border-radius: 50%;
+    display: block;
+    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    z-index: -1;
+}
+
+.button2:hover {
+    color: #ffffff;
+    border: 1px solid #009087;
+}
+
+.button2:hover:before {
+    top: -35%;
+    background-color: #009087;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button2:hover:after {
+    top: -45%;
+    background-color: #009087;
+    transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1;
+}
+
+/* From Uiverse.io by roajuan93 */
+.card {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px;
+    gap: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
+
+/* for all social containers*/
+.socialContainer {
+    width: 52px;
+    height: 52px;
+    border-radius: 5px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: 0.3s;
+}
+
+/* instagram*/
+.containerOne:hover {
+    background-color: #d62976;
+    transition-duration: 0.3s;
+}
+
+/* Tiktok*/
+.containerTwo:hover {
+    background-color: #25f4ee;
+    transition-duration: 0.3s;
+}
+
+/* Facebook*/
+.containerThree:hover {
+    background-color: #1877f2;
+    transition-duration: 0.3s;
+}
+
+/* Whatsapp*/
+.containerFour:hover {
+    background-color: green;
+    transition-duration: 0.3s;
+}
+
+.socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: 0.3s;
+}
+
+.socialSvg {
+    width: 19px;
+}
+
+.largeIcon {
+    width: 27px;
+    /* Ancho específico solo para el icono de TikTok */
+}
+
+.socialSvg path {
+    fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
