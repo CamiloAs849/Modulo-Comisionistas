@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
     <script src="../Components/sweetalert2@11.js"></script>
+    <script src="../Components/jquery-3.7.1.min.js"></script>
 
 </head>
 
@@ -144,80 +145,308 @@
                 </div>
             </div>
             <div class="col-md-8 col-xl-10 col-lg-9">
-                <div class="row justify-content-md-center mb-5">
-                    <h2 class="mt-5 text-center fw-bold">Opciones rápidas</h2>
-                    <div class="card-admin mt-5">
-                        <button type="button" class="item item--1 border border-0" data-bs-target="#crear" data-bs-toggle="modal">
-                            <i class="fa-solid fa-plus fa-2xl mb-4" style="color: rgb(149, 149, 255);"></i>
-                            <span class="quantity text-white">Agregar comisionista </span>
-                            <span class="text text--1"><i class="fa-solid fa-user-plus"></i> </span>
-                        </button>
-                        <button type="button" class="item item--2 border border-0" data-bs-target="#crearP" data-bs-toggle="modal">
-                            <i class="fa-solid fa-plus fa-2xl mb-4" style="color: rgb(149, 149, 255);"></i>
-                            <span class="quantity text-white"> Agregar proveedor</span>
-                            <span class="text text--2"><i class="fa-solid fa-building"></i> </span>
-                        </button>
-                        <div class="item item--3">
-                            <i class="fa-solid fa-users fa-2xl mb-4" style="color: rgb(76, 140, 147);"></i>
-                            <span class="quantity"> <?php echo mysqli_num_rows($result2) ?> comisionistas </span>
-                            <span class="text text--3"> </span>
-                        </div>
-                        <div class="item item--4">
-                            <i class="fa-solid fa-city fa-2xl mb-4" style="color: rgb(76, 140, 147);"></i>
-                            <span class="quantity"> <?php echo mysqli_num_rows($result3); ?> proveedores</span>
-                            <span class="text text--4"> </span>
+                <div class="row">
+                    <div class="col-12">
+                        <br>
+                        <button type="button" class="btn bg-primary text-white" data-bs-toggle="modal"
+                            data-bs-target="#agregar" data-bs-whatever="@mdo"><i class="fa-solid fa-plus"></i> Agregar
+                            productos</button>
+                    </div>
+                </div>
+                <div class="modal fade" id="agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="agregar">Registrar producto</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <!--FORMULARIO PARA AGREGAR PRODUCTOS-->
+
+                            <div class="modal-body">
+                                <div id="responseMessage"></div>
+                                <form id="registroFormulario" action="" method="post"
+                                    enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Nombre del
+                                            producto</label>
+                                        <input type="text" class="form-control" id="NombreProducto" name="nombre">
+                                    </div>
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Leave a comment here"
+                                            id="floatingTextarea2" name="Descripcion" style="height: 100px"></textarea>
+                                        <label for="floatingTextarea2">Descripción</label>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Tamaño</label>
+                                        <input type="text" class="form-control" id="tamaño" name="tamaño">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Precio</label>
+                                        <input type="number" class="form-control" id="Precio" name="Precio">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Insertar</label>
+                                        <select class="form-control" id="recipient-name" id="Etiqueta" name="Etiqueta">
+                                            <option value="nuevo">Nuevo</option>
+                                            <option value="promocion">Promoción</option>
+                                            <option value="Normal">Normal</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3" id="imagen">
+                                        <input type="file" class="form-control border-secondary" id="inputGroupFile04"
+                                            name="imagen" aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                            accept=".jpg,.jpeg,.png">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
+                                        <script>
+                                            // function guardara() {
+                                            //     Swal.fire({
+                                            //         title: "¿Estás seguro en guardar este nuevo producto?",
+                                            //         icon: "warning",
+                                            //         iconColor: "primary",
+                                            //         showCancelButton: true,
+                                            //         confirmButtonColor: "#4fad29",
+                                            //         cancelButtonColor: "#d33",
+                                            //         confirmButtonText: "Guardar",
+                                            //         cancelButtonText: "Cancelar",
+                                            //     }).then((result) => {
+                                            //         if (result.isConfirmed) {
+                                            //             window.location.href = "./vistaAdmin.php";
+                                            //         }
+                                            //     });
+                                            // }
+                                        </script>
+
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-
                 </div>
+                <?php
+                $sql = "SELECT*FROM gestion_productos.producto";
+                $result = mysqli_query($Link, $sql);
+                while ($row = mysqli_fetch_array($result)) { ?>
+
+                    <div class="modal fade" id="Editar<?php echo $row['ProductoID'] ?>" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="agregar">Editar productos</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+
+                                <!--FORMULARIO PARA EDITAR PRODUCTOS-->
+
+                                <div class="modal-body">
+                                    <div id="responseMessages<?php echo $row['ProductoID'] ?>"></div>
+                                    <form id="editarFormulario<?php echo $row['ProductoID'] ?>" method="post"
+                                        enctype="multipart/form-data">
+                                        <input type="hidden" name="nombreImagen" value="<?php echo $row['imagen'] ?>">
+                                        <input type="hidden" name="id" value="<?php echo $row['ProductoID'] ?>">
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Nombre del
+                                                producto</label>
+                                            <input type="text" class="form-control" id="NombreProducto"
+                                                value="<?php echo $row['NombreProducto'] ?>" name="nombre">
+                                        </div>
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here"
+                                                id="floatingTextarea2" name="Descripcion"
+                                                style="height: 100px"><?php echo $row['Descripcion'] ?></textarea>
+                                            <label for="floatingTextarea2">Descripción</label>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Tamaño</label>
+                                            <input type="text" class="form-control" id="tamaño"
+                                                value="<?php echo $row['tamaño'] ?>" name="tamaño">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Precio</label>
+                                            <input type="number" class="form-control" id="Precio"
+                                                value="<?php echo $row['Precio'] ?>" name="Precio">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="recipient-name" class="col-form-label">Insertar</label>
+                                            <select class="form-control" id="recipient-name" id="Etiqueta" name="Etiqueta"
+                                                value="<?php echo $row['Etiqueta'] ?>">
+                                                <option value="nuevo">Nuevo</option>
+                                                <option value="promocion">Promoción</option>
+                                                <option value="Normal">Normal</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mb-3" id="imagen"> <img width=" 100"
+                                                src="<?php echo './imagenes/' . $row['imagen'] ?>"
+                                                alt="<?php echo $row['NombreProducto'] ?>">
+                                            <input type="file" class="form-control border-secondary" id="inputGroupFile04"
+                                                name="imagen" aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                                accept=".jpg,.jpeg,.png">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success" name="submit"
+                                                onclick="editar()">Guardar</button>
+                                            <script>
+                                                function editar() {
+                                                    Swal.fire({
+                                                        title: "¿Estás seguro en editar este producto?",
+                                                        icon: "warning",
+                                                        iconColor: "#4fad29",
+                                                        showCancelButton: true,
+                                                        confirmButtonColor: "#4fad29",
+                                                        cancelButtonColor: "#d33",
+                                                        confirmButtonText: "Editar",
+                                                        cancelButtonText: "Cancelar",
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed) {
+                                                            window.location.href = "./vistaAdmin.php";
+                                                        }
+                                                    });
+                                                }
+                                            </script>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $(document).ready(function() {
+                            $("#editarFormulario<?php echo $row['ProductoID'] ?>").on('submit', function(event) {
+                                event.preventDefault();
+                                var formData = new FormData(this);
+                                $.ajax({
+                                    type: 'POST',
+                                    url: './CrudProductos/editarProductos.php',
+                                    data: formData,
+                                    processData: false,
+                                    contentType: false,
+                                    success: function(response) {
+                                        $("#responseMessages<?php echo $row['ProductoID'] ?>").html(
+                                            response);
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+                <?php
+                };
+                ?>
+                </br>
+                <!-- <div class="table-responsive mb-5"> -->
+                <table class="table table-bordered border-dark table-hover" id="tablaProductos">
+                    <thead class="table-success">
+                        <tr>
+                            <th scope="col">Nombre del producto</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">amaño</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Etiqueta</th>
+                            <th scope="col">Acciones</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include('../DataBase/conexion.php');
+                        $sql = "SELECT ProductoID, NombreProducto, imagen, Descripcion, tamaño, Precio, Etiqueta FROM gestion_productos.producto";
+                        $conexion = $Link;
+                        $result = mysqli_query($conexion, $sql);
+                        $resultado = mysqli_num_rows($result);
+
+                        if ($resultado > 0) {
+                            while ($key = mysqli_fetch_array($result)) {
+
+                        ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $key['NombreProducto'] ?>
+                                    </td>
+                                    <td><img width=" 100" src="<?php echo './imagenes/' . $key['imagen'] ?>"
+                                            alt="<?php echo $key['NombreProducto'] ?>">
+                                    </td>
+                                    <td>
+                                        <?php echo $key['Descripcion'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $key['tamaño'] ?>
+                                    </td>
+                                    <td>
+                                        $<?php echo number_format($key['Precio'], 0, '', '.') ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $key['Etiqueta'] ?>
+                                    </td>
+                                    <td class="d-flex justify-content-center">
+                                        <button data-bs-target="#Editar<?php echo $key['ProductoID'] ?>" data-bs-toggle="modal"
+                                            class="btn me-2 btn-success"><i class="fas fa-pencil-alt"></i>Editar</button>
+                                        <button class="btn btn-danger"
+                                            onclick="confirmacion('<?php echo $key['ProductoID']; ?>')">
+                                            <i class="fas fa-trash-alt"></i>Eliminar
+                                        </button>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
-            <?php include("../footer.php"); ?>
         </div>
     </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#registroFormulario").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: './CrudProductos/formularioAdmin.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $("#responseMessage").html(response);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <?php include("../footer.php"); ?>
     <script src="../Components/jquery-3.7.1.min.js"></script>
     <script src="../Components/bootstrap.bundle.min.js"></script>
     <script src="../Components/datatables.min.js"></script>
     <script src="../JS/scripts.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#FormCrateComisionista").on('submit', function(event) {
-                event.preventDefault();
-                var formData = new FormData(this);
-                $.ajax({
-                    type: 'POST',
-                    url: './Crud-comisionistas/ValidationCrud/validarCrear.php',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        $('#message').html(response)
-                    }
-                })
-            })
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $("#FormCreateProveedor").on('submit', function(event) {
-                event.preventDefault();
-                var formData = new FormData(this);
-                $.ajax({
-                    type: 'POST',
-                    url: './crud-proveedores/ValidationCrud/validarCrear.php',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        $('#messageProveedor').html(response)
-                    }
-                })
-            })
-        });
-    </script>
     <?php
     include("./Crud-comisionistas/create.php");
     include("./crud-proveedores/create.php");
     ?>
+    <script>
+        function confirmacion(id) {
+            Swal.fire({
+                title: "¿Estás seguro en eliminar este producto?",
+                text: "Este proceso puede tardar unos segundos",
+                icon: "warning",
+                iconColor: "#ff0000",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Eliminar",
+                cancelButtonText: "Cancelar",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = `./CrudProductos/eliminarProducto.php?id=${id}`;
+                }
+            });
+        }
+    </script>
 
 </body>
 

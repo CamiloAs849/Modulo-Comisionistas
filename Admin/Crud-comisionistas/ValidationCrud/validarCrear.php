@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = htmlspecialchars($data);
             return $data;
         }
-        $Documento = validar($_POST['UsuarioID']);
+        $Documento = $_POST['UsuarioID'];
         $Nombre = validar($_POST['Nombre']);
         $Apellido = validar($_POST['Apellido']);
         $Edad = validar($_POST['Edad']);
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<div class='alert alert-danger'>El correo es invalido.</div>";
             } else if (strlen($Edad) > 2) {
                 echo "<div class='alert alert-danger'>La edad es invalida.</div>";
-            } else if (strlen($Documento) < 7 || strlen($Documento) > 11) {
+            } else if (strlen($Documento) < 7 || strlen($Documento) > 10 || $Documento > 2147483647) {
                 echo "<div class='alert alert-danger'>El documento es invalido.</div>";
             } else if (strlen($Telefono) != 10) {
                 echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";

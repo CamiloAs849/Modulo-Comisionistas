@@ -26,20 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else if (strlen($telefono) != 10) {
             echo '<div class="alert alert-danger">El número de teléfono es invalido.</div>';
         } else {
-            echo "<hr>$usuarioID";
-            echo "<hr>$direccion";
-            echo "<hr>$ciudad";
-            echo "<hr>$telefono";
-            echo "<hr>$correo";
-            echo "<hr>$fechaPedido";
-            echo "<hr>$totalPagar";
-            foreach ($_SESSION['carrito'] as $producto) {
-                $productos = $Link->query("SELECT * FROM gestion_productos.producto WHERE ProductoID=$producto[id]");
-                $lol = $productos->fetch_object();
-                echo "<hr>" . $producto['cantidad'];
-                echo "<hr>" . $lol->NombreProducto;
-            }
-            $dia = date('d');
             $comision = $totalPagar * 0.19;
             $sql2 = "SELECT * FROM gestion_productos.comision WHERE UsuarioID = $usuarioID";
             $result2 = mysqli_query($Link, $sql2);
@@ -50,6 +36,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt = $Link->prepare($sql);
             $stmt->bind_param("d", $nuevoValor);
             $stmt->execute();
+            unset($_SESSION['carrito']);
+            echo '<script>
+                Swal.fire({
+                title: "¡Pedido realizado!",
+                text: "Tu pedido está en proceso.",
+                icon: "success",
+                confirmButtonText: "Ok",
+                }).then((result) => {
+                if (result.isConfirmed) {
+                 window.location.href = "../Users/nuevo-pedido.php";
+                }
+            });
+            </script>';
         }
     }
 }

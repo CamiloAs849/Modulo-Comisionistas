@@ -164,14 +164,14 @@
                                 $status = false;
                             ?>
                                 <div class="col-xxl-3 col-xl-3 articulo col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
-                                    <div class="card mb-4 rounded-3 shadow-sm border-dark" style="height: 350px;">
+                                    <div class="card mb-4 rounded-3 shadow-sm border-dark" style="height: 370px;">
                                         <div class="card-header py-3 text-bg-dark border-dark">
                                             <h5 class="my-0 fw-normal"><?php echo $row['NombreProducto'] ?></h5>
                                         </div>
                                         <div class="card-body">
                                             <p class="card-title pricing-card-title fs-2"><span>$<?php echo number_format($row['Precio'], 0, '', '.') ?>
                                                 </span></p>
-                                            <p class="fs-6"><?php echo $row['Descripcion'] ?></p>
+                                            <img src="../Admin/imagenes/<?php echo $row['imagen'] ?>" width="100" alt="" class="mb-3">
                                             <form action="./Cart/addCart.php" method="post">
                                                 <input type="hidden" value="<?php echo $row['ProductoID'] ?>" name="id">
 

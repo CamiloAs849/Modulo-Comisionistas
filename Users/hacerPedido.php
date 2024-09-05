@@ -38,6 +38,7 @@ $row = mysqli_fetch_array($result);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link rel="stylesheet" href="../Components/datatables.min.css">
     <script src="../Components/jquery-3.7.1.min.js"></script>
+    <script src="../Components/sweetalert2@11.js"></script>
 
 </head>
 

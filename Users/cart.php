@@ -47,7 +47,7 @@ if (empty($_SESSION['UsuarioID'])) {
                                         <td class="w-25 cantidad">
                                             <form action="./Cart/editCant.php" method="post" class="d-flex ">
                                                 <input type="hidden" name="id" value="<?php echo $c['id'] ?>">
-                                                <input type="number" name="cantidad" max="5" class="form-control w-25" value="<?php echo $c['cantidad'] ?>">
+                                                <input type="number" name="cantidad" max="5" min="0" class="form-control w-25" value="<?php echo $c['cantidad'] ?>">
                                                 <button type="submit" class="btn btn-primary ms-4"> <i class="fa-solid fa-rotate-right"></i></i></button>
                                             </form>
                                         </td>

@@ -46,9 +46,9 @@
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4"> Contacto</h6>
                         <p><i class="fa-solid fa-location-dot"></i> Cl 34B cra 115A</p>
-                        <p><i class="fa-solid fa-envelope"></i> info@example.com</p>
-                        <p><i class="fa-solid fa-phone"></i> + 57 321201</p>
-                        <p><i class="fa-solid fa-phone"></i> + 57 3230230</p>
+                        <p><i class="fa-solid fa-envelope"></i> visionlimpieza@gmail.com</p>
+                        <p><i class="fa-solid fa-phone"></i> + 57 333 5756000</p>
+                        <p><i class="fa-solid fa-phone"></i> + 57 322 4569080</p>
                     </div>
                 </div>
             </div>

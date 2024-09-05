@@ -180,6 +180,38 @@ $(document).ready(function () {
     ],
   });
 });
+$(document).ready(function () {
+  $("#tablaProductos").DataTable({
+    scrollX: true,
+    layout: {
+      bottomEnd: {
+        paging: {
+          firstLast: false,
+        },
+      },
+    },
+    language: {
+      processing: "Tratamiento en curso...",
+      search: "Buscar&nbsp;:",
+      lengthMenu: "Agrupar de _MENU_ movimientos",
+      info: "Mostrando del movimiento _START_ al _END_ de un total de _TOTAL_ movimientos",
+      infoEmpty: "No existen datos.",
+      infoFiltered: "(filtrado de _MAX_ movimientos en total)",
+      infoPostFix: "",
+      loadingRecords: "Cargando...",
+      zeroRecords: "No se encontraron movimientos con tu busqueda",
+      emptyTable: "No hay datos disponibles en la tabla.",
+      paginate: {
+        previous: "Anterior",
+        next: "Siguiente",
+      },
+    },
+    lengthMenu: [
+      [10, 25, -1],
+      [10, 25, "Todos"],
+    ],
+  });
+});
 
 // Funciones de eliminar
 function ConfirmDeleteCom(id, nombre) {
