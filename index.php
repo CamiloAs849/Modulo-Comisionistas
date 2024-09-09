@@ -61,8 +61,14 @@ include('./DataBase/conexion.php');
                             </a>
                         </li>
                     <?php
-                    }
-                    ?>
+                    } else { ?>
+                        <li class="nav-item dropdown">
+                            <a href="./Users/nuevo-pedido.php" class="nav-link text-white" button onclick="window.location.href='indexLogin.php'">
+                                <h5>Hacer pedido</h5>
+                            </a>
+                        </li>
+                    <?php
+                    } ?>
                 </ul>
             </div>
         </div>
@@ -190,7 +196,7 @@ include('./DataBase/conexion.php');
         </div>
         <script>
             function Catalago() {
-
+                window.location.href = './Users/nuevo-pedido.php';
             }
 
             function Api() {

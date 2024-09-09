@@ -76,7 +76,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="#">
+                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="../index.php#portafolio">
                                     <i class="fa-solid fa-boxes-stacked"></i> Catálogo
                                 </a>
                             </li>
@@ -88,11 +88,7 @@
                                     <i class="fa-solid fa-pen-to-square"></i> Actualizar datos
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="#">
-                                    <i class="fa-solid fa-circle-question"></i> Sobre las comisiones
-                                </a>
-                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2 active" href="./guia.php">
                                     <i class="fa-solid fa-circle-info"></i> Guía
