@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = htmlspecialchars($data);
             return $data;
         }
-        $Documento = $_POST['UsuarioID'];
+        $Documento = validar($_POST['UsuarioID']);
         $Nombre = validar($_POST['Nombre']);
         $Apellido = validar($_POST['Apellido']);
         $Edad = validar($_POST['Edad']);

@@ -25,7 +25,7 @@
     include("../DataBase/conexion.php");
     $usuario = $_SESSION['UsuarioID'];
     if (empty($_SESSION['UsuarioID'])) {
-        header("Location:../index.php");
+        header("Location: ../indexLogin.php");
         exit();
     }
 

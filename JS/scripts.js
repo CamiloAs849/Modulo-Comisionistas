@@ -193,13 +193,13 @@ $(document).ready(function () {
     language: {
       processing: "Tratamiento en curso...",
       search: "Buscar&nbsp;:",
-      lengthMenu: "Agrupar de _MENU_ movimientos",
-      info: "Mostrando del movimiento _START_ al _END_ de un total de _TOTAL_ movimientos",
+      lengthMenu: "Agrupar de _MENU_ productos",
+      info: "Mostrando del producto _START_ al _END_ de un total de _TOTAL_ productos",
       infoEmpty: "No existen datos.",
-      infoFiltered: "(filtrado de _MAX_ movimientos en total)",
+      infoFiltered: "(filtrado de _MAX_ productos en total)",
       infoPostFix: "",
       loadingRecords: "Cargando...",
-      zeroRecords: "No se encontraron movimientos con tu busqueda",
+      zeroRecords: "No se encontraron productos con tu busqueda",
       emptyTable: "No hay datos disponibles en la tabla.",
       paginate: {
         previous: "Anterior",
@@ -207,8 +207,8 @@ $(document).ready(function () {
       },
     },
     lengthMenu: [
-      [10, 25, -1],
-      [10, 25, "Todos"],
+      [5, 10, 25, -1],
+      [5, 10, 25, "Todos"],
     ],
   });
 });

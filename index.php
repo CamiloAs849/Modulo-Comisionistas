@@ -1,10 +1,15 @@
+<?php
+session_start();
+include('./DataBase/conexion.php');
+?>
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Visual limpieza</title>
+    <title>Visión limpieza</title>
     <link rel="icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap">
@@ -44,17 +49,20 @@
                     </li>
                     <li class="nav-item">
                         <a href="#portafolio" class="nav-link text-white">
-                            <h5>Portafolio</h5>
+                            <h5>Nuestros productos</h5>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link text-white" button onclick="window.location.href='indexLogin.php'">
-                            <h5>Inicia sesión </h5>
-                        </a>
-                    </li>
-                    <li>
-
-                    </li>
+                    <?php
+                    if (empty($_SESSION['UsuarioID'])) {
+                    ?>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link text-white" button onclick="window.location.href='indexLogin.php'">
+                                <h5>Inicia sesión</h5>
+                            </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
@@ -152,7 +160,7 @@
 
             ?>
                 <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card h-30">
+                    <div class="card" style="height:  650px;">
                         <div class="card__corner"></div>
                         <div class="card__img">
                             <div class="container-fluid" id="imagenes">
@@ -170,14 +178,25 @@
                                 <?php echo number_format($row['Precio'], 0, "", ".") ?>
                             </h5>
                             </p>
-                            <button class="card-int__button" button
-                                onclick="window.location.href='https://wa.link/lxfp0g'">Deseo
-                                comprar</button>
+                            <button class="card-int__button" onclick="<?php if (empty($_SESSION['UsuarioID'])) {
+                                                                            echo "Api()";
+                                                                        } else {
+                                                                            echo "Catalago()";
+                                                                        } ?>">Deseo comprar</button>
                         </div>
                     </div>
                 </div>
             <?php } ?>
         </div>
+        <script>
+            function Catalago() {
+
+            }
+
+            function Api() {
+                window.open('https://wa.link/lxfp0g', '_blank');
+            }
+        </script>
     </section>
     <section class="container text-center" id="quienessomos">
         <div class="card-body">
