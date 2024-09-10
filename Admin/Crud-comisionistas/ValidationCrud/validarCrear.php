@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                  Swal.fire({
                                      title: "Error al añadir el comisionista!",
                                      text: "Por favor, intenta de nuevo.",
-                                     icon: "error",
+                                     icon: "x",
                                      confirmButtonText: "Aceptar"
                                  }).then((result) => {
                                      if (result.isConfirmed) {

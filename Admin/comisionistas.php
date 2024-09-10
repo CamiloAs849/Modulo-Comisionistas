@@ -179,8 +179,8 @@
                                     <td><?php echo $row['Password'] ?></td>
                                     <td>
                                         <div class="d-flex justify-content-around mb-3">
-                                            <button class="btn btn-warning me-2" href="" data-bs-toggle="modal" data-bs-target=" #editar<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
-                                            <button class="btn btn-info me-2" data-bs-toggle="modal" data-bs-target="#ver<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-eye"></i> Ver</button>
+                                            <button class="btn btn-success me-2" href="" data-bs-toggle="modal" data-bs-target=" #editar<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+                                            <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#ver<?php echo $row['UsuarioID'] ?>"><i class="fa-solid fa-eye"></i> Ver</button>
                                             <button class="btn btn-danger" onclick="ConfirmDeleteCom(<?php echo $row['UsuarioID']; ?>, '<?php echo $row['NombreUsuario'] . ' ' . $row['ApellidosUsuario'] ?>')"><i class="fa-solid fa-delete-left"></i> Eliminar</button>
                                         </div>
                                     </td>

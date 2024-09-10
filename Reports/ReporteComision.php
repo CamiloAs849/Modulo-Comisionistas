@@ -33,7 +33,7 @@ $pdf = new PDF('P', 'mm', array(300, 300));
 $pdf->AliasNbPages();
 $pdf->AddPage();
 
-$pdf->SetFont('Arial', '', 12);
+$pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(40, 10, '', 0, 0);
 $pdf->Cell(50, 10, 'Documento', 1, 0, 'C');
 $pdf->Cell(50, 10, 'Nombre', 1, 0, 'C');
@@ -41,6 +41,7 @@ $pdf->Cell(50, 10, 'Apellidos', 1, 0, 'C');
 $pdf->Cell(50, 10, 'Acumulado Comision', 1, 0, 'C');
 $pdf->Ln();
 while ($row = mysqli_fetch_array($result)) {
+    $pdf->setfont('Arial', 'B', 12);
     $nombre = str_replace(
         ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú'],
         ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'],

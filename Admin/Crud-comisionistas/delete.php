@@ -40,11 +40,11 @@ if (isset($_GET["id"])) {
             Swal.fire({
             title: "Comisionista Eliminado Correctamente",
             icon: "success",
-            confirmButtonText: "Aceptar"
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true
             }).then((result) => {
-            if (result.isConfirmed) {
             window.location.href = "../comisionistas.php";
-            }
             });
             </script>';
     }

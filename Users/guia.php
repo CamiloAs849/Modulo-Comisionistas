@@ -91,7 +91,7 @@
 
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2 active" href="./guia.php">
-                                    <i class="fa-solid fa-circle-info"></i> Guía
+                                    <i class="fa-solid fa-circle-info"></i> Guía de usuario ㅤㅤ
                                 </a>
                             </li>
                         </ul>
@@ -166,15 +166,16 @@
                     <div id="menu">
                         <h2 class="fw-bold">Menú</h2>
                         <p class="fs-5">Este es el menú principal de la página web, donde vas acceder a los diferentes apartados y cerrar la sesión de manera segura.</p>
-                        <img src="https://i.ibb.co/X20r7Dh/Menu.png" class="border border-dark" height="500" alt="Menu">
+                        <img src="https://i.ibb.co/p2pdmvb/Menu.png" class="border border-dark" height="500" alt="Menu">
                     </div>
                     <div id="inicio">
                         <h2 class=" fw-bold">Inicio</h2>
                         <p class="fs-5">En este apartado podrás ver toda tu informacíon personal.</p>
-                        <img src="https://i.ibb.co/4Jyr3Rj/Captura-de-pantalla-2024-08-23-151818.png" class="border border-dark" alt="Inicio perfil.">
-
+                        <img src="https://i.ibb.co/cxvGrb7/perfil.png" class="border border-dark" alt="Inicio perfil.">
                         <p class="fs-5 mt-5">En este apartado podrás ver el historial de tus pedidos, organizar de orden ascendente o descendente, buscar un dato en especifico o agrupar por cantidades. </p>
                         <img src="https://i.ibb.co/n3Z06mR/Captura-de-pantalla-2024-08-23-154912.png" class="border border-dark w-100" alt="Historial de pedidos">
+                        <p class="fs-5 mt-5">En este Apartado podrás ver la comisión acumulada del mes. al pasar el ratón por encima te mostrará la comisión </p>
+                        <img src="https://i.ibb.co/0rB8gfN/Comision.png" class="border border-dark" alt="Comision">
                     </div>
                     <div id="pedido">
                         <h2 class="fw-bold mt-5">Nuevo Pedido</h2>

@@ -40,11 +40,11 @@ if (isset($_GET['id'])) {
             Swal.fire({
             title: 'Proveedor Eliminado Correctamente',
             icon: 'success',
-            confirmButtonText: 'Aceptar'
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true
             }).then((result) => {
-            if (result.isConfirmed) {
             window.location.href = '../proveedores.php';
-            }
             });
             </script>";
     }

@@ -101,7 +101,7 @@
 
                             <li class="nav-item">
                                 <a class="nav-link text-white-50 d-flex align-items-center gap-2" href="./guia.php">
-                                    <i class="fa-solid fa-circle-info"></i> Guía
+                                    <i class="fa-solid fa-circle-info"></i> Guía de usuario ㅤㅤ
                                 </a>
                             </li>
                         </ul>
@@ -279,12 +279,13 @@
                     ?>
                 </div>
             </div>
-            <?php include("../footer.php"); ?>
         </div>
-        <script src="../Components/jquery-3.7.1.min.js"></script>
-        <script src="../Components/bootstrap.bundle.min.js"></script>
-        <script src="../Components/datatables.min.js"></script>
-        <script src="../JS/scripts.js"></script>
+        <?php include("../footer.php"); ?>
+    </div>
+    <script src="../Components/jquery-3.7.1.min.js"></script>
+    <script src="../Components/bootstrap.bundle.min.js"></script>
+    <script src="../Components/datatables.min.js"></script>
+    <script src="../JS/scripts.js"></script>
 </body>
 
 </html>

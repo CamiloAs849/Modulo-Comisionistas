@@ -181,8 +181,8 @@
                         </div>
                         <div id="tablaComision">
                             <h3 class="fw-bold mt-5">Tabla de Comisión</h3>
-                            <p class="fs-5">Esta tabla almacena los datos de la comisión de cada comisionistas. Puedes editar la comisión y también puedes buscar un comisionista en específico. podrás generar un reporte en PDF de esta tabla para descargar y ver los datos del acumulado de comisión.</p>
-                            <img src="https://i.ibb.co/z2pvD4m/tabla-Comision.png" alt="tabla-Comision" class="border border-dark w-100">
+                            <p class="fs-5">Esta tabla almacena los datos de la comisión de cada comisionista. Puedes buscar un comisionista en específico. Finalmente, podrás generar un reporte en PDF de esta tabla para descargar y ver los datos del acumulado de la comisión todos los comisionistas.</p>
+                            <img src="https://i.ibb.co/0YHM40N/Captura-de-pantalla-2024-09-09-162114.png" alt="tabla-Comision" class="border border-dark w-100">
                         </div>
                         <div id="tablaSolicitudes">
                             <h3 class="fw-bold mt-5">Tabla de Solicitudes</h3>

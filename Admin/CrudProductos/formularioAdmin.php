@@ -21,9 +21,9 @@ if (isset($NombreProducto) && !empty($NombreProducto) && isset($Descripcion) && 
     } else if (!preg_match('/^[a-zA-Z0-9\sáéíóúÁÉÍÓÚñÑüÜ.,]+$/', $Descripcion)) {
         echo "<div class='alert alert-danger'>La descripción no es valida</div>";
     } else if ($tamaño == 1) {
-        echo "El tamaño no es válido.";
-    } else if ($Precio == 1) {
-        echo "El precio no es válido.";
+        echo "<div class='alert alert-danger'>El tamaño no es válido</div>";
+    } else if ($Precio <= 1) {
+        echo "<div class='alert alert-danger'>El precio no es válido.";
     } else if ($Etiqueta === "") {
         echo "<div class='alert alert-danger'>Por favor escoge una opción</div>";
     } else if (!in_array($extensionImagen, $extensionesPermitidas)) {
@@ -34,7 +34,18 @@ if (isset($NombreProducto) && !empty($NombreProducto) && isset($Descripcion) && 
             $obj = new Metodos();
 
             if ($obj->insertarDatos($datos) == 1) {
-                echo "<div class='alert alert-warning'>Registro exitoso</div>";
+                echo "<script>
+                    Swal.fire({
+                        title: 'Registro exitoso!',
+                        text: 'El producto ha sido creado correctamente',
+                        icon:'success',
+                        confirmButtonText: 'Aceptar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = './Inicio-Admin.php';
+                        }
+                    });
+                </script>";
             } else {
                 echo "<div class='alert alert-danger'>Error al insertar datos</div>";
             }

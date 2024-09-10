@@ -225,7 +225,6 @@
         });
     </script>
 
-    <?php include("../footer.php"); ?>
     <script src="../Components/jquery-3.7.1.min.js"></script>
     <script src="../Components/bootstrap.bundle.min.js"></script>
     <script src="../Components/datatables.min.js"></script>
@@ -248,7 +247,7 @@
                 cancelButtonText: "Cancelar",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = `./CrudProductos/eliminarProducto.php?id=${id}`;
+                    window.location.href = `./CrudProductos/eliminarProductos.php?id=${id}`;
                 }
             });
         }
@@ -300,6 +299,7 @@
                                 accept=".jpg,.jpeg,.png">
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
                             <script>
                                 // function guardara() {
@@ -387,6 +387,7 @@
                                     accept=".jpg,.jpeg,.png">
                             </div>
                             <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-success" name="submit"
                                     onclick="editar()">Guardar</button>
                                 <script>

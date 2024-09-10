@@ -106,9 +106,9 @@ include('./DataBase/conexion.php');
                     <div class="carousel-caption text-end">
                         <h2 class="text-dark display-5" style="font-family: 'righteous';">Visión limpieza</h2>
                         <h4 class="text-dark" style="font-family: 'righteous';">Expertos
-                            en tu
-                            cuidado
-                            y en el de tu familia</h4>
+                            en la
+                            limpieza de tu hogar
+                            y el cuidado de tu familia</h4>
                     </div>
                 </div>
             </div>
@@ -141,8 +141,8 @@ include('./DataBase/conexion.php');
     <div class="container text-center" id="parteequipos">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h2 style="font-family: 'Righteous';">¿Quieres ser parte de nuestro equipo?</h2>
-                <p class="text-dark">Para ser parte de nuestro equipo comunicate con nosotros, para brindarte la mejor
+                <h2 style="font-family: 'Righteous';">¿Quieres ser parte de nuestro equipo de comisionistas?</h2>
+                <p class="text-dark">Para ser parte de nuestro equipo haz tu solicitud o comunicate con nosotros, para brindarte la mejor
                     asesoría.
             </div>
         </div>
@@ -285,7 +285,7 @@ include('./DataBase/conexion.php');
                     <h4 class="text-white" style="font-family: 'Righteous';">Contacto</h4>
                     <p class="text-white"><i class="icon-home text-white"></i> Calle Falsa 123, Palmas, Poblado</p>
                     <p class="text-white"><i class="icon-envelope"></i> info@visionlimpieza.com</p>
-                    <p class="text-white"><i class="icon-phone text-white"></i> 1234536</p>
+                    <p class="text-white"><i class="icon-phone text-white"></i> +571234536</p>
                 </div>
                 <div class="span3">
                     <h4 class="text-white" style="font-family: 'Righteous';">Síguenos</h4>
