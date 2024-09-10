@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
         $result = $stmt->get_result();
         if (mysqli_num_rows($result) > 0) {
-            echo '<div class="alert alert-success alert-dismissible fade show">Este número de documento ya es comisionista.
+            echo '<div class="alert alert-success alert-dismissible fade show">!Tu solicitud ha sido acepatada¡ Ya puedes ingresar como comisionista.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
              ';
         } else {
@@ -30,16 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $numeroSolicitud = $row['SolicitudID'];
                     echo "<div class='alert alert-warning'>Tu solicitud está pendiente a verificar con el número $numeroSolicitud.
                     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-                } else if ($row['EstadoSolicitud'] == 'Aceptada') {
-                    echo "<div class='alert alert-success'>Tu solicitud ha sido aceptada.
-                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
-                    </div>";
-                } else {
+                } else if ($row['EstadoSolicitud'] == 'Rechazada') {
                     echo "<div class='alert alert-danger'>Tu solicitud ha sido rechazada.
                     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
                 }
             } else {
-                echo "<div class='alert alert-danger'>Este número de documento no ha hecho una petición.
+                echo "<div class='alert alert-danger'>Este número de documento no ha hecho una solicitud.
                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
             }
         }

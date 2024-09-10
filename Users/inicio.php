@@ -279,13 +279,12 @@
                     ?>
                 </div>
             </div>
+            <?php include("../footer.php"); ?>
         </div>
-        <?php include("../footer.php"); ?>
-    </div>
-    <script src="../Components/jquery-3.7.1.min.js"></script>
-    <script src="../Components/bootstrap.bundle.min.js"></script>
-    <script src="../Components/datatables.min.js"></script>
-    <script src="../JS/scripts.js"></script>
+        <script src="../Components/jquery-3.7.1.min.js"></script>
+        <script src="../Components/bootstrap.bundle.min.js"></script>
+        <script src="../Components/datatables.min.js"></script>
+        <script src="../JS/scripts.js"></script>
 </body>
 
 </html>

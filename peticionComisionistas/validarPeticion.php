@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
             } else if (strlen($telefono) > 10) {
                 echo "<div class='alert alert-danger alert-dismissible fade show'>El número de teléfono es invalido.</div>";
-            } else if (strlen($direccion) < 10) {
+            } else if (strlen($direccion) < 8) {
                 echo "<div class='alert alert-danger alert-dismissible fade show'>La dirección es invalida.</div>";
             } else if ($edad <= 17) {
                 echo "<div class='alert alert-danger alert-dismissible fade show'>Los menores de edad no pueden hacer solicitudes.
