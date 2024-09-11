@@ -109,7 +109,7 @@ if (empty($_SESSION['AdminID'])) {
                             </div>
                             <div class="modal-footer ">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar sesión</button>
                                 <script>
                                     function Confirm() {
                                         window.location.href = "LogOut.php";

@@ -26,13 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "<div class='alert alert-warning'> El proveedor con el NIT $nit ya está registrado.</div>";
             } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ.\s]+$/', $nombre)) {
                 echo "<div class='alert alert-danger'> El nombre es invalido.</div>";
-            } else if (strlen($nit) < 7 || strlen($nit) > 11 || $nit > 2147483647) {
+            } else if (!preg_match('/^[0-9]+-[0-9]{1}$/', $nit)) {
+                echo "<div class='alert alert-danger'>El NIT es invalido.</div>";
+            } else if (strlen($nit) < 7 || strlen($nit) > 11 || strlen($nit) > 255) {
                 echo "<div class='alert alert-danger'>El NIT es invalido.</div>";
             } else if (strlen($telefono) != 10) {
                 echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";
             } else {
 
-                $sql = "INSERT INTO gestion_productos.proveedor (ProveedorID, NombreProveedor, Telefono, Direccion) VALUES (?, ?, ?, ?)";
+                $sql = "INSERT INTO gestion_productos.proveedor (Nit, NombreProveedor, Telefono, Direccion) VALUES (?, ?, ?, ?)";
                 $stmt = $Link->prepare($sql);
                 $stmt->bind_param("ssss", $nit, $nombre, $telefono, $direccion);
                 $result = $stmt->execute();

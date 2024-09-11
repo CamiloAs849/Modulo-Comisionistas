@@ -57,7 +57,7 @@ $row = mysqli_fetch_array($result);
                 <h3 class="text-center mb-3 fw-semibold">Informacion personal</h3>
                 <div class="col-12">
                     <div class="form-floating mb-4">
-                        <input type="number" class="form-control" disabled value="<?php echo $row['UsuarioID'] ?>" id="documento" placeholder="Número de documento">
+                        <input type="number" maxlength="15" class="form-control" disabled value="<?php echo $row['UsuarioID'] ?>" id="documento" placeholder="Número de documento">
                         <label for="documento">Numero de documento</label>
                     </div>
                 </div>
@@ -65,14 +65,14 @@ $row = mysqli_fetch_array($result);
             <div class="row">
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="form-floating mb-4">
-                        <input type="text" class="form-control" value="<?php echo $row['NombreUsuario'] ?>" name="Nombre" id="Nombre" placeholder="">
+                        <input type="text" maxlength="50" class="form-control" value="<?php echo $row['NombreUsuario'] ?>" name="Nombre" id="Nombre" placeholder="">
                         <label for="Nombre">Nombre</label>
                     </div>
                 </div>
 
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="form-floating mb-4">
-                        <input type="text" class="form-control" value="<?php echo $row['ApellidosUsuario'] ?>" name="Apellido" id="Apellido" placeholder="">
+                        <input type="text" maxlength="50" class="form-control" value="<?php echo $row['ApellidosUsuario'] ?>" name="Apellido" id="Apellido" placeholder="">
                         <label for="Apellido">Apellidos</label>
                     </div>
                 </div>
@@ -81,13 +81,13 @@ $row = mysqli_fetch_array($result);
                 <h3 class="text-center mb-3 fw-semibold">Información de entrega</h3>
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="form-floating mb-4">
-                        <input type="text" class="form-control" value="<?php echo $row['Direccion'] ?>" name="Direccion" id="Direccion" placeholder="">
+                        <input type="text" class="form-control" maxlength="70" value="<?php echo $row['Direccion'] ?>" name="Direccion" id="Direccion" placeholder="">
                         <label for="Direccion">Dirección</label>
                     </div>
                 </div>
                 <div class=" col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="form-floating mb-4">
-                        <input type="text" class="form-control" value="<?php echo $row['Ciudad'] ?>" name="Ciudad" id="Ciudad" placeholder="">
+                        <input type="text" class="form-control" maxlength="50" value="<?php echo $row['Ciudad'] ?>" name="Ciudad" id="Ciudad" placeholder="">
                         <label for="Ciudad">Ciudad</label>
                     </div>
                 </div>
@@ -96,13 +96,13 @@ $row = mysqli_fetch_array($result);
                 <h3 class="fw-semibold text-center mb-3">Información de contacto</h3>
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="form-floating mb-4">
-                        <input type="text" class="form-control" value="<?php echo $row['Correo'] ?>" name="Correo" id="Correo" placeholder="">
+                        <input type="text" class="form-control" maxlength="100" value="<?php echo $row['Correo'] ?>" name="Correo" id="Correo" placeholder="">
                         <label for="Correo">Correo electronico</label>
                     </div>
                 </div>
                 <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <div class="form-floating mb-4">
-                        <input type="number" class="form-control" value="<?php echo $row['TelefonoUsuario'] ?>" name="Telefono" id="Telefono" placeholder="">
+                        <input type="number" class="form-control" maxlength="15" value="<?php echo $row['TelefonoUsuario'] ?>" name="Telefono" id="Telefono" placeholder="">
                         <label for="Telefono">Teléfono</label>
                     </div>
                 </div>

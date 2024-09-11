@@ -120,7 +120,7 @@
                             </div>
                             <div class="modal-footer ">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar sesión</button>
                                 <script>
                                     function Confirm() {
                                         window.location.href = "LogOut.php";
@@ -163,8 +163,8 @@
 
                             while ($row = mysqli_fetch_array($result)) { ?>
                                 <tr>
-                                    <td><?php echo $num++ ?></td>
                                     <td><?php echo $row['ProveedorID'] ?></td>
+                                    <td><?php echo $row['Nit'] ?></td>
                                     <td><?php echo $row['NombreProveedor'] ?></td>
                                     <td><?php echo $row['Telefono'] ?></td>
                                     <td><?php echo $row['Direccion'] ?></td>

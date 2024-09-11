@@ -117,7 +117,7 @@
                             </div>
                             <div class="modal-footer ">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar sesión</button>
                                 <script>
                                     function Confirm() {
                                         window.location.href = "LogOut.php";
@@ -164,32 +164,31 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="menu">
+                    <div id="menu" style="scroll-margin: 50px;">
                         <h2 class="fw-bold">Menú</h2>
                         <p class="fs-5">Este es el menú principal de la página web, donde vas acceder a los diferentes apartados del administrador y cerrar la sesión de manera segura.</p>
                         <img src="https://i.ibb.co/h1P4yXh/menu-Admin.png" alt="menu-Admin" class="border border-dark" height="500">
                     </div>
-                    <div id="tablas">
+                    <div id="tablas" style="scroll-margin: 50px;">
                         <h2 class="fw-bold mt-5">Tablas</h2>
                         <p class="fs-5">En toda la web vas a encontrar tablas con un aspecto similar que almacenan todos los datos. Estas tablas son las que se utilizan para almacenar y mostrar los datos de la empresa. Cada tabla tiene sus diferentes opciones.</p>
                         <img src="https://i.ibb.co/S3C8VXv/tablaC.png" alt="tablaC" class="border border-dark w-100">
 
-                        <div id="comisionistasYProveedores">
+                        <div id="comisionistasYProveedores" style="scroll-margin: 50px;">
                             <h3 class="fw-bold mt-5">Tabla de Comisionistas y Proveedores</h3>
                             <p class="fs-5">Ambas tablas almacenan los datos de todos los comisionistas y proveedores de la empresa. Puedes agregar, editar, borrar y ver los datos de estos comisionistas y proveedores, también se puede buscar un comisionista o proveedor en específico. </p>
                             <img src="https://i.ibb.co/LvBK7HW/tablaP.png" alt="tablaP" class="border border-dark w-100">
                         </div>
-                        <div id="tablaComision">
+                        <div id="tablaComision" style="scroll-margin: 50px;">
                             <h3 class="fw-bold mt-5">Tabla de Comisión</h3>
                             <p class="fs-5">Esta tabla almacena los datos de la comisión de cada comisionista. Puedes buscar un comisionista en específico. Finalmente, podrás generar un reporte en PDF de esta tabla para descargar y ver los datos del acumulado de la comisión todos los comisionistas.</p>
                             <img src="https://i.ibb.co/0YHM40N/Captura-de-pantalla-2024-09-09-162114.png" alt="tabla-Comision" class="border border-dark w-100">
                         </div>
-                        <div id="tablaSolicitudes">
+                        <div id="tablaSolicitudes" style="scroll-margin: 50px;">
                             <h3 class="fw-bold mt-5">Tabla de Solicitudes</h3>
                             <p class="fs-5">Esta tabla almacena los datos de las solicitudes de comisionistas. Aqui puedes aceptar y rechazar la solicitud, buscar una solicitud en específico y poder editar el estado de la solicitud en tal caso de estar aceptado o rechazado. También puedes ver la información de la persona que hizo la solicitud.</p>
                             <img src="https://i.ibb.co/8xdKKYq/tabla-Solicitudes.png" alt="tabla-Solicitudes" class="border border-dark w-100">
                         </div>
-
                     </div>
                 </div>
             </div>

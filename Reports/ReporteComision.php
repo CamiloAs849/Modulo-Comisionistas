@@ -41,14 +41,14 @@ $pdf->Cell(50, 10, 'Apellidos', 1, 0, 'C');
 $pdf->Cell(50, 10, 'Acumulado Comision', 1, 0, 'C');
 $pdf->Ln();
 while ($row = mysqli_fetch_array($result)) {
-    $pdf->setfont('Arial', 'B', 12);
+    $pdf->setfont('Arial', '', 12);
     $nombre = str_replace(
         ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú'],
         ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'],
         $row['NombreUsuario']
     );
     $apellidos = str_replace(
-        ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', '��'],
+        ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú'],
         ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'],
         $row['ApellidosUsuario']
     );

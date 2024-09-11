@@ -28,7 +28,7 @@ include('./DataBase/conexion.php');
 
 <body>
     <a href='https://wa.link/lxfp0g' class="whatsapp-button" target="_blank">
-        <img src="imagenes2/whatsapp2.png" width="80" alt="WhatsApp">
+        <img src="./imagenes2/whatsapp2.png" width="50" alt="">
     </a>
 
     <nav class="navbar navbar-expand-lg bg-gradient fixed-top">
@@ -150,13 +150,16 @@ include('./DataBase/conexion.php');
         <button type="button" class="btn-donate" data-bs-toggle="modal" data-bs-target="#formularioPeticion">
             Haz tu solicitud
         </button>
+        <button type="button" class="btn-donate" data-bs-toggle="modal" data-bs-target="#FormEstado">
+            Verificar mi estado
+        </button>
     </div>
     </nav>
 
 
     <section class="container text-center">
         <div class="row" id="portafolio">
-            <h2 id="portafolio-title">Nuestros productos</h2>
+            <h2 id="portafolio-title" class="mt-5">Nuestros productos</h2>
             <?php
             include("./DataBase/conexion.php");
             $sql = "SELECT * FROM gestion_productos.producto";
@@ -310,6 +313,7 @@ include('./DataBase/conexion.php');
 
     <?php
     include("./peticionComisionistas/formularioPeticion.php");
+    include("./peticionComisionistas/estadoPeticion.php");
     ?>
     <script>
         $(document).ready(function() {
@@ -324,6 +328,22 @@ include('./DataBase/conexion.php');
                     contentType: false,
                     success: function(response) {
                         $('#messagePeticion').html(response)
+                    }
+                })
+            })
+        });
+        $(document).ready(function() {
+            $("#FormEstadoPeticion").on('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    type: 'POST',
+                    url: './peticionComisionistas/validarEstadoPeticion.php',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $('#messageEstadoPeticion').html(response)
                     }
                 })
             })

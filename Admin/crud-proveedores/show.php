@@ -23,7 +23,7 @@ while ($row = mysqli_fetch_array($result)) { ?>
                     <div class="text-center">
                         <div>
                             <b>NIT: </b>
-                            <?php echo $row['ProveedorID'] ?>
+                            <?php echo $row['Nit'] ?>
                         </div>
                         <div>
                             <b>Nombre: </b><?php echo $row['NombreProveedor'] ?>

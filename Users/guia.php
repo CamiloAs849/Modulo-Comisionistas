@@ -120,7 +120,7 @@
                             </div>
                             <div class="modal-footer ">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar sesión</button>
                                 <script>
                                     function Confirm() {
                                         window.location.href = "LogOut.php";
@@ -158,18 +158,18 @@
                             </li>
                             <li>
                                 <a class="dropdown-item d-flex gap-2 align-items-center" href="#editar">
-                                    <i class="fa-solid fa-pen-to-square"></i> Editar
+                                    <i class="fa-solid fa-pen-to-square"></i> Actualizar datos
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div id="menu">
+                    <div id="menu" style="scroll-margin: 50px;">
                         <h2 class="fw-bold">Menú</h2>
                         <p class="fs-5">Este es el menú principal de la página web, donde vas acceder a los diferentes apartados y cerrar la sesión de manera segura.</p>
                         <img src="https://i.ibb.co/p2pdmvb/Menu.png" class="border border-dark" height="500" alt="Menu">
                     </div>
-                    <div id="inicio">
-                        <h2 class=" fw-bold">Inicio</h2>
+                    <div id="inicio" style="scroll-margin: 50px;">
+                        <h2 class=" fw-bold mt-5">Inicio</h2>
                         <p class="fs-5">En este apartado podrás ver toda tu informacíon personal.</p>
                         <img src="https://i.ibb.co/cxvGrb7/perfil.png" class="border border-dark" alt="Inicio perfil.">
                         <p class="fs-5 mt-5">En este apartado podrás ver el historial de tus pedidos, organizar de orden ascendente o descendente, buscar un dato en especifico o agrupar por cantidades. </p>
@@ -177,7 +177,7 @@
                         <p class="fs-5 mt-5">En este Apartado podrás ver la comisión acumulada del mes. al pasar el ratón por encima te mostrará la comisión </p>
                         <img src="https://i.ibb.co/0rB8gfN/Comision.png" class="border border-dark" alt="Comision">
                     </div>
-                    <div id="pedido">
+                    <div id="pedido" style="scroll-margin: 50px;">
                         <h2 class="fw-bold mt-5">Nuevo Pedido</h2>
                         <p class="fs-5">Aquí podrás crear un nuevo pedido, seleccionar la cantidad y el producto deseado y también buscar un producto en específico.</p>
                         <img src="https://i.ibb.co/dc8X05Y/Captura-de-pantalla-2024-08-23-164735.png" class="border border-dark w-100" alt="Nuevo pedido">
@@ -188,7 +188,7 @@
                         <p class="fs-5 mt-5">Al hacer el pedido tendrás que poner todos los datos que se te piden, automaticamente tu pedido será hecho y en estado de espera.</p>
                         <img src="https://i.ibb.co/swjBNBd/Hacer-Pedido.png" class="border border-dark w-100" alt="Hacer-Pedido">
                     </div>
-                    <div id="editar">
+                    <div id="editar" style="scroll-margin: 50px;">
                         <h2 class="fw-bold mt-5">Actualizar datos</h2>
                         <p class="fs-5">Aquí podrás actualizar tus datos personales, como telefono, correo, dirección y ciudad, para los demás datos tienes que comunicarte al WhatsApp.</p>
                         <img src="https://i.ibb.co/mvt8GRN/Actualizar-Datos.png" class="border border-dark w-100" alt="Actualizar-Datos">

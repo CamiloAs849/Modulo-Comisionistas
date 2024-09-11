@@ -118,7 +118,7 @@
                             </div>
                             <div class="modal-footer ">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar sesión</button>
                                 <script>
                                     function Confirm() {
                                         window.location.href = "LogOut.php";
@@ -136,7 +136,7 @@
                         <div class="row">
                             <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-8">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="buscador" placeholder="">
+                                    <input maxlength="30" type="text" class="form-control" id="buscador" placeholder="">
                                     <label for="buscador">Buscar producto</label>
                                 </div>
                             </div>

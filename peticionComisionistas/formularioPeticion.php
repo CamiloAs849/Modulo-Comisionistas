@@ -22,7 +22,7 @@
                         </div>
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" name="documento" placeholder="">
+                                <input type="number" maxlength="15" class="form-control" name="documento" placeholder="">
                                 <label for="documento">Número de documento</label>
                             </div>
                         </div>
@@ -30,13 +30,13 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="nombre" placeholder="">
+                                <input type="text" maxlength="50" class="form-control" name="nombre" placeholder="">
                                 <label for="nombre">Nombre</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="apellido" placeholder="">
+                                <input type="text" maxlength="50" class="form-control" name="apellido" placeholder="">
                                 <label for="apellido">Apellidos</label>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" name="correo" placeholder="">
+                                <input type="text" maxlength="100" class="form-control" name="correo" placeholder="">
                                 <label for="email">Correo electrónico</label>
                             </div>
                         </div>
@@ -52,23 +52,23 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" name="edad" placeholder="">
+                                <input type="number" maxlength="3" class="form-control" name="edad" placeholder="">
                                 <label for="edad">Edad</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-floating mb-3">
-                                <input type="number" class="form-control" name="telefono" placeholder="">
+                                <input type="number" maxlength="15" class="form-control" name="telefono" placeholder="">
                                 <label for="telefono">Teléfono</label>
                             </div>
                         </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="direccion" placeholder="">
+                        <input type="text" maxlength="70" class="form-control" name="direccion" placeholder="">
                         <label for="direccion">Dirección</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="ciudad" placeholder="">
+                        <input type="text" maxlength="70" class="form-control" name="ciudad" placeholder="">
                         <label for="ciudad">Ciudad</label>
                     </div>
                     <input type="hidden" value="<?php echo date('Y-m-d'); ?>" name="fecha">

@@ -3,9 +3,6 @@
 
 }
 
-body {
-    scroll-margin-top: 1.25rem;
-}
 
 #vision {
     color: rgb(65, 117, 130);
@@ -125,6 +122,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 #quienessomos {
+    scroll-margin-top: 90px;
     margin-top: 170px;
     margin-bottom: 150px;
     color: rgb(65, 117, 130);
@@ -136,6 +134,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 #portafolio {
+    scroll-margin-top: 70px;
     background-color: rgb(227, 227, 227);
     border-radius: 30px;
     margin-top: 100px;
@@ -449,9 +448,36 @@ h5 {
     bottom: 25px;
     right: 25px;
     z-index: 1;
+    background-color: rgb(46, 207, 76);
+    border-radius: 300px;
+    padding: 15px;
+    transition: ease-in-out .5s;
 }
 
-/* From Uiverse.io by roajuan93 */
+@keyframes vibracion {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.whatsapp-button {
+    animation: vibracion 2s linear infinite;
+
+}
+
+.whatsapp-button:hover {
+    background-color: rgb(27, 99, 40);
+}
+
+
 .card {
     width: fit-content;
     height: fit-content;

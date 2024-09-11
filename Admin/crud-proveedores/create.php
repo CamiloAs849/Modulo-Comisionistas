@@ -22,23 +22,23 @@ if (empty($_SESSION['AdminID'])) {
                         <div class="col">
                             <input type="hidden" name="identificador" value="crear">
                             <label for="nit" class="col-form-label">NIT de la empresa:</label>
-                            <input type="number" class="form-control" id="nit" name="ProveedorID">
+                            <input type="text" maxlength="30" class="form-control" id="nit" name="ProveedorID">
                         </div>
                     </div>
                     <div class="mb-3 row justify-content-md-center">
                         <div class="col">
                             <label for="nombre" class="col-form-label">Nombre o razón social:</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre">
+                            <input type="text" maxlength="50" class="form-control" id="nombre" name="nombre">
                         </div>
                         <div class="col">
                             <label for="telefono" class="col-form-label">Teléfono:</label>
-                            <input type="number" class="form-control" id="telefono" name="telefono">
+                            <input type="number" maxlength="15" class="form-control" id="telefono" name="telefono">
                         </div>
                     </div>
                     <div class="mb-3 row justify-content-md-center">
                         <div class="col">
                             <label for="direccion" class="col-form-label">Dirección:</label>
-                            <input type="text" class="form-control" id="direccion" name="direccion">
+                            <input type="text" maxlength="70" class="form-control" id="direccion" name="direccion">
                         </div>
                     </div>
                     <div class="modal-footer">

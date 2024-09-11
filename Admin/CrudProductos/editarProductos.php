@@ -28,14 +28,33 @@ if (isset($NombreProducto) && !empty($NombreProducto) && isset($Descripcion) && 
         echo "<div class='alert alert-danger'>Por favor escoge una opción</div>";
     } else {
         if (isset($_FILES['imagen']['name']) && $_FILES['imagen']['name'] != "") {
+            unlink("../imagenes/" . $_POST['nombreImagen']);
             $imagen = $_FILES['imagen'];
             $nombreImagen = $imagen['name'];
-            $rutaImagen = '../../htdocs/Portafolio.2.0/imagenes/' . $nombreImagen;
+            $rutaImagen = '../../../../htdocs/Modulo-Comisionistas/Admin/imagenes/' . $nombreImagen;
             if (!move_uploaded_file($imagen['tmp_name'], $rutaImagen)) {
                 echo "<div class='alert alert-danger'>Error al subir imagen</div>";
-            } else {
-                $nombreImagen = $_POST['nombreImagen'];
             }
+        } else {
+            $nombreImagen = $_POST['nombreImagen'];
+        }
+        $metodos = new Metodos();
+        $datos = array($NombreProducto, $nombreImagen, $Descripcion, $tamaño, $Precio, $Etiqueta, $id);
+
+        if ($metodos->editarProducto($datos)) {
+            echo "<script>
+            Swal.fire({
+                title: 'Producto actualizado correctamente!',
+                icon:'success',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = './inicio-Admin.php';
+                }
+            });
+            </script>";
+        } else {
+            echo "<div class='alert alert-danger'>Error al actualizar producto</div>";
         }
     }
 } else {

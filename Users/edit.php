@@ -120,7 +120,7 @@
                             </div>
                             <div class="modal-footer ">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar sesión</button>
                                 <script>
                                     function Confirm() {
                                         window.location.href = "LogOut.php";
@@ -143,7 +143,7 @@
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="Documento" name="Documento" aria-describedby="emailHelp" placeholder="" disabled value="<?php echo $usuario ?>">
+                                    <input type="text" class="form-control" maxlength="15" id="Documento" name="Documento" aria-describedby="emailHelp" placeholder="" disabled value="<?php echo $usuario ?>">
                                     <label for="Documento">Numero de documento</label>
                                 </div>
                             </div>
@@ -151,14 +151,14 @@
                         <div class="mb-3 row justify-content-md-center">
                             <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="NombreUsuario" name="NombreUsuario" placeholder="" disabled value="<?php echo $nombreUsuario ?>">
+                                    <input type="text" class="form-control" maxlength="50" id="NombreUsuario" name="NombreUsuario" placeholder="" disabled value="<?php echo $nombreUsuario ?>">
                                     <label for="Nombre" class="form-label">Nombre</label>
                                 </div>
                             </div>
 
                             <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="ApellidosUsuario" name="ApellidosUsuario" placeholder="" disabled value="<?php echo $apellidoUsuario ?>">
+                                    <input type="text" class="form-control" maxlength="50" id="ApellidosUsuario" name="ApellidosUsuario" placeholder="" disabled value="<?php echo $apellidoUsuario ?>">
                                     <label for="Apellidos" class="form-label">Apellidos</label>
                                 </div>
                             </div>
@@ -166,14 +166,14 @@
                         <div class="mb-3 row justify-content-md-center">
                             <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control" id="Edad" name="Edad" placeholder="" disabled value="<?php echo $Edad ?>">
+                                    <input type="number" class="form-control" maxlength="3" id="Edad" name="Edad" placeholder="" disabled value="<?php echo $Edad ?>">
                                     <label for="Edad" class="form-label">Edad</label>
                                 </div>
                             </div>
 
                             <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="Telefono" name="TelefonoUsuario" placeholder="" value="<?php echo $telefonoUsuario ?>">
+                                    <input type="text" class="form-control" maxlength="15" id="Telefono" name="TelefonoUsuario" placeholder="" value="<?php echo $telefonoUsuario ?>">
                                     <label for="Telefono" class="form-label">Teléfono</label>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@
                         <div class="mb-3 row justify-content-md-center">
                             <div class=" mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="Correo" name="Correo" placeholder="" value="<?php echo $correoUsuario ?>">
+                                    <input type="text" class="form-control" id="Correo" maxlength="100" name="Correo" placeholder="" value="<?php echo $correoUsuario ?>">
                                     <label for="Correo" class="form-label">Correo Electrónico</label>
                                     <div class="text-danger" id="mensaje-correo">
 
@@ -191,7 +191,7 @@
 
                             <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
-                                    <textarea type="number" class="form-control" id="Direccion" name="Dirrecion" placeholder="" rows="1"><?php echo $direccionUsuario ?></textarea>
+                                    <textarea type="number " maxlength="70" class="form-control" id="Direccion" name="Dirrecion" placeholder="" rows="1"><?php echo $direccionUsuario ?></textarea>
                                     <label for="Dirrecion" class="form-label">Dirreción</label>
                                 </div>
                             </div>
@@ -199,13 +199,13 @@
                         <div class="mb-3 row justify-content-md-center">
                             <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="Ciudad" name="Ciudad" placeholder="" value="<?php echo $Ciudad ?>">
+                                    <input type="text" maxlength="50" class="form-control" id="Ciudad" name="Ciudad" placeholder="" value="<?php echo $Ciudad ?>">
                                     <label for="Ciudad" class="form-label">Ciudad</label>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" id="password" name="Password" disabled placeholder="" value="<?php echo $contraseña ?>">
+                                    <input type="password" maxlength="15" class="form-control" id="password" name="Password" disabled placeholder="" value="<?php echo $contraseña ?>">
                                     <label for="password" class="form-label">Contraseña</label>
                                 </div>
                             </div>

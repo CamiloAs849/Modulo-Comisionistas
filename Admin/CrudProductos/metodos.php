@@ -6,7 +6,7 @@ class Metodos
         include('../../DataBase/conexion.php');
         $conexion = $Link;
         $stmt = $conexion->prepare("INSERT INTO producto (NombreProducto,imagen,Descripcion,tamaño,precio, Etiqueta) VALUES (?,?,?,?,?,?)");
-        $stmt->bind_param("sssiis", $datos['0'], $datos['1'], $datos['2'], $datos['3'], $datos['4'], $datos['5']);
+        $stmt->bind_param("ssssss", $datos['0'], $datos['1'], $datos['2'], $datos['3'], $datos['4'], $datos['5']);
         return $stmt->execute();
     }
     public function eliminarProducto($datos)
@@ -21,7 +21,7 @@ class Metodos
         include('../../DataBase/conexion.php');
         $conexion = $Link;
         $stmt = $conexion->prepare("UPDATE producto SET NombreProducto=?,imagen=?,Descripcion=?,tamaño=?,Precio=?,Etiqueta=? where ProductoID=?");
-        $stmt->bind_param("sssiiss", $datos['0'], $datos['1'], $datos['2'], $datos['3'], $datos['4'], $datos['5'], $datos['6']);
+        $stmt->bind_param("sssssss", $datos['0'], $datos['1'], $datos['2'], $datos['3'], $datos['4'], $datos['5'], $datos['6']);
         return $stmt->execute();
     }
 }

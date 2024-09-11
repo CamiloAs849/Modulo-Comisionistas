@@ -124,7 +124,7 @@
                             </div>
                             <div class="modal-footer ">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar Sesión</button>
+                                <button type="button" class="btn btn-primary" onclick="Confirm()">Cerrar sesión</button>
                                 <script>
                                     function Confirm() {
                                         window.location.href = "LogOut.php";
@@ -154,7 +154,7 @@
                                 <th scope="col">Tamaño</th>
                                 <th scope="col">Precio</th>
                                 <th scope="col">Etiqueta</th>
-                                <th scope="col">Acciones</th>
+                                <th scope="col">Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -185,14 +185,17 @@
                                     <td>
                                         <?php echo $key['Etiqueta'] ?>
                                     </td>
-                                    <td class="d-flex justify-content-around mb-3">
-                                        <button data-bs-target=" #Editar<?php echo $key['ProductoID'] ?>" data-bs-toggle="modal"
-                                            class="btn me-2 btn-success"><i class="fas fa-pencil-alt"></i>Editar</button>
-                                        <button class="btn btn-danger"
-                                            onclick="confirmacion('<?php echo $key['ProductoID']; ?>')">
-                                            <i class="fas fa-trash-alt"></i>Eliminar
-                                        </button>
+                                    <td>
+                                        <div class="d-flex justify-content-around mb-3">
+                                            <button data-bs-target=" #Editar<?php echo $key['ProductoID'] ?>" data-bs-toggle="modal"
+                                                class="btn me-2 btn-success"><i class="fas fa-pencil-alt"></i>Editar</button>
+                                            <button class="btn btn-danger"
+                                                onclick="confirmacion('<?php echo $key['ProductoID']; ?>')">
+                                                <i class="fas fa-trash-alt"></i>Eliminar
+                                            </button>
+                                        </div>
                                     </td>
+
                                 </tr>
                             <?php
                             }
@@ -269,24 +272,24 @@
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Nombre del
                                 producto</label>
-                            <input type="text" class="form-control" id="NombreProducto" name="nombre">
+                            <input type="text" maxlength="50" class="form-control" id="NombreProducto" name="nombre">
                         </div>
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here"
+                            <textarea class="form-control" maxlength="150" placeholder="Leave a comment here"
                                 id="floatingTextarea2" name="Descripcion" style="height: 100px"></textarea>
                             <label for="floatingTextarea2">Descripción</label>
                         </div>
 
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Tamaño</label>
-                            <input type="text" class="form-control" id="tamaño" name="tamaño">
+                            <input type="text" class="form-control" maxlength="50" id="tamaño" name="tamaño">
                         </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Precio</label>
-                            <input type="number" class="form-control" id="Precio" name="Precio">
+                            <input type="number" class="form-control" maxlength="10" id="Precio" name="Precio">
                         </div>
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Insertar</label>
+                            <label for="recipient-name" class="col-form-label">Etiqueta</label>
                             <select class="form-control" id="recipient-name" id="Etiqueta" name="Etiqueta">
                                 <option value="nuevo">Nuevo</option>
                                 <option value="promocion">Promoción</option>
@@ -350,11 +353,11 @@
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Nombre del
                                     producto</label>
-                                <input type="text" class="form-control" id="NombreProducto"
+                                <input type="text" maxlength="50" class="form-control" id="NombreProducto"
                                     value="<?php echo $row['NombreProducto'] ?>" name="nombre">
                             </div>
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here"
+                                <textarea class="form-control" maxlength="150" placeholder="Leave a comment here"
                                     id="floatingTextarea2" name="Descripcion"
                                     style="height: 100px"><?php echo $row['Descripcion'] ?></textarea>
                                 <label for="floatingTextarea2">Descripción</label>
@@ -362,16 +365,16 @@
 
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Tamaño</label>
-                                <input type="text" class="form-control" id="tamaño"
+                                <input type="text" maxlength="50" class="form-control" id="tamaño"
                                     value="<?php echo $row['tamaño'] ?>" name="tamaño">
                             </div>
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Precio</label>
-                                <input type="number" class="form-control" id="Precio"
+                                <input type="number" maxlength="10" class="form-control" id="Precio"
                                     value="<?php echo $row['Precio'] ?>" name="Precio">
                             </div>
                             <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Insertar</label>
+                                <label for="recipient-name" class="col-form-label">Etiqueta</label>
                                 <select class="form-control" id="recipient-name" id="Etiqueta" name="Etiqueta"
                                     value="<?php echo $row['Etiqueta'] ?>">
                                     <option value="nuevo">Nuevo</option>
@@ -388,26 +391,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-success" name="submit"
-                                    onclick="editar()">Guardar</button>
-                                <script>
-                                    function editar() {
-                                        Swal.fire({
-                                            title: "¿Estás seguro en editar este producto?",
-                                            icon: "warning",
-                                            iconColor: "#4fad29",
-                                            showCancelButton: true,
-                                            confirmButtonColor: "#4fad29",
-                                            cancelButtonColor: "#d33",
-                                            confirmButtonText: "Editar",
-                                            cancelButtonText: "Cancelar",
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                window.location.href = "./vistaAdmin.php";
-                                            }
-                                        });
-                                    }
-                                </script>
+                                <button type="submit" class="btn btn-success" name="submit">Guardar</button>
+
                             </div>
                         </form>
                     </div>

@@ -25,25 +25,25 @@ while ($row = mysqli_fetch_array($result)) { ?>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <input type="hidden" name="identificador" value="editar-p">
-                                <input type="hidden" name="ProveedorID" value="<?php echo $row['ProveedorID']; ?>">
+                                <input type="hidden" name="ProveedorID" value="<?php echo $row['Nit']; ?>">
                                 <label for="nit" class="col-form-label">NIT de la empresa:</label>
-                                <input type="number" class="form-control" disabled id="nit" name="nit" value="<?php echo $row['ProveedorID'] ?>">
+                                <input type="text" class="form-control" disabled id="nit" name="nit" value="<?php echo $row['Nit'] ?>">
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="nombre" class="col-form-label">Nombre o razón social:</label>
-                                <input type="text" class="form-control" id="nombre" value="<?php echo $row['NombreProveedor'] ?>" name="nombre">
+                                <input type="text" maxlength="50" class="form-control" id="nombre" value="<?php echo $row['NombreProveedor'] ?>" name="nombre">
                             </div>
                             <div class="col">
                                 <label for="telefono" class="col-form-label">Teléfono:</label>
-                                <input type="number" class="form-control" value="<?php echo $row['Telefono'] ?>" id="telefono" name="telefono">
+                                <input type="number" maxlength="15" class="form-control" value="<?php echo $row['Telefono'] ?>" id="telefono" name="telefono">
                             </div>
                         </div>
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col">
                                 <label for="direccion" class="col-form-label">Dirección:</label>
-                                <input type="text" class="form-control" value="<?php echo $row['Direccion'] ?>" id="direccion" name="direccion">
+                                <input type="text" maxlength="70" class="form-control" value="<?php echo $row['Direccion'] ?>" id="direccion" name="direccion">
                             </div>
                         </div>
                         <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i> Cerrar</button>

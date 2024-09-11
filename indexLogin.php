@@ -19,6 +19,9 @@
 </head>
 
 <body class="scroll">
+    <a href="./index.php" class="btn  btn-small buttonFloatTop">
+        <i class="fa-solid fa-arrow-left fa-    xl"></i>
+    </a>
     <div class="row">
         <div class="col-xxl-4 col-xl-4 col-lg-12 col-md-12 col-sm-12 m-0">
             <form class="form_container" id="FormLogin" method="post">
@@ -33,17 +36,17 @@
                 </div>
                 <div class="input_container">
                     <i class="fa-solid fa-user icon text-center"></i>
-                    <input placeholder="Numero de documento" name="UsuarioID" type="text" class="input_field" id="email_field">
+                    <input placeholder="Numero de documento" maxlength="15" name="UsuarioID" type="text" class="input_field" id="email_field">
                 </div>
                 <div class="input_container">
                     <i class="fa-solid fa-lock icon text-center"></i>
-                    <input placeholder="Contraseña" name="password" type="password" class="input_field " id="password_field">
+                    <input placeholder="Contraseña" name="password" maxlength="15" type="password" class="input_field " id="password_field">
                 </div>
                 <button type="submit" class="sign-in_btn">
                     <span>Ingresar</span>
                 </button>
                 <p class="note text-center">No des tu clave de acceso a terceros.</p>
-                <button type="button" class="bg-transparent border border-0 note text-decoration-underline" data-bs-toggle="modal" data-bs-target="#FormEstado">Verificar mi estado de petición</button>
+                <button type="button" class="bg-transparent border border-0 note text-decoration-underline" data-bs-toggle="modal" data-bs-target="#FormEstado">Verificar mi estado de solicitud</button>
                 <a href="https://wa.me/3127087946/?text=" class="note text-center" target="_blank">He olvidado mi contraseña</a>
             </form>
         </div>
