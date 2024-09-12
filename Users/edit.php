@@ -133,7 +133,7 @@
             </div>
             <div class="col-md-9 col-xl-10 col-lg-9">
                 <p class="text-center mb-3 mt-5 title">Editar información personal</p>
-                <p class="note text-center fs-6">Comunicate al <a href="https://wa.me/3127087946/?text=HOLA%20MUNDO"><i class="fa-brands fa-whatsapp"></i></a> para cambiar los datos en grises</p>
+                <p class="note text-center fs-6">Comunicate al <a href="https://wa.me/3127087946/?text=HOLA%20MUNDO" target="_blank"><i class="fa-brands fa-whatsapp"></i></a> para cambiar los datos en grises</p>
                 <div class="mx-4">
                     <center>
                         <div class="text-center " id="message">

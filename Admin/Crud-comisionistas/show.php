@@ -10,7 +10,7 @@ $result = mysqli_query($Link, $sql);
 
 while ($row = mysqli_fetch_array($result)) { ?>
     <div class="modal fade" id="ver<?php echo $row['UsuarioID'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog  modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Información de <?php echo $row['NombreUsuario'] . " " . $row['ApellidosUsuario'] ?></h1>

@@ -3,13 +3,21 @@ session_start();
 include('../../DataBase/conexion.php');
 include("./metodos.php");
 
+function validar($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 
 $id = $_POST['id'];
-$NombreProducto = $_POST['nombre'];
-$Descripcion = $_POST['Descripcion'];
-$tamaño = $_POST['tamaño'];
-$Precio = $_POST['Precio'];
-$Etiqueta = $_POST['Etiqueta'];
+$NombreProducto = validar($_POST['nombre']);
+$Descripcion = validar($_POST['Descripcion']);
+$tamaño = validar($_POST['tamaño']);
+$Precio = validar($_POST['Precio']);
+$Etiqueta = validar($_POST['Etiqueta']);
 
 
 

@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $telefono = validar($_POST['telefono']);
         $direccion = validar($_POST['direccion']);
 
-        $sql = "SELECT * FROM gestion_productos.proveedor WHERE ProveedorID = ?";
+        $sql = "SELECT * FROM gestion_productos.proveedor WHERE Nit = ?";
         $stmt = $Link->prepare($sql);
         $stmt->bind_param("s", $nit);
         $stmt->execute();

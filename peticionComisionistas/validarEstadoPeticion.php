@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<div class='alert alert-danger alert-dismissible fade show'>Debes ingresar un número de documento.
         <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>
          ";
-    } else if (strlen($documento) < 7 || strlen($documento) > 11) {
+    } else if (strlen($documento) < 7 || strlen($documento) > 11 || $documento >= 2147483647) {
         echo '<div class="alert alert-danger alert-dismissible fade show">El documento no es valido.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
     } else {

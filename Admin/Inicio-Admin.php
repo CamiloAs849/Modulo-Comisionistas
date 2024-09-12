@@ -266,7 +266,7 @@
                 <!--FORMULARIO PARA AGREGAR PRODUCTOS-->
 
                 <div class="modal-body">
-                    <div id="responseMessage"></div>
+                    <div class="text-center" id="responseMessage"></div>
                     <form id="registroFormulario" action="" method="post"
                         enctype="multipart/form-data">
                         <div class="mb-3">
@@ -304,24 +304,6 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary" name="submit">Guardar</button>
-                            <script>
-                                // function guardara() {
-                                //     Swal.fire({
-                                //         title: "¿Estás seguro en guardar este nuevo producto?",
-                                //         icon: "warning",
-                                //         iconColor: "primary",
-                                //         showCancelButton: true,
-                                //         confirmButtonColor: "#4fad29",
-                                //         cancelButtonColor: "#d33",
-                                //         confirmButtonText: "Guardar",
-                                //         cancelButtonText: "Cancelar",
-                                //     }).then((result) => {
-                                //         if (result.isConfirmed) {
-                                //             window.location.href = "./vistaAdmin.php";
-                                //         }
-                                //     });
-                                // }
-                            </script>
                         </div>
                     </form>
                 </div>

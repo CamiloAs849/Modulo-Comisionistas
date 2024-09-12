@@ -13,21 +13,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $tipoDocumento = $_POST['tipoDocumento'];
     $estado = "Pendiente";
 
-    $sql = "SELECT * FROM gestion_productos.solicitudcomisionista WHERE UsuarioID = ?";
+    $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = ?";
     $stmt = $Link->prepare($sql);
     $stmt->bind_param("i", $documento);
     $stmt->execute();
     $result = $stmt->get_result();
     if (mysqli_num_rows($result) > 0) {
-        echo "<div class='alert alert-warning alert-dismissible fade show'>Este número de documento ya ha hecho una petición.</div>";
+        echo "<div class='alert alert-warning alert-dismissible fade show'>Este número de documento ya es comisionista.
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
     } else {
-        $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = ?";
+        $sql = "SELECT * FROM gestion_productos.solicitudcomisionista WHERE UsuarioID = ?";
         $stmt = $Link->prepare($sql);
         $stmt->bind_param("i", $documento);
         $stmt->execute();
         $result = $stmt->get_result();
         if (mysqli_num_rows($result) > 0) {
-            echo "<div class='alert alert-warning alert-dismissible fade show'>Este número de documento ya está registrado.
+            echo "<div class='alert alert-warning alert-dismissible fade show'>Este número de documento ya ha hecho una petición.
             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
         } else {
             if (empty($documento) || empty($nombre) || empty($apellido) || empty($correo) || empty($edad) || empty($telefono) || empty($direccion) || empty($ciudad) || empty($tipoDocumento)) {
@@ -36,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else if (!is_numeric($documento)) {
                 echo "<div class='alert alert-danger alert-dismissible fade show'>El documento es invalido.
                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-            } else if (strlen($documento) < 7 || strlen($documento) > 11) {
+            } else if (strlen($documento) < 7 || strlen($documento) > 11 || $documento > 2147483647) {
                 echo "<div class='alert alert-danger alert-dismissible fade show'>El documento es invalido.
                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
             } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $nombre) || !preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $apellido)) {

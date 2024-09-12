@@ -28,6 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     echo "<div class='alert alert-danger'>Ciudad solo puede contener letras.</div>";
                 } else if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
                     echo "<div class='alert alert-danger'>El correo es invalido.</div>";
+                } else if ($edad <= 17) {
+                    echo "<div class='alert alert-danger'>El comisionista debe ser mayor 18 años.</div>";
                 } else if (strlen($edad) > 2) {
                     echo "<div class='alert alert-danger'>La edad es invalida.</div>";
                 } else if (strlen($id) < 7 || strlen($id) > 11) {
