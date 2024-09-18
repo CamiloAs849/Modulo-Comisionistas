@@ -10,8 +10,8 @@ $(document).ready(function () {
       },
     },
     language: {
-      processing: "Tratamiento en curso...",
-      search: "Buscar&nbsp;:",
+      processing: "",
+      search: "<i class='fa-solid fa-magnifying-glass'></i> Buscar&nbsp;:",
       lengthMenu: "Agrupar de _MENU_ comisionistas",
       info: "Mostrando del comisionista _START_ al _END_ de un total de _TOTAL_ comisionistas",
       infoEmpty: "No existen datos.",
@@ -21,10 +21,8 @@ $(document).ready(function () {
       zeroRecords: "No se encontraron comisionistas con tu busqueda",
       emptyTable: "No hay datos disponibles en la tabla.",
       paginate: {
-        first: "Primero",
-        previous: "Anterior",
-        next: "Siguiente",
-        last: "Ultimo",
+        previous: "<i class='fa-solid fa-arrow-left'></i> Anterior",
+        next: "Siguiente <i class='fa-solid fa-arrow-right'></i>",
       },
       aria: {
         sortAscending: ": active para ordenar la columna en orden ascendente",
@@ -49,7 +47,7 @@ $(document).ready(function () {
     },
     language: {
       processing: "Tratamiento en curso...",
-      search: "Buscar&nbsp;:",
+      search: "<i class='fa-solid fa-magnifying-glass'></i> Buscar&nbsp;:",
       lengthMenu: "Agrupar de _MENU_ solicitudes",
       info: "Mostrando la solicitud _START_ al _END_ de un total de _TOTAL_ solicitudes",
       infoEmpty: "No existen datos.",
@@ -59,10 +57,8 @@ $(document).ready(function () {
       zeroRecords: "No se encontraron solicitudes con tu busqueda",
       emptyTable: "No hay datos disponibles en la tabla.",
       paginate: {
-        first: "Primero",
-        previous: "Anterior",
-        next: "Siguiente",
-        last: "Ultimo",
+        previous: "<i class='fa-solid fa-arrow-left'></i> Anterior",
+        next: "Siguiente <i class='fa-solid fa-arrow-right'></i>",
       },
       aria: {
         sortAscending: ": active para ordenar la columna en orden ascendente",
@@ -88,7 +84,7 @@ $(document).ready(function () {
 
     language: {
       processing: "Tratamiento en curso...",
-      search: "Buscar&nbsp;:",
+      search: "<i class='fa-solid fa-magnifying-glass'></i> Buscar&nbsp;:",
       lengthMenu: "Agrupar de _MENU_ comisionistas",
       info: "Mostrando del comisionista _START_ al _END_ de un total de _TOTAL_ comisionistas",
       infoEmpty: "No existen datos.",
@@ -98,10 +94,8 @@ $(document).ready(function () {
       zeroRecords: "No se encontraron comisionistas con tu busqueda",
       emptyTable: "No hay datos disponibles en la tabla.",
       paginate: {
-        first: "Primero",
-        previous: "Anterior",
-        next: "Siguiente",
-        last: "Ultimo",
+        previous: "<i class='fa-solid fa-arrow-left'></i> Anterior",
+        next: "Siguiente <i class='fa-solid fa-arrow-right'></i>",
       },
       aria: {
         sortAscending: ": active para ordenar la columna en orden ascendente",
@@ -127,7 +121,7 @@ $(document).ready(function () {
     },
     language: {
       processing: "Tratamiento en curso...",
-      search: "Buscar&nbsp;:",
+      search: "<i class='fa-solid fa-magnifying-glass'></i> Buscar&nbsp;:",
       lengthMenu: "Agrupar de _MENU_ proveedores",
       info: "Mostrando del proveedor _START_ al _END_ de un total de _TOTAL_ proveedores",
       infoEmpty: "No existen datos.",
@@ -137,8 +131,8 @@ $(document).ready(function () {
       zeroRecords: "No se encontraron proveedores con tu busqueda",
       emptyTable: "No hay datos disponibles en la tabla.",
       paginate: {
-        previous: "Anterior",
-        next: "Siguiente",
+        previous: "<i class='fa-solid fa-arrow-left'></i> Anterior",
+        next: "Siguiente <i class='fa-solid fa-arrow-right'></i>",
       },
     },
     lengthMenu: [
@@ -160,7 +154,7 @@ $(document).ready(function () {
     },
     language: {
       processing: "Tratamiento en curso...",
-      search: "Buscar&nbsp;:",
+      search: "<i class='fa-solid fa-magnifying-glass'></i> Buscar&nbsp;:",
       lengthMenu: "Agrupar de _MENU_ movimientos",
       info: "Mostrando del movimiento _START_ al _END_ de un total de _TOTAL_ movimientos",
       infoEmpty: "No existen datos.",
@@ -170,8 +164,8 @@ $(document).ready(function () {
       zeroRecords: "No se encontraron movimientos con tu busqueda",
       emptyTable: "No hay datos disponibles en la tabla.",
       paginate: {
-        previous: "Anterior",
-        next: "Siguiente",
+        previous: "<i class='fa-solid fa-arrow-left'></i> Anterior",
+        next: "Siguiente <i class='fa-solid fa-arrow-right'></i>",
       },
     },
     lengthMenu: [
@@ -192,7 +186,7 @@ $(document).ready(function () {
     },
     language: {
       processing: "Tratamiento en curso...",
-      search: "Buscar&nbsp;:",
+      search: "<i class='fa-solid fa-magnifying-glass'></i> Buscar&nbsp;:",
       lengthMenu: "Agrupar de _MENU_ productos",
       info: "Mostrando del producto _START_ al _END_ de un total de _TOTAL_ productos",
       infoEmpty: "No existen datos.",
@@ -202,8 +196,8 @@ $(document).ready(function () {
       zeroRecords: "No se encontraron productos con tu busqueda",
       emptyTable: "No hay datos disponibles en la tabla.",
       paginate: {
-        previous: "Anterior",
-        next: "Siguiente",
+        previous: "<i class='fa-solid fa-arrow-left'></i> Anterior",
+        next: "Siguiente <i class='fa-solid fa-arrow-right'></i>",
       },
     },
     lengthMenu: [

@@ -26,6 +26,8 @@
 </head>
 
 <body>
+
+    </script>
     <?php
     include("../DataBase/conexion.php");
     session_start();
@@ -33,6 +35,24 @@
     if (empty($_SESSION['AdminID'])) {
         header("Location: ../index.php");
         exit();
+    }
+    if ($_SESSION['LoginAdmin'] == 1) {
+        echo '<script>
+        const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+
+        });
+        Toast.fire({
+        icon: "success",
+        title: "Bienvenido administrador"
+        });
+        </script>';
+
+        $_SESSION['LoginAdmin'] = 0;
     }
 
     $sql = "SELECT * FROM gestion_productos.administrador WHERE AdminID = '$usuario'";
@@ -70,7 +90,7 @@
                     <div class="offcanvas-body min-vh-100 d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active text-center text-white-50 d-flex align-items-center gap-2" aria-current="page" href="./Inicio-Admin.php">
+                                <a class="nav-link active text-center  d-flex align-items-center gap-2" aria-current="page" href="./Inicio-Admin.php">
                                     <i class="fa-solid fa-house"></i> Inicio
                                 </a>
                             </li>
@@ -106,7 +126,7 @@
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
                                 <a href="" class="nav-link text-white-50 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
                                 </a>
                             </li>
                         </ul>

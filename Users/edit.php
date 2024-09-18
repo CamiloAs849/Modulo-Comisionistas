@@ -101,7 +101,7 @@
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
                                 <a href="" class="nav-link text-white-50 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
                                 </a>
                             </li>
                         </ul>
@@ -135,10 +135,6 @@
                 <p class="text-center mb-3 mt-5 title">Editar información personal</p>
                 <p class="note text-center fs-6">Comunicate al <a href="https://wa.me/3127087946/?text=HOLA%20MUNDO" target="_blank"><i class="fa-brands fa-whatsapp"></i></a> para cambiar los datos en grises</p>
                 <div class="mx-4">
-                    <center>
-                        <div class="text-center " id="message">
-                        </div>
-                    </center>
                     <form method="post" id="FormEdit">
                         <div class="mb-3 row justify-content-md-center">
                             <div class="col-12">
@@ -173,7 +169,7 @@
 
                             <div class="mb-3 col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" maxlength="15" id="Telefono" name="TelefonoUsuario" placeholder="" value="<?php echo $telefonoUsuario ?>">
+                                    <input type="number" class="form-control" maxlength="15" id="Telefono" name="TelefonoUsuario" placeholder="" value="<?php echo $telefonoUsuario ?>">
                                     <label for="Telefono" class="form-label">Teléfono</label>
                                 </div>
                             </div>
@@ -213,6 +209,11 @@
                         <div class="text-center mb-4">
                             <button type="submit" class="btn btn-outline-success">Actualizar datos</button>
                         </div>
+                        <center>
+                            <div class="text-center w-25 " id="message">
+                            </div>
+                        </center>
+
                     </form>
                 </div>
 

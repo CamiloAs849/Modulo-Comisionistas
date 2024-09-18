@@ -36,6 +36,12 @@ if (isset($_GET["id"])) {
     $result2 = mysqli_query($Link, $sql2);
     $result = mysqli_query($Link, $sql);
     if ($result === true && $result2 === true) {
+        $sql = "SELECT * FROM gestion_productos.solicitudcomisionista WHERE UsuarioID = '$id'";
+        $result = mysqli_query($Link, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            $sql = "UPDATE gestion_productos.solicitudcomisionista SET EstadoSolicitud = 'Rechazada' WHERE UsuarioID = '$id'";
+            $result = mysqli_query($Link, $sql);
+        }
         echo '<script>
             Swal.fire({
             title: "Comisionista Eliminado Correctamente",

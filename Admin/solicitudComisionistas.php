@@ -104,7 +104,7 @@
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
                                 <a href="" class="nav-link text-white-50 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
                                 </a>
                             </li>
                         </ul>

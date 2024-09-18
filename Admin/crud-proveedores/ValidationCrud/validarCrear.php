@@ -30,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "<div class='alert alert-danger'>El NIT es invalido.</div>";
             } else if (strlen($nit) < 7 || strlen($nit) > 11 || strlen($nit) > 255) {
                 echo "<div class='alert alert-danger'>El NIT es invalido.</div>";
+            } else if (!is_numeric($telefono)) {
+                echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";
             } else if (strlen($telefono) != 10) {
                 echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";
             } else {

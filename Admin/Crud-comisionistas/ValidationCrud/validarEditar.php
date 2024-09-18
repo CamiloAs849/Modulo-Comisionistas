@@ -28,12 +28,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     echo "<div class='alert alert-danger'>Ciudad solo puede contener letras.</div>";
                 } else if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
                     echo "<div class='alert alert-danger'>El correo es invalido.</div>";
+                } else if (!is_numeric($edad)) {
+                    echo "<div class='alert alert-danger'>La edad es invalida.</div>";
                 } else if ($edad <= 17) {
                     echo "<div class='alert alert-danger'>El comisionista debe ser mayor 18 años.</div>";
                 } else if (strlen($edad) > 2) {
                     echo "<div class='alert alert-danger'>La edad es invalida.</div>";
-                } else if (strlen($id) < 7 || strlen($id) > 11) {
+                } else if (strlen($id) < 7 || strlen($id) > 11 || $id > 2147483647) {
                     echo "<div class='alert alert-danger'>El documento es invalido.</div>";
+                } else if (!is_numeric($telefono)) {
+                    echo "<div class='alert alert-danger'>El número de télefono es invalido.</div>";
                 } else if (strlen($telefono) < 7 || strlen($telefono) > 11) {
                     echo "<div class='alert alert-danger'>El número de télefono es invalido.</div>";
                 } else {

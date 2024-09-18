@@ -3,7 +3,7 @@ include("../../../DataBase/conexion.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['identificador'] == "editar-p") {
         $id = $_POST['ProveedorID'];
-        $sql = "SELECT * FROM gestion_productos.proveedor WHERE ProveedorID = '$id' ";
+        $sql = "SELECT * FROM gestion_productos.proveedor WHERE Nit = '$id' ";
         $result = mysqli_query($Link, $sql);
         $row = mysqli_fetch_array($result);
         $nombre = $_POST['nombre'];
@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo '<div class="alert alert-danger">El Nombre solo puede contener letras.</div>';
             } else if (strlen($id) < 7 || strlen($id) > 10) {
                 echo '<div class="alert alert-danger">El NIT es invalido.</div>';
+            } else if (!is_numeric($telefono)) {
+                echo '<div class="alert alert-danger">El número de teléfono es invalido.</div>';
             } else if (strlen($telefono) != 10) {
                 echo '<div class="alert alert-danger">El número de teléfono es invalido.</div>';
             } else {

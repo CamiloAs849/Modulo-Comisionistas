@@ -42,7 +42,7 @@ if (empty($usuario) && empty($password)) {
             $stmt->execute();
             $result = $stmt->get_result();
             $row = mysqli_fetch_assoc($result);
-            $_SESSION['AcumuladoComision'] = $row['AcumuladoComision'];
+            $_SESSION['LoginComisionista'] = 1;
             $_SESSION['UsuarioID'] = $row['UsuarioID'];
             echo "<script>window.location.href = './Users/inicio.php';</script>";
         } else {
@@ -61,6 +61,7 @@ if (empty($usuario) && empty($password)) {
             $row = mysqli_fetch_assoc($result);
             if ($row['AdminID'] == $usuario && $row['Password'] == $password) {
                 $_SESSION['AdminID'] = $row['AdminID'];
+                $_SESSION['LoginAdmin'] = 1;
                 echo "<script>window.location.href = './Admin/Inicio-Admin.php';</script>";
             } else {
                 echo '<div class="alert alert-danger alert-dismissible fade show">El usuario o contraseña son incorrectos.

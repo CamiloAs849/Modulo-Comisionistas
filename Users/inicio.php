@@ -15,6 +15,7 @@
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0BmgTXK/vision-limpieza-removebg-preview.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link rel="stylesheet" href="../Components/datatables.min.css">
+    <script src="../Components/sweetalert2@11.js"></script>
 
 </head>
 
@@ -27,6 +28,23 @@
     if (empty($_SESSION['UsuarioID'])) {
         header("Location:../index.php");
         exit();
+    }
+    if ($_SESSION['LoginComisionista'] == 1) {
+        echo '<script>
+        const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+
+        });
+        Toast.fire({
+        icon: "success",
+        title: "Bienvenido comisionista"
+        });
+        </script>';
+        $_SESSION['LoginComisionista'] = 0;
     }
     setlocale(LC_TIME, 'es_CO UTF-8');
     $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = '$usuario'";
@@ -111,7 +129,7 @@
                         <ul class="nav flex-column mb-auto">
                             <li class="nav-item">
                                 <a href="" class="nav-link text-white-50 d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
                                 </a>
                             </li>
                         </ul>

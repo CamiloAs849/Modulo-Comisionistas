@@ -13,6 +13,24 @@
     color: white;
 }
 
+@keyframes vibracion {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#navbar-titulo:hover {
+    animation: vibracion 2s infinite;
+}
+
 
 .bg-gradient .h4 {
     color: rgb(26, 78, 82);
@@ -31,6 +49,7 @@
 
 .nav-link:hover {
     background-color: rgb(65, 117, 130);
+    transition: 1s ease;
 }
 
 .carousel-caption {

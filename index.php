@@ -33,16 +33,16 @@ include('./DataBase/conexion.php');
 
     <nav class="navbar navbar-expand-lg bg-gradient fixed-top">
         <div class="container">
-            <a class="navbar-brand mb-0 h1 text-white" style="font-family: 'righteous';" href="#">
+            <a class="navbar-brand mb-0 h1 text-white" id="navbar-titulo" style="font-family: 'righteous';" href="#">
                 <h1>Visión Limpieza</h1>
             </a>
-            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <button class="navbar-toggler p-2 border border-0 text-white bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon bg-white"></span>
+                <i class="fa-solid fa-bars fa-xl"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                    <li class="nav-item ">
                         <a href="#quienessomos" class="nav-link text-white">
                             <h5>Quienes somos</h5>
                         </a>
@@ -57,7 +57,7 @@ include('./DataBase/conexion.php');
                     ?>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link text-white" button onclick="window.location.href='indexLogin.php'">
-                                <h5>Inicia sesión</h5>
+                                <h5>Soy comisionista</h5>
                             </a>
                         </li>
                     <?php
@@ -113,7 +113,7 @@ include('./DataBase/conexion.php');
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://images.pexels.com/photos/3768914/pexels-photo-3768914.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                <img src="https://img.freepik.com/vector-premium/ilustracion-vectorial-botellas-limpieza-hogar_1322206-47566.jpg?semt=ais_hybrid"
                     alt="" width="100%">
                 <div class="container">
                     <div class="carousel-caption text-end">
@@ -285,7 +285,7 @@ include('./DataBase/conexion.php');
         <div class="container">
             <div class="row">
                 <div class="span3">
-                    <h4 class="text-white" style="font-family: 'Righteous';">Contacto</h4>
+                    <h4 class="text-white mt-4" style="font-family: 'Righteous';">Contacto</h4>
                     <p class="text-white"><i class="icon-home text-white"></i> Calle Falsa 123, Palmas, Poblado</p>
                     <p class="text-white"><i class="icon-envelope"></i> info@visionlimpieza.com</p>
                     <p class="text-white"><i class="icon-phone text-white"></i> +571234536</p>

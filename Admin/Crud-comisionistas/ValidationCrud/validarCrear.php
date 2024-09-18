@@ -25,25 +25,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("i", $Documento);
         $stmt->execute();
         $result = $stmt->get_result();
-
+        $sql2 = "SELECT * FROM gestion_productos.administrador WHERE AdminID = ?";
+        $stmt2 = $Link->prepare($sql2);
+        $stmt2->bind_param("s", $Documento);
+        $stmt2->execute();
+        $result2 = $stmt2->get_result();
 
         if (empty($Documento) || empty($Nombre) || empty($Apellido) || empty($Edad) || empty($Telefono) || empty($Correo) || empty($Direccion) || empty($Ciudad) || empty($Password)) {
             echo "<div class='alert alert-danger'>Llene todos los campos.</div>";
         } else {
             if (mysqli_num_rows($result) > 0) {
                 echo "<div class='alert alert-warning'>El comisionista con el documento $Documento ya está registrado.</div>";
+            } else if (mysqli_num_rows($result2) > 0) {
+                echo "<div class='alert alert-warning'>Documento no disponible.</div>";
             } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $Nombre) || !preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $Apellido)) {
                 echo "<div class='alert alert-danger'>El nombre y apellidos solo pueden contener letras.</div>";
             } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $Ciudad)) {
                 echo "<div class='alert alert-danger'>Ciudad solo puede contener letras.</div>";
             } else if (!filter_var($Correo, FILTER_VALIDATE_EMAIL)) {
                 echo "<div class='alert alert-danger'>El correo es invalido.</div>";
+            } else if (!is_numeric($Edad)) {
+                echo "<div class='alert alert-danger'>La edad es invalida</div>";
             } else if ($Edad <= 17) {
                 echo "<div class='alert alert-danger'>El comisionista debe ser mayor de 18 años.</div>";
             } else if (strlen($Edad) > 2) {
                 echo "<div class='alert alert-danger'>La edad es invalida.</div>";
+            } else if (!is_numeric($Documento)) {
+                echo "<div class='alert alert-danger'>El documento es invalido.</div>";
             } else if (strlen($Documento) < 7 || strlen($Documento) > 10 || $Documento > 2147483647) {
                 echo "<div class='alert alert-danger'>El documento es invalido.</div>";
+            } else if (!is_numeric($Telefono)) {
+                echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";
             } else if (strlen($Telefono) != 10) {
                 echo "<div class='alert alert-danger'>El número de teléfono es invalido.</div>";
             } else {

@@ -38,6 +38,8 @@ if (!empty($TelefonoUsuario) && !empty($Correo) && !empty($Dirrecion) && !empty(
         echo '<div class="alert alert-danger text-center">El correo es invalido.</div>';
     } else if (!preg_match('/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/', $Ciudad)) {
         echo '<div class="alert alert-danger text-center">La ciudad solo puede contener letras.</div>';
+    } else if (!is_numeric($TelefonoUsuario)) {
+        echo '<div class="alert alert-danger text-center">El número de teléfono es invalido.</div>';
     } else if (strlen($TelefonoUsuario) != 10) {
         echo '<div class="alert alert-danger text-center">El número de teléfono es invalido.</div>';
     } else {

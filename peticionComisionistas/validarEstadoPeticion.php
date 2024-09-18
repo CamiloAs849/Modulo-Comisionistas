@@ -9,6 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else if (strlen($documento) < 7 || strlen($documento) > 11 || $documento >= 2147483647) {
         echo '<div class="alert alert-danger alert-dismissible fade show">El documento no es valido.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    } else if (!is_numeric($documento)) {
+        echo "<div class='alert alert-danger alert-dismissible fade show'>El documento no es valido.
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
     } else {
         $sql = "SELECT * FROM gestion_productos.comisionista WHERE UsuarioID = ?";
         $stmt = $Link->prepare($sql);
